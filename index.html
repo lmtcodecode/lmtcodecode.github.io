@@ -120,6 +120,14 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
   </nav>
 </div>
 
@@ -156,7 +164,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/16/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/16/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +177,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/16/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/2021/07/16/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">hexo搭建博客</a>
         </h2>
 
         <div class="post-meta-container">
@@ -181,7 +189,16 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-16 15:09:50 / Modified: 15:08:16" itemprop="dateCreated datePublished" datetime="2021-07-16T15:09:50+08:00">2021-07-16</time>
+      <time title="Created: 2021-07-16 15:20:39 / Modified: 15:24:42" itemprop="dateCreated datePublished" datetime="2021-07-16T15:20:39+08:00">2021-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+        </span>
     </span>
 
   
@@ -194,37 +211,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="一、搭建hexo博客"><a href="#一、搭建hexo博客" class="headerlink" title="一、搭建hexo博客"></a>一、搭建hexo博客</h2><h4 id="1、下载node-js、git"><a href="#1、下载node-js、git" class="headerlink" title="1、下载node.js、git"></a>1、下载node.js、git</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org</a></p>
-</blockquote>
-<h4 id="2、下载git"><a href="#2、下载git" class="headerlink" title="2、下载git"></a>2、下载git</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
-</blockquote>
-<h4 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、创建blog目录并进入"><a href="#4、创建blog目录并进入" class="headerlink" title="4、创建blog目录并进入"></a>4、创建blog目录并进入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog</span><br><span class="line"></span><br><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
-
-<h4 id="5、初始化博客"><a href="#5、初始化博客" class="headerlink" title="5、初始化博客"></a>5、初始化博客</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、生成静态文件"><a href="#6、生成静态文件" class="headerlink" title="6、生成静态文件"></a>6、生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、启动博客本地服务并访问"><a href="#6、启动博客本地服务并访问" class="headerlink" title="6、启动博客本地服务并访问"></a>6、启动博客本地服务并访问</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
-<hr>
-</blockquote>
-<h2 id="二、把项目托管到github"><a href="#二、把项目托管到github" class="headerlink" title="二、把项目托管到github"></a>二、把项目托管到github</h2><h4 id="1、新建仓库"><a href="#1、新建仓库" class="headerlink" title="1、新建仓库"></a>1、新建仓库</h4><blockquote>
-<p>名字：YourGithubName.github.io</p>
-</blockquote>
-<h4 id="2、配置blog路径下的-config-yml文件"><a href="#2、配置blog路径下的-config-yml文件" class="headerlink" title="2、配置blog路径下的_config.yml文件"></a>2、配置blog路径下的_config.yml文件</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">	<span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">	<span class="attr">deploy:</span></span><br><span class="line">  		<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"> 		<span class="attr">repo:</span> <span class="string">https://github.com/YourGithubName/YourGithubName.github.io.git</span></span><br><span class="line">  		<span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、把项目部署到github"><a href="#3、把项目部署到github" class="headerlink" title="3、把项目部署到github"></a>3、把项目部署到github</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、访问这个地址可以查看博客"><a href="#4、访问这个地址可以查看博客" class="headerlink" title="4、访问这个地址可以查看博客"></a>4、访问这个地址可以查看博客</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  </p>
-</blockquote>
-
+          <h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/16/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
