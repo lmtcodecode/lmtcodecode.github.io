@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS中的undefined</title>
+    <url>/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/</url>
+    <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS的undefined。</p>
+<span id="more"></span>
+
+<h4 id="一、JS的数据类型"><a href="#一、JS的数据类型" class="headerlink" title="一、JS的数据类型"></a>一、JS的数据类型</h4><p>在ECMAScript中有六种基本数据类型: <code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 、<code>String</code>、<code>Symbol </code>。还有一种复杂数据类型——<code>Object</code>。</p>
+<h4 id="二、Undefined-类型"><a href="#二、Undefined-类型" class="headerlink" title="二、Undefined 类型"></a>二、Undefined 类型</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p><code>undefined</code>既是一个原始数据类型，也是一个原始值数据；<code>undefined</code>也是全局对象的一个属性(<code>window.undefined</code>)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//若变量没有被赋值，默认值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一个函数如果没有使用返回语句指定返回值，就会返回一个未定义的值。</span></span><br><span class="line">test();<span class="comment">// 返回&quot;undefined&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 虽然在JS中undefined不是保留字，但不要这样做！</span></span><br><span class="line"><span class="keyword">var</span> <span class="literal">undefined</span> = <span class="string">&#x27;foo&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><p><code>undefined</code>是一个不能被<strong>配置</strong>（non-configurable），不能被<strong>重写</strong>（non-writable），不能被<strong>枚举</strong>（non-enumerable）的属性。</p>
+<h4 id="三、undefined的使用"><a href="#三、undefined的使用" class="headerlink" title="三、undefined的使用"></a>三、undefined的使用</h4><ul>
+<li>可以使用<code>undefined</code>和<code>===</code>或<code>!==</code>操作符来决定一个变量是否拥有值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line"><span class="comment">// 执行这些语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 这些语句不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：这里是必须使用严格相等操作符（===）而不是标准相等操作符（==），因为 x == undefined 会检查x是不是null。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x == <span class="literal">undefined</span>) &#123;</span><br><span class="line"><span class="comment">// 也会执行这些语句，因为做了隐式转换</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 这些语句不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在某种情况下，可以使用<code>void</code>操作符来代替<code>undefined</code>。适用于怕<code>undefined</code>被改变的情况下。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="keyword">void</span> <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 执行这些语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分享就到这里啦！如有不对还请指出~~~</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JS知识点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS中的Array-from()</title>
     <url>/2021/07/25/JS%E4%B8%AD%E7%9A%84Array-from/</url>
     <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS的Array.from()。</p>
@@ -36,41 +71,6 @@
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
 <li>MDN Web Docs</li>
 </ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JS知识点</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS中的undefined</title>
-    <url>/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/</url>
-    <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS的undefined。</p>
-<span id="more"></span>
-
-<h4 id="一、JS的数据类型"><a href="#一、JS的数据类型" class="headerlink" title="一、JS的数据类型"></a>一、JS的数据类型</h4><p>在ECMAScript中有六种基本数据类型: <code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 、<code>String</code>、<code>Symbol </code>。还有一种复杂数据类型——<code>Object</code>。</p>
-<h4 id="二、Undefined-类型"><a href="#二、Undefined-类型" class="headerlink" title="二、Undefined 类型"></a>二、Undefined 类型</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p><code>undefined</code>既是一个原始数据类型，也是一个原始值数据；<code>undefined</code>也是全局对象的一个属性(<code>window.undefined</code>)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//若变量没有被赋值，默认值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一个函数如果没有使用返回语句指定返回值，就会返回一个未定义的值。</span></span><br><span class="line">test();<span class="comment">// 返回&quot;undefined&quot;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 虽然在JS中undefined不是保留字，但不要这样做！</span></span><br><span class="line"><span class="keyword">var</span> <span class="literal">undefined</span> = <span class="string">&#x27;foo&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><p><code>undefined</code>是一个不能被<strong>配置</strong>（non-configurable），不能被<strong>重写</strong>（non-writable），不能被<strong>枚举</strong>（non-enumerable）的属性。</p>
-<h4 id="三、undefined的使用"><a href="#三、undefined的使用" class="headerlink" title="三、undefined的使用"></a>三、undefined的使用</h4><ul>
-<li>可以使用<code>undefined</code>和<code>===</code>或<code>!==</code>操作符来决定一个变量是否拥有值。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line"><span class="comment">// 执行这些语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 这些语句不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：这里是必须使用严格相等操作符（===）而不是标准相等操作符（==），因为 x == undefined 会检查x是不是null。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x == <span class="literal">undefined</span>) &#123;</span><br><span class="line"><span class="comment">// 也会执行这些语句，因为做了隐式转换</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 这些语句不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在某种情况下，可以使用<code>void</code>操作符来代替<code>undefined</code>。适用于怕<code>undefined</code>被改变的情况下。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="keyword">void</span> <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 执行这些语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分享就到这里啦！如有不对还请指出~~~</p>
 ]]></content>
       <categories>
         <category>前端</category>
