@@ -80,56 +80,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JS中的相等判断</title>
-    <url>/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/</url>
-    <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS中如何判断是否相等。</p>
-<span id="more"></span>
-
-<h4 id="ES2015中有四种相等算法："><a href="#ES2015中有四种相等算法：" class="headerlink" title="ES2015中有四种相等算法："></a>ES2015中有四种相等算法：</h4><ul>
-<li>抽象（非严格）相等 ：<code>==</code>；</li>
-<li>严格相等： <code>===</code>；</li>
-<li>同值相等：<code>-0 !== +0</code>、<code>NAN === NAN</code>。</li>
-<li>零值相等：<code>-0 === +0</code>；</li>
-</ul>
-<h5 id="1、严格相等"><a href="#1、严格相等" class="headerlink" title="1、严格相等 ==="></a>1、严格相等 ===</h5><p>两个被比较的值在比较前都不进行隐式转换。如果两个被比较的值具有不同的类型，这两个值是不全等的。否则，如果两个被比较的值类型相同，值也相同(<code>NAN</code>除外)。</p>
-<p>全等操作符使用略加修改的语义来处理两个特殊情况：</p>
-<ul>
-<li>第一个情况是，浮点数<code>0</code>是不分正负的。区分 <code>+0</code> 和<code>-0</code> 在解决一些特定的数学问题时是必要的，但是大部分情况下我们并不用关心。全等操作符认为这两个值是全等的；</li>
-<li>第二个情况是，浮点数包含了 <code>NaN </code>值，用来表示某些定义不明确的数学问题的解，例如：正无穷加负无穷。全等操作符认为 <code>NaN </code>与其他任何值都不全等，包括它自己。（等式 <code>(x !== x)</code> 成立的唯一情况是 x 的值为 <code>NaN</code>）。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str === str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、非严格相等"><a href="#2、非严格相等" class="headerlink" title="2、非严格相等 =="></a>2、非严格相等 ==</h5><p>相等操作符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后，最终的比较方式等同于全等操作符<code> ===</code> 的比较方式。</p>
-<p>一般而言，根据 ECMAScript 规范，所有的对象都与 <code>undefined </code>和 <code>null </code>不相等。但是大部分浏览器允许窄对象（所有页面中的 <code>document.all </code>对象），在某些情况下， <code>document.all </code>  === <code>undefined </code>的角色。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str == str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// both false, except in rare cases</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">undefined</span>);</span><br></pre></td></tr></table></figure>
-
-<h5 id="3、同值相等"><a href="#3、同值相等" class="headerlink" title="3、同值相等"></a>3、同值相等</h5><ul>
-<li><code>+0 !== -0</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向 Nmuber 构造函数添加一个不可变的属性 NEGATIVE_ZERO</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">&quot;NEGATIVE_ZERO&quot;</span>,</span><br><span class="line">                      &#123; <span class="attr">value</span>: -<span class="number">0</span>, <span class="attr">writable</span>: <span class="literal">false</span>, <span class="attr">configurable</span>: <span class="literal">false</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">attemptMutation</span>(<span class="params">v</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">&quot;NEGATIVE_ZERO&quot;</span>, &#123; <span class="attr">value</span>: v &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>Object.defineProperty</code> 在试图修改不可变属性时，如果这个属性确实被修改了则会抛出异常，反之什么都不会发生。例如如果 v 是 -0 ，那么没有发生任何变化，所以也不会抛出任何异常。但如果 v 是 +0 ，则会抛出异常。</p>
-<ul>
-<li><code>NAN === NAN</code></li>
-</ul>
-<p>与以上类似。</p>
-<h5 id="4、零值相等"><a href="#4、零值相等" class="headerlink" title="4、零值相等"></a>4、零值相等</h5><p>与同值相等类似，不过会认为 +0 与 -0 相等。</p>
-<hr>
-<h4 id="JavaScript提供三种比较操作："><a href="#JavaScript提供三种比较操作：" class="headerlink" title="JavaScript提供三种比较操作："></a>JavaScript提供三种比较操作：</h4><ul>
-<li>严格相等比较 (也被称作”strict equality”, “identity”, “triple equals”)，使用 <code>===</code>；</li>
-<li>抽象相等比较 (“loose equality”，”double equals”) ，使用 <code>==</code>；</li>
-<li>同值相等的实现： <code>Object.is</code>（ECMAScript 2015/ ES6 新特性）。</li>
-</ul>
-<h5 id="什么时候使用-Object-is或者-？"><a href="#什么时候使用-Object-is或者-？" class="headerlink" title="什么时候使用 Object.is或者===  ？"></a>什么时候使用 <code>Object.is</code>或者<code>===</code>  ？</h5><p>你的工作需要去镜像<code>Object.defineProperty</code>的一些特性时。例如它对待0的特殊方式，特别是关于属性描述器。如果你的工作不需要这些，那你应该避免使用<code>Object.is</code>，使用<code>===</code>来代替。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JS知识点</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS中的函数</title>
     <url>/2021/07/24/JS%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS的函数。</p>
@@ -208,6 +158,56 @@
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
 <li>MDN Web Docs</li>
 </ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JS知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS中的相等判断</title>
+    <url>/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/</url>
+    <content><![CDATA[<p>本篇文章给大家带来的内容是关于JS中如何判断是否相等。</p>
+<span id="more"></span>
+
+<h4 id="ES2015中有四种相等算法："><a href="#ES2015中有四种相等算法：" class="headerlink" title="ES2015中有四种相等算法："></a>ES2015中有四种相等算法：</h4><ul>
+<li>抽象（非严格）相等 ：<code>==</code>；</li>
+<li>严格相等： <code>===</code>；</li>
+<li>同值相等：<code>-0 !== +0</code>、<code>NAN === NAN</code>。</li>
+<li>零值相等：<code>-0 === +0</code>；</li>
+</ul>
+<h5 id="1、严格相等"><a href="#1、严格相等" class="headerlink" title="1、严格相等 ==="></a>1、严格相等 ===</h5><p>两个被比较的值在比较前都不进行隐式转换。如果两个被比较的值具有不同的类型，这两个值是不全等的。否则，如果两个被比较的值类型相同，值也相同(<code>NAN</code>除外)。</p>
+<p>全等操作符使用略加修改的语义来处理两个特殊情况：</p>
+<ul>
+<li>第一个情况是，浮点数<code>0</code>是不分正负的。区分 <code>+0</code> 和<code>-0</code> 在解决一些特定的数学问题时是必要的，但是大部分情况下我们并不用关心。全等操作符认为这两个值是全等的；</li>
+<li>第二个情况是，浮点数包含了 <code>NaN </code>值，用来表示某些定义不明确的数学问题的解，例如：正无穷加负无穷。全等操作符认为 <code>NaN </code>与其他任何值都不全等，包括它自己。（等式 <code>(x !== x)</code> 成立的唯一情况是 x 的值为 <code>NaN</code>）。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str === str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、非严格相等"><a href="#2、非严格相等" class="headerlink" title="2、非严格相等 =="></a>2、非严格相等 ==</h5><p>相等操作符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后，最终的比较方式等同于全等操作符<code> ===</code> 的比较方式。</p>
+<p>一般而言，根据 ECMAScript 规范，所有的对象都与 <code>undefined </code>和 <code>null </code>不相等。但是大部分浏览器允许窄对象（所有页面中的 <code>document.all </code>对象），在某些情况下， <code>document.all </code>  === <code>undefined </code>的角色。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str == str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// both false, except in rare cases</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">undefined</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、同值相等"><a href="#3、同值相等" class="headerlink" title="3、同值相等"></a>3、同值相等</h5><ul>
+<li><code>+0 !== -0</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向 Nmuber 构造函数添加一个不可变的属性 NEGATIVE_ZERO</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">&quot;NEGATIVE_ZERO&quot;</span>,</span><br><span class="line">                      &#123; <span class="attr">value</span>: -<span class="number">0</span>, <span class="attr">writable</span>: <span class="literal">false</span>, <span class="attr">configurable</span>: <span class="literal">false</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">attemptMutation</span>(<span class="params">v</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">&quot;NEGATIVE_ZERO&quot;</span>, &#123; <span class="attr">value</span>: v &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Object.defineProperty</code> 在试图修改不可变属性时，如果这个属性确实被修改了则会抛出异常，反之什么都不会发生。例如如果 v 是 -0 ，那么没有发生任何变化，所以也不会抛出任何异常。但如果 v 是 +0 ，则会抛出异常。</p>
+<ul>
+<li><code>NAN === NAN</code></li>
+</ul>
+<p>与以上类似。</p>
+<h5 id="4、零值相等"><a href="#4、零值相等" class="headerlink" title="4、零值相等"></a>4、零值相等</h5><p>与同值相等类似，不过会认为 +0 与 -0 相等。</p>
+<hr>
+<h4 id="JavaScript提供三种比较操作："><a href="#JavaScript提供三种比较操作：" class="headerlink" title="JavaScript提供三种比较操作："></a>JavaScript提供三种比较操作：</h4><ul>
+<li>严格相等比较 (也被称作”strict equality”, “identity”, “triple equals”)，使用 <code>===</code>；</li>
+<li>抽象相等比较 (“loose equality”，”double equals”) ，使用 <code>==</code>；</li>
+<li>同值相等的实现： <code>Object.is</code>（ECMAScript 2015/ ES6 新特性）。</li>
+</ul>
+<h5 id="什么时候使用-Object-is或者-？"><a href="#什么时候使用-Object-is或者-？" class="headerlink" title="什么时候使用 Object.is或者===  ？"></a>什么时候使用 <code>Object.is</code>或者<code>===</code>  ？</h5><p>你的工作需要去镜像<code>Object.defineProperty</code>的一些特性时。例如它对待0的特殊方式，特别是关于属性描述器。如果你的工作不需要这些，那你应该避免使用<code>Object.is</code>，使用<code>===</code>来代替。</p>
 ]]></content>
       <categories>
         <category>前端</category>
