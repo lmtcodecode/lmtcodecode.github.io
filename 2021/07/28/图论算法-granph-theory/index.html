@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="Lmt-codecode">
 <meta property="og:description" content="本篇文章给大家带来的内容是关于图论(granph theory)，主要介绍图的表示和图的搜索。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_45.jpg">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_46.jpg">
+<meta property="og:image" content="d:/lmtcodecode/blog/public/images/markdown/algorithm_45.jpg">
+<meta property="og:image" content="d:/lmtcodecode/blog/public/images/markdown/algorithm_46.jpg">
 <meta property="og:image" content="c:/Users/美彤柚子/Desktop/图论.png">
 <meta property="article:published_time" content="2021-07-28T02:55:08.000Z">
-<meta property="article:modified_time" content="2021-07-28T09:19:01.522Z">
+<meta property="article:modified_time" content="2021-07-28T09:56:21.854Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_45.jpg">
+<meta name="twitter:image" content="d:/lmtcodecode/blog/public/images/markdown/algorithm_45.jpg">
 
 
 <link rel="canonical" href="http://lmtcodecode.com/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/">
@@ -223,7 +223,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-28 10:55:08 / Modified: 17:19:01" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
+      <time title="Created: 2021-07-28 10:55:08 / Modified: 17:56:21" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,7 +300,8 @@
 <blockquote>
 <p><strong>v的出度 d+(v)：</strong>v作为边的始点次数之和</p>
 <p><strong>v的入度 d-(v)：</strong>v作为边的终点次数之和</p>
-<p><strong>v的度数(度) d(v)：</strong> v作为边的端点次数之和<br>$$<br>d(v)= d+(v)+ d-(v)<br>$$</p>
+<p><strong>v的度数(度) d(v)：</strong> v作为边的端点次数之和</p>
+<p><em>d(v)= d+(v)+ d-(v)</em></p>
 </blockquote>
 <h6 id="握手定理及其推论"><a href="#握手定理及其推论" class="headerlink" title="握手定理及其推论"></a>握手定理及其推论</h6><ul>
 <li><p>图中结点读书的总和 = 边数乘而</p>
@@ -319,11 +320,11 @@
 <h6 id="图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。"><a href="#图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。" class="headerlink" title="图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。"></a>图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。</h6><ul>
 <li>无向图的图形表示法、邻接表、邻接矩阵表示如下所示：</li>
 </ul>
-<p><img src="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_45.jpg" alt="img"></p>
+<p><img src="D:\lmtcodecode\blog\public\images\markdown\algorithm_45.jpg" alt="img"></p>
 <ul>
 <li>有向图的图形表示法、邻接表、邻接矩阵表示如下所示：</li>
 </ul>
-<p><img src="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_46.jpg" alt="img"></p>
+<p><img src="D:\lmtcodecode\blog\public\images\markdown\algorithm_46.jpg" alt="img"></p>
 <h4 id="四、图的搜索"><a href="#四、图的搜索" class="headerlink" title="四、图的搜索"></a>四、图的搜索</h4><h5 id="1-图的构建"><a href="#1-图的构建" class="headerlink" title="1. 图的构建"></a>1. 图的构建</h5><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Graph</span>(<span class="params">v</span>) </span>{</span><br><span class="line">	<span class="built_in">this</span>.vertices = v;  <span class="comment">// 顶点个数</span></span><br><span class="line">	<span class="built_in">this</span>.edges = <span class="number">0</span>;  <span class="comment">// 边的条数</span></span><br><span class="line">	<span class="built_in">this</span>.verticesRe = []; <span class="comment">// 二维数组，用以存储与当前顶点相邻的顶点们</span></span><br><span class="line">	<span class="built_in">this</span>.bmarked = []; <span class="comment">// 标记数组</span></span><br><span class="line">	<span class="built_in">this</span>.dmarked = []; <span class="comment">// 标记数组</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; v; ++i) {</span><br><span class="line">		<span class="built_in">this</span>.verticesRe[i] = [];</span><br><span class="line">		<span class="built_in">this</span>.bmarked[i] = <span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">this</span>.dmarked[i] = <span class="literal">false</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">this</span>.addEdge = addEdge;</span><br><span class="line">}</span><br><span class="line"><span class="built_in">this</span>.dfs = dfs; <span class="comment">// 深度优先搜索</span></span><br><span class="line"><span class="built_in">this</span>.bfs = bfs; <span class="comment">// 广度优先搜索</span></span><br><span class="line"><span class="comment">// 添加边</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEdge</span>(<span class="params">v, w</span>) </span>{</span><br><span class="line">    <span class="built_in">this</span>.verticesRe[v].push(w);</span><br><span class="line">    <span class="built_in">this</span>.verticesRe[w].push(v);</span><br><span class="line">    <span class="built_in">this</span>.edges++;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 初始化图</span></span><br><span class="line"><span class="keyword">var</span> g = <span class="keyword">new</span> Graph(<span class="number">6</span>);</span><br><span class="line"><span class="comment">// 添加边</span></span><br><span class="line">g.addEdge(<span class="number">0</span>, <span class="number">1</span>);g.addEdge(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">g.addEdge(<span class="number">1</span>, <span class="number">3</span>);g.addEdge(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">g.addEdge(<span class="number">3</span>, <span class="number">4</span>);g.addEdge(<span class="number">4</span>, <span class="number">5</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <img src="C:\Users\美彤柚子\Desktop\图论.png" alt="图论" style="zoom: 67%;">
