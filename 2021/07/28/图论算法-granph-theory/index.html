@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_46.jpg">
 <meta property="og:image" content="c:/Users/美彤柚子/Desktop/图论.png">
 <meta property="article:published_time" content="2021-07-28T02:55:08.000Z">
-<meta property="article:modified_time" content="2021-07-28T06:48:41.703Z">
+<meta property="article:modified_time" content="2021-07-28T09:19:01.522Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -124,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、图的简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E7%9A%84%E8%B5%B7%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">二、图的起源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">三、图的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%9C%89%E5%90%91%E5%9B%BE%E4%B8%8E%E6%97%A0%E5%90%91%E5%9B%BE"><span class="nav-number">3.1.</span> <span class="nav-text">1. 有向图与无向图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E9%A1%B6%E7%82%B9%E7%9A%84%E5%BA%A6%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">2. 顶点的度数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.3.</span> <span class="nav-text">3. 图的表示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text">四、图的搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%9B%BE%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-number">4.1.</span> <span class="nav-text">1. 图的构建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88BFS%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">2. 广度优先搜索（BFS）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88DFS%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">3. 深度优先搜索（DFS）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、图的简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E7%9A%84%E8%B5%B7%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">二、图的起源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">三、图的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%88%E9%9B%86%E5%90%88%E8%A1%A8%E7%A4%BA%E6%B3%95%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">1. 图的定义（集合表示法）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">有向图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE"><span class="nav-number">3.1.2.</span> <span class="nav-text">无向图</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%BB%93%E7%82%B9%E7%9A%84%E5%BA%A6%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">2.  结点的度数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8F%A1%E6%89%8B%E5%AE%9A%E7%90%86%E5%8F%8A%E5%85%B6%E6%8E%A8%E8%AE%BA"><span class="nav-number">3.2.1.</span> <span class="nav-text">握手定理及其推论</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.3.</span> <span class="nav-text">3. 图的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%82%B9%E4%B8%8E%E9%82%BB%E6%8E%A5%E8%BE%B9%EF%BC%9A"><span class="nav-number">3.3.1.</span> <span class="nav-text">邻接点与邻接边：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E8%A1%A8%E7%A4%BA%E6%B3%95%E3%80%81%E9%9B%86%E5%90%88%E8%A1%A8%E7%A4%BA%E6%B3%95%E3%80%81%E9%82%BB%E6%8E%A5%E9%93%BE%E8%A1%A8%E7%9A%84%E7%BB%84%E5%90%88%E3%80%81%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA%E3%80%82"><span class="nav-number">3.3.2.</span> <span class="nav-text">图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text">四、图的搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%9B%BE%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-number">4.1.</span> <span class="nav-text">1. 图的构建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88BFS%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">2. 广度优先搜索（BFS）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88DFS%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">3. 深度优先搜索（DFS）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +223,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-28 10:55:08 / Modified: 14:48:41" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
+      <time title="Created: 2021-07-28 10:55:08 / Modified: 17:19:01" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,7 +249,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.2k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -276,18 +276,17 @@
 <p>十八世纪在这条河上建有七座桥，将河中间的两个岛和河岸联结起来。一天有人提出：能不能每座桥都只走一遍，最后又回到原来的位置？1736年，欧拉很快就用一种独特的方法给出了解答：</p>
 <p>欧拉把两座<strong>小岛</strong>和<strong>河的两岸</strong>分别看作<strong>四个点</strong>，而把<strong>七座桥</strong>看作这<strong>四个点之间的连线</strong>。那么这个问题就简化成，能不能用一笔就把这个图形画出来。欧拉得出结论，一笔画不出来，所以不可能每座桥都走一遍，并最后回到原来的位置。并且给出了所有能够一笔画出来的图形所应具有的条件。这是拓扑学的“先声”。</p>
 </blockquote>
-<h4 id="三、图的表示"><a href="#三、图的表示" class="headerlink" title="三、图的表示"></a>三、图的表示</h4><p>图G定义为V和E的集合G={V, E}，其中V表示图中的所有的顶点集合，E表示的是G中的所有的边的集合。图按照E中的元素是否有方向，分为有向图和无向图。 </p>
-<h5 id="1-有向图与无向图"><a href="#1-有向图与无向图" class="headerlink" title="1. 有向图与无向图"></a>1. 有向图与无向图</h5><ul>
-<li><p>通常用G表示无向图, D表示有向图, 也常用G泛指无向图和有向图。</p>
-<blockquote>
-<p><strong>n阶图：</strong>n个顶点的图</p>
-<p><strong>零图：</strong>E= ∅</p>
-<p><strong>平凡图：</strong>1 阶零图</p>
-<p><strong>空图：</strong>V= ∅</p>
-</blockquote>
-</li>
+<h4 id="三、图的表示"><a href="#三、图的表示" class="headerlink" title="三、图的表示"></a>三、图的表示</h4><h5 id="1-图的定义（集合表示法）"><a href="#1-图的定义（集合表示法）" class="headerlink" title="1. 图的定义（集合表示法）"></a>1. 图的定义（集合表示法）</h5><p>图G定义为V和E的集合G={V, E}，其中V表示图中的所有的顶点集合，E表示的是G中的所有的边的集合。</p>
+<p>图按照E中的元素是否有方向，分为有向图和无向图。 </p>
+<ul>
+<li><h6 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h6></li>
 </ul>
-<h5 id="2-顶点的度数"><a href="#2-顶点的度数" class="headerlink" title="2. 顶点的度数"></a>2. 顶点的度数</h5><ul>
+<p>若边e与无序结点堆（u，v）相对应，则称e为无向边，记e = （u，v）=（v，u），这时称u，v是边e的两个端点。</p>
+<ul>
+<li><h6 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h6></li>
+</ul>
+<p>若边e与有序结点堆&lt;u，v&gt;相对应，则称e为有向边，记e = &lt;u，v&gt;，这时称u为e的始点，v为e的终点，统称为e的端点。</p>
+<h5 id="2-结点的度数"><a href="#2-结点的度数" class="headerlink" title="2.  结点的度数"></a>2.  结点的度数</h5><ul>
 <li> <strong>设G=&lt;V,E&gt;为无向图, v ∈ V,</strong></li>
 </ul>
 <blockquote>
@@ -303,10 +302,27 @@
 <p><strong>v的入度 d-(v)：</strong>v作为边的终点次数之和</p>
 <p><strong>v的度数(度) d(v)：</strong> v作为边的端点次数之和<br>$$<br>d(v)= d+(v)+ d-(v)<br>$$</p>
 </blockquote>
-<h5 id="3-图的表示"><a href="#3-图的表示" class="headerlink" title="3. 图的表示"></a>3. 图的表示</h5><p>邻接链表的组合、邻接矩阵。</p>
-<p>无向图的邻接表和邻接矩阵表示如下所示：</p>
+<h6 id="握手定理及其推论"><a href="#握手定理及其推论" class="headerlink" title="握手定理及其推论"></a>握手定理及其推论</h6><ul>
+<li><p>图中结点读书的总和 = 边数乘而</p>
+</li>
+<li><p>图中度数为奇数的结点个数为偶数。</p>
+</li>
+</ul>
+<h5 id="3-图的表示"><a href="#3-图的表示" class="headerlink" title="3. 图的表示"></a>3. 图的表示</h5><h6 id="邻接点与邻接边："><a href="#邻接点与邻接边：" class="headerlink" title="邻接点与邻接边："></a>邻接点与邻接边：</h6><p>在图G =&lt;V，E&gt;中，若两个结点u和v是e的端点，则称u和v互为<strong>邻接点</strong>，否则u和v称为<strong>不邻接</strong>；具有公共节点的两条边称为<strong>邻接边</strong>；两个端点相同的边称为<strong>环或自回路</strong>；图中不予任何结点相邻接的结点称为<strong>孤立结点</strong>。</p>
+<blockquote>
+<p><strong>零图：</strong>仅由孤立结点组成的图；</p>
+<p><strong>平凡图：</strong>仅含一个结点的零图；</p>
+<p><strong>(n，m)图：</strong>含有n个结点，m条边的图；</p>
+<p><strong>完全图：</strong>在无向图中，每对顶点之间都有一条边相连；</p>
+<p><strong>补图：</strong>使简单图能构成完全图的图（在邻接矩阵有互补关系）；</p>
+</blockquote>
+<h6 id="图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。"><a href="#图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。" class="headerlink" title="图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。"></a>图形表示法、集合表示法、邻接链表的组合、邻接矩阵表示。</h6><ul>
+<li>无向图的图形表示法、邻接表、邻接矩阵表示如下所示：</li>
+</ul>
 <p><img src="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_45.jpg" alt="img"></p>
-<p>有向图的邻接表和邻接矩阵表示如下所示：</p>
+<ul>
+<li>有向图的图形表示法、邻接表、邻接矩阵表示如下所示：</li>
+</ul>
 <p><img src="https://images.cnblogs.com/cnblogs_com/xuqiang/algorithm/algorithm_46.jpg" alt="img"></p>
 <h4 id="四、图的搜索"><a href="#四、图的搜索" class="headerlink" title="四、图的搜索"></a>四、图的搜索</h4><h5 id="1-图的构建"><a href="#1-图的构建" class="headerlink" title="1. 图的构建"></a>1. 图的构建</h5><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Graph</span>(<span class="params">v</span>) </span>{</span><br><span class="line">	<span class="built_in">this</span>.vertices = v;  <span class="comment">// 顶点个数</span></span><br><span class="line">	<span class="built_in">this</span>.edges = <span class="number">0</span>;  <span class="comment">// 边的条数</span></span><br><span class="line">	<span class="built_in">this</span>.verticesRe = []; <span class="comment">// 二维数组，用以存储与当前顶点相邻的顶点们</span></span><br><span class="line">	<span class="built_in">this</span>.bmarked = []; <span class="comment">// 标记数组</span></span><br><span class="line">	<span class="built_in">this</span>.dmarked = []; <span class="comment">// 标记数组</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; v; ++i) {</span><br><span class="line">		<span class="built_in">this</span>.verticesRe[i] = [];</span><br><span class="line">		<span class="built_in">this</span>.bmarked[i] = <span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">this</span>.dmarked[i] = <span class="literal">false</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">this</span>.addEdge = addEdge;</span><br><span class="line">}</span><br><span class="line"><span class="built_in">this</span>.dfs = dfs; <span class="comment">// 深度优先搜索</span></span><br><span class="line"><span class="built_in">this</span>.bfs = bfs; <span class="comment">// 广度优先搜索</span></span><br><span class="line"><span class="comment">// 添加边</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEdge</span>(<span class="params">v, w</span>) </span>{</span><br><span class="line">    <span class="built_in">this</span>.verticesRe[v].push(w);</span><br><span class="line">    <span class="built_in">this</span>.verticesRe[w].push(v);</span><br><span class="line">    <span class="built_in">this</span>.edges++;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 初始化图</span></span><br><span class="line"><span class="keyword">var</span> g = <span class="keyword">new</span> Graph(<span class="number">6</span>);</span><br><span class="line"><span class="comment">// 添加边</span></span><br><span class="line">g.addEdge(<span class="number">0</span>, <span class="number">1</span>);g.addEdge(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">g.addEdge(<span class="number">1</span>, <span class="number">3</span>);g.addEdge(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">g.addEdge(<span class="number">3</span>, <span class="number">4</span>);g.addEdge(<span class="number">4</span>, <span class="number">5</span>);</span><br></pre></td></tr></tbody></table></figure>
 
@@ -388,13 +404,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">10k</span>
+    <span title="Symbols count total">11k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">9 mins.</span>
+    <span title="Reading time total">10 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
