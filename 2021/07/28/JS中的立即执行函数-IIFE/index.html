@@ -20,28 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于JS的Array.from()。">
+<meta name="description" content="本篇文章给大家带来的内容是关于JS中的立即执行函数(Immediately Invoked Function Expression，IIFE)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中的Array-from()">
-<meta property="og:url" content="http://lmtcodecode.com/2021/07/25/JS%E4%B8%AD%E7%9A%84Array-from/index.html">
+<meta property="og:title" content="JS中的立即执行函数(IIFE)">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的Array.from()。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于JS中的立即执行函数(Immediately Invoked Function Expression，IIFE)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-24T16:09:07.000Z">
-<meta property="article:modified_time" content="2021-07-26T08:36:30.092Z">
+<meta property="article:published_time" content="2021-07-28T10:02:30.000Z">
+<meta property="article:modified_time" content="2021-07-28T11:20:11.223Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="JS知识点">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/07/25/JS%E4%B8%AD%E7%9A%84Array-from/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/25/JS%E4%B8%AD%E7%9A%84Array-from/","path":"2021/07/25/JS中的Array-from/","title":"JS中的Array-from()"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/","path":"2021/07/28/JS中的立即执行函数-IIFE/","title":"JS中的立即执行函数(IIFE)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JS中的Array-from() | Lmt-codecode</title>
+<title>JS中的立即执行函数(IIFE) | Lmt-codecode</title>
   
 
 
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">二、示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81IIFE%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">一、IIFE的用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9B%E9%98%B6"><span class="nav-number">2.</span> <span class="nav-text">二、进阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81IIFE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">三、IIFE的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -194,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/25/JS%E4%B8%AD%E7%9A%84Array-from/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -207,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JS中的Array-from()
+          JS中的立即执行函数(IIFE)
         </h1>
 
         <div class="post-meta-container">
@@ -217,16 +217,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-07-25 00:09:07" itemprop="dateCreated datePublished" datetime="2021-07-25T00:09:07+08:00">2021-07-25</time>
+      <time title="Created: 2021-07-28 18:02:30 / Modified: 19:20:11" itemprop="dateCreated datePublished" datetime="2021-07-28T18:02:30+08:00">2021-07-28</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-26 16:36:30" itemprop="dateModified" datetime="2021-07-26T16:36:30+08:00">2021-07-26</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -251,7 +245,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>755</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -269,38 +263,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本篇文章给大家带来的内容是关于JS的Array.from()。</p>
+        <p>本篇文章给大家带来的内容是关于JS中的立即执行函数(Immediately Invoked Function Expression，IIFE)</p>
 <span id="more"></span>
 
-<h4 id="一、基础介绍"><a href="#一、基础介绍" class="headerlink" title="一、基础介绍"></a>一、基础介绍</h4><ol>
-<li><code>Array.from()</code>方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。</li>
+<h4 id="一、IIFE的用法"><a href="#一、IIFE的用法" class="headerlink" title="一、IIFE的用法"></a>一、IIFE的用法</h4><p><strong>IIFE</strong>（立即调用函数<strong>表达式</strong>）是一个在定义时立即执行的<code>JavaScript</code>函数，执行完后就自动销毁。函数名对<strong>IIFE</strong>不是必须的，最常用的是使用一个匿名函数表达式。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">//statements</span></span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一些IIFE会这样写，前面加个分号，目的是规整程序员不好的编程习惯。有些时候上一个函数的结尾没有加分号，会导致执行错误。</span></span><br><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">//statements</span></span><br><span class="line">})()  <span class="comment">// 例如,这里没加分号</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于函数被包含在一对（）内，因此就成为了一个表达式，通过在末尾加上另外一个（）便可以立即执行这个函数，比如<code>(function foo(){..})()</code>。第一个（）将函数变成表达式，第二个（）执行了这个函数。</p>
+<p>当函数变成立即执行的函数表达式时，表达式中的变量不能从外部访问。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">// 3</span></span><br><span class="line">})();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="二、进阶"><a href="#二、进阶" class="headerlink" title="二、进阶"></a>二、进阶</h4><ul>
+<li><strong>IIFE</strong>的另一个非常普遍的进阶用法是把他们当作函数调用并传参进去。</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"><span class="built_in">global</span></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">// 3</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">global</span>.a);<span class="comment">// 2</span></span><br><span class="line">})(<span class="built_in">window</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>这个模式的另外一个应用场景是解决<code>undefined</code>标识符被错误覆盖导致的异常。</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> = <span class="literal">true</span>;<span class="comment">// 千万不能这样做</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params"><span class="literal">undefined</span></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    <span class="keyword">if</span>(a === <span class="literal">undefined</span>){</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Undefined is safe here"</span>)</span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>还有一种用途是倒置代码的运行顺序，将需要运行的函数放在第二位，在<strong>IIFE</strong>执行后当作参数传递进去。这种模式在UMD项目被广泛使用。</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params">def</span>)</span>{</span><br><span class="line">    def(<span class="built_in">window</span>);</span><br><span class="line">})(<span class="function"><span class="keyword">function</span> <span class="title">def</span>(<span class="params"><span class="built_in">global</span></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">// 3</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">global</span>.a);<span class="comment">// 2</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="三、IIFE的作用"><a href="#三、IIFE的作用" class="headerlink" title="三、IIFE的作用"></a>三、IIFE的作用</h4><ol>
+<li>不必为函数命名，避免了污染全局变量；</li>
+<li>立即执行函数内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量；</li>
+<li>封装变量。</li>
 </ol>
-<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.from(arrayLike[, mapFn[, thisArg]])</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p><code>arrayLike</code></p>
-<p>想要转换成数组的伪数组对象或可迭代对象。</p>
-</li>
-<li><p><code>mapFn</code> 可选</p>
-<p>如果指定了该参数，新数组中的每个元素会执行该回调函数。相当于<code>map</code>。</p>
-</li>
-<li><p><code>thisArg</code> 可选</p>
-<p>可选参数，执行回调函数 <code>mapFn</code> 时 <code>this</code> 对象。</p>
-</li>
-</ul>
-<p>返回一个新的数组实例。</p>
-<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><p><code>Array.from()</code> 可以通过以下方式来创建数组对象：</p>
-<ul>
-<li>伪数组对象（拥有一个 <code>length</code> 属性和若干索引属性的任意对象，返回数组长度与<code>length</code>有关，裁剪或补齐<code>undefined</code>）</li>
-<li>可迭代对象（可以获取对象中的元素,如<code> Map</code>和 <code>Set</code> 等）</li>
-</ul>
-<h4 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h4><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从Set生成数组</span></span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>]);</span><br><span class="line"><span class="built_in">Array</span>.from(set);</span><br><span class="line"><span class="comment">// [ "foo", "bar", "baz" ]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成指定数组</span></span><br><span class="line"><span class="keyword">let</span> obj = {</span><br><span class="line">    <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="number">1</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="number">2</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">const</span> newArr = <span class="built_in">Array</span>.from(obj, <span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="attr">studentId</span>: <span class="built_in">this</span>.prefix + item;</span><br><span class="line">        order: index</span><br><span class="line">    }</span><br><span class="line">},{</span><br><span class="line">    <span class="attr">prefix</span>: <span class="string">"No."</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
 <hr>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
-<li>MDN Web Docs</li>
+<li>YOU DON`T KNOW JS</li>
 </ul>
 
     </div>
@@ -332,14 +327,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/" rel="prev" title="JS中的undefined">
-                  <i class="fa fa-chevron-left"></i> JS中的undefined
+                <a href="/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/" rel="prev" title="算法导论之图论(granph theory)">
+                  <i class="fa fa-chevron-left"></i> 算法导论之图论(granph theory)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/26/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" rel="next" title="最长递增子序列">
-                  最长递增子序列 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
