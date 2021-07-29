@@ -23,22 +23,22 @@
 <meta name="description" content="本篇文章给大家带来的内容是关于JS中的立即执行函数(Immediately Invoked Function Expression，IIFE)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的立即执行函数(IIFE)">
-<meta property="og:url" content="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/index.html">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/14/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
 <meta property="og:description" content="本篇文章给大家带来的内容是关于JS中的立即执行函数(Immediately Invoked Function Expression，IIFE)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-28T10:02:30.000Z">
-<meta property="article:modified_time" content="2021-07-28T11:20:11.223Z">
+<meta property="article:published_time" content="2021-07-14T10:02:30.000Z">
+<meta property="article:modified_time" content="2021-07-29T05:35:52.723Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="JS知识点">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/14/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/","path":"2021/07/28/JS中的立即执行函数-IIFE/","title":"JS中的立即执行函数(IIFE)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/14/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/","path":"2021/07/14/JS中的立即执行函数-IIFE/","title":"JS中的立即执行函数(IIFE)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>JS中的立即执行函数(IIFE) | Lmt-codecode</title>
@@ -135,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/28/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/14/JS%E4%B8%AD%E7%9A%84%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0-IIFE/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -217,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-07-28 18:02:30 / Modified: 19:20:11" itemprop="dateCreated datePublished" datetime="2021-07-28T18:02:30+08:00">2021-07-28</time>
+      <time title="Created: 2021-07-14 18:02:30" itemprop="dateCreated datePublished" datetime="2021-07-14T18:02:30+08:00">2021-07-14</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-29 13:35:52" itemprop="dateModified" datetime="2021-07-29T13:35:52+08:00">2021-07-29</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -327,11 +333,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/" rel="prev" title="算法导论之图论(granph theory)">
-                  <i class="fa fa-chevron-left"></i> 算法导论之图论(granph theory)
+                <a href="/2021/07/10/JS%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" rel="prev" title="JS中的函数">
+                  <i class="fa fa-chevron-left"></i> JS中的函数
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/07/17/JS%E7%9A%84this/" rel="next" title="JS的this关键字">
+                  JS的this关键字 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -363,13 +372,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">14k</span>
+    <span title="Symbols count total">19k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">13 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
