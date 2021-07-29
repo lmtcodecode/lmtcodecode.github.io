@@ -20,28 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于JS中如何判断是否相等。">
+<meta name="description" content="本篇文章给大家带来的内容是关于JS的this关键字。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中的相等判断">
-<meta property="og:url" content="http://lmtcodecode.com/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/index.html">
+<meta property="og:title" content="JS的this关键字">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/17/JS%E7%9A%84this/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于JS中如何判断是否相等。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的this关键字。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-20T08:54:55.000Z">
-<meta property="article:modified_time" content="2021-07-26T08:36:57.488Z">
+<meta property="article:published_time" content="2021-07-17T12:41:31.000Z">
+<meta property="article:modified_time" content="2021-07-29T05:29:20.398Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="JS知识点">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/17/JS%E7%9A%84this/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/","path":"2021/07/20/JS中的相等判断/","title":"JS中的相等判断"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/17/JS%E7%9A%84this/","path":"2021/07/17/JS的this/","title":"JS的this关键字"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JS中的相等判断 | Lmt-codecode</title>
+<title>JS的this关键字 | Lmt-codecode</title>
   
 
 
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES2015%E4%B8%AD%E6%9C%89%E5%9B%9B%E7%A7%8D%E7%9B%B8%E7%AD%89%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">ES2015中有四种相等算法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">1.1.</span> <span class="nav-text">1、严格相等 ===</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E9%9D%9E%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">1.2.</span> <span class="nav-text">2、非严格相等 ==</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E5%90%8C%E5%80%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">1.3.</span> <span class="nav-text">3、同值相等</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E9%9B%B6%E5%80%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">1.4.</span> <span class="nav-text">4、零值相等</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript%E6%8F%90%E4%BE%9B%E4%B8%89%E7%A7%8D%E6%AF%94%E8%BE%83%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">JavaScript提供三种比较操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8-Object-is%E6%88%96%E8%80%85-%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">什么时候使用 Object.is或者===  ？</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8this%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么要用this？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this%E7%BB%91%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">this绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E7%BB%91%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">默认绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.2.</span> <span class="nav-text">隐式绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E4%B8%A2%E5%A4%B1"><span class="nav-number">2.2.1.</span> <span class="nav-text">隐式丢失</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.3.</span> <span class="nav-text">显式绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A1%AC%E7%BB%91%E5%AE%9A"><span class="nav-number">2.3.1.</span> <span class="nav-text">硬绑定</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#new%E7%BB%91%E5%AE%9A"><span class="nav-number">2.4.</span> <span class="nav-text">new绑定</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this%E7%BB%91%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.</span> <span class="nav-text">this绑定优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E4%BE%8B%E5%A4%96"><span class="nav-number">4.</span> <span class="nav-text">绑定例外</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84this"><span class="nav-number">4.1.</span> <span class="nav-text">被忽略的this</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E5%BC%95%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">间接引用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/20/JS%E4%B8%AD%E7%9A%84%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/17/JS%E7%9A%84this/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -207,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JS中的相等判断
+          JS的this关键字
         </h1>
 
         <div class="post-meta-container">
@@ -218,14 +218,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-20 16:54:55" itemprop="dateCreated datePublished" datetime="2021-07-20T16:54:55+08:00">2021-07-20</time>
+      <time title="Created: 2021-07-17 20:41:31" itemprop="dateCreated datePublished" datetime="2021-07-17T20:41:31+08:00">2021-07-17</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-26 16:36:57" itemprop="dateModified" datetime="2021-07-26T16:36:57+08:00">2021-07-26</time>
+        <time title="Modified: 2021-07-29 13:29:20" itemprop="dateModified" datetime="2021-07-29T13:29:20+08:00">2021-07-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.1k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -269,45 +269,65 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本篇文章给大家带来的内容是关于JS中如何判断是否相等。</p>
+        <p>本篇文章给大家带来的内容是关于JS的this关键字。</p>
 <span id="more"></span>
 
-<h4 id="ES2015中有四种相等算法："><a href="#ES2015中有四种相等算法：" class="headerlink" title="ES2015中有四种相等算法："></a>ES2015中有四种相等算法：</h4><ul>
-<li>抽象（非严格）相等 ：<code>==</code>；</li>
-<li>严格相等： <code>===</code>；</li>
-<li>同值相等：<code>-0 !== +0</code>、<code>NAN === NAN</code>。</li>
-<li>零值相等：<code>-0 === +0</code>；</li>
-</ul>
-<h5 id="1、严格相等"><a href="#1、严格相等" class="headerlink" title="1、严格相等 ==="></a>1、严格相等 ===</h5><p>两个被比较的值在比较前都不进行隐式转换。如果两个被比较的值具有不同的类型，这两个值是不全等的。否则，如果两个被比较的值类型相同，值也相同(<code>NAN</code>除外)。</p>
-<p>全等操作符使用略加修改的语义来处理两个特殊情况：</p>
+<p>this关键字是JavaScript中最复杂的机制之一，与其他语言相比，函数的 <code>this</code> 关键字在 JavaScript 中的表现略有不同，此外，在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式</a>和非严格模式之间也会有一些差别。<code>this</code>是很特殊的关键字，被自动定义在所有函数的作用域中。</p>
+<h4 id="为什么要用this？"><a href="#为什么要用this？" class="headerlink" title="为什么要用this？"></a>为什么要用this？</h4><p>this为我们提供了一种更优雅的方式来隐式”传递“一个对象引用，可以将API设计的简介且易于复用。</p>
+<h4 id="this绑定"><a href="#this绑定" class="headerlink" title="this绑定"></a>this绑定</h4><h5 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h5><p>最常见的函数调用类型：独立函数调用。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> s = <span class="number">2</span>;</span><br><span class="line">foo(); <span class="comment">// 2，函数调用时应用了默认绑定，this指向全局对象</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在严格模式下（strict mode），则不能将全局对象用于默认绑定，因此this会绑定到<code>undefined</code>。</p>
+<h5 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h5><p>当函数引用有上下文的对象是，隐式绑定规则会把函数调用中的this绑定到这个上下文对象。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>:foo</span><br><span class="line">}</span><br><span class="line">obj.foo();<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>对象属性引用链子中只有上一层或者说最后一层在调用位置中起作用。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj2 = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">42</span>,</span><br><span class="line">    <span class="attr">foo</span>:foo</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj1 = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">obj2</span>:obj2</span><br><span class="line">}</span><br><span class="line">obj1.obj2.foo();<span class="comment">// 42</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h6 id="隐式丢失"><a href="#隐式丢失" class="headerlink" title="隐式丢失"></a>隐式丢失</h6><p>一个最常见的<code>this</code>绑定问题。会变成默认绑定，取决于是否严格模式。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>:foo</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> bar = obj.foo;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"global"</span>;</span><br><span class="line">bar();<span class="comment">// "global"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>虽然<code>bar</code>是<code>obj.foo</code>的一个引用，但实际上，他引用的是<code>foo</code>本身，因此<code>bar</code>是一个不带任何修饰的函数调用，因此应用了默认绑定。</p>
+<h5 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h5><p>使用call()、apply()。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span></span><br><span class="line">};</span><br><span class="line">foo.call(obj);<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果你传入了一个原始值来当作<code>this</code>绑定对象，这个原始值会被转换成它的对象形式（new String()、new Boolean() ），通常被称为”装箱“。</p>
+<p>可惜，显示绑定解决不了我们丢失绑定的问题。</p>
+<h6 id="硬绑定"><a href="#硬绑定" class="headerlink" title="硬绑定"></a>硬绑定</h6><p>显式绑定的变种</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    foo.call(obj);</span><br><span class="line">};</span><br><span class="line">bar();<span class="comment">// 2</span></span><br><span class="line"><span class="built_in">setTimeout</span>(bar,<span class="number">100</span>);<span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 硬绑定的bar不可能再修改它的this</span></span><br><span class="line">bar.call(<span class="built_in">window</span>);<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>硬绑定的典型应用场景是创建一个包裹函数，负责接收参数并返回值。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">sth</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a + sth);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + sth;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">2</span>;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> foo.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>另一种使用方法是创建一个可以重复使用的辅助函数</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">sth</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a + sth);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.a + sth;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 简单的辅助绑定函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn , obj</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>)</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">   <span class="attr">a</span>:<span class="number">2</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> bar = bind(foo, obj);</span><br><span class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>也就是bind()。</p>
+<h5 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h5><p>使用new来调用函数，或者说是发生构造函数调用时，会自动执行下面操作：</p>
 <ul>
-<li>第一个情况是，浮点数<code>0</code>是不分正负的。区分 <code>+0</code> 和<code>-0</code> 在解决一些特定的数学问题时是必要的，但是大部分情况下我们并不用关心。全等操作符认为这两个值是全等的；</li>
-<li>第二个情况是，浮点数包含了 <code>NaN </code>值，用来表示某些定义不明确的数学问题的解，例如：正无穷加负无穷。全等操作符认为 <code>NaN </code>与其他任何值都不全等，包括它自己。（等式 <code>(x !== x)</code> 成立的唯一情况是 x 的值为 <code>NaN</code>）。</li>
+<li>创建一个全新对象</li>
+<li>将新对象的_proto_指向构造函数的prototype</li>
+<li>将this指向新对象</li>
+<li>如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象</li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"0"</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"0"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str === str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num === obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === str); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>{</span><br><span class="line">    <span class="built_in">this</span>.a = a;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> foo(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bar.a);<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h5 id="2、非严格相等"><a href="#2、非严格相等" class="headerlink" title="2、非严格相等 =="></a>2、非严格相等 ==</h5><p>相等操作符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后，最终的比较方式等同于全等操作符<code> ===</code> 的比较方式。</p>
-<p>一般而言，根据 ECMAScript 规范，所有的对象都与 <code>undefined </code>和 <code>null </code>不相等。但是大部分浏览器允许窄对象（所有页面中的 <code>document.all </code>对象），在某些情况下， <code>document.all </code>  === <code>undefined </code>的角色。</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"0"</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"0"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == num); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str == str); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num == obj); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == str); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// both false, except in rare cases</span></span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj == <span class="literal">undefined</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<h5 id="3、同值相等"><a href="#3、同值相等" class="headerlink" title="3、同值相等"></a>3、同值相等</h5><ul>
-<li><code>+0 !== -0</code></li>
+<h4 id="this绑定优先级"><a href="#this绑定优先级" class="headerlink" title="this绑定优先级"></a>this绑定优先级</h4><ul>
+<li>new绑定；</li>
+<li>call、apply、bind；</li>
+<li>隐式绑定；</li>
+<li>默认绑定。</li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向 Nmuber 构造函数添加一个不可变的属性 NEGATIVE_ZERO</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">"NEGATIVE_ZERO"</span>,</span><br><span class="line">                      { <span class="attr">value</span>: -<span class="number">0</span>, <span class="attr">writable</span>: <span class="literal">false</span>, <span class="attr">configurable</span>: <span class="literal">false</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> });</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">attemptMutation</span>(<span class="params">v</span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">"NEGATIVE_ZERO"</span>, { <span class="attr">value</span>: v });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="绑定例外"><a href="#绑定例外" class="headerlink" title="绑定例外"></a>绑定例外</h4><p>this的绑定行为出乎意料。</p>
+<h5 id="被忽略的this"><a href="#被忽略的this" class="headerlink" title="被忽略的this"></a>被忽略的this</h5><p>如果把null、undefined作为this绑定对象传入call、apply、bind，这些值调用时会被忽略，实际应用了默认绑定规则。</p>
+<h5 id="间接引用"><a href="#间接引用" class="headerlink" title="间接引用"></a>间接引用</h5><p>最容易在赋值时发现：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> o = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="attr">foo</span>:foo</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> p = {</span><br><span class="line">    <span class="attr">a</span>:<span class="number">4</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">o.foo();<span class="comment">// 3</span></span><br><span class="line">(p.foo = o.foo)();<span class="comment">// 2</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p><code>Object.defineProperty</code> 在试图修改不可变属性时，如果这个属性确实被修改了则会抛出异常，反之什么都不会发生。例如如果 v 是 -0 ，那么没有发生任何变化，所以也不会抛出任何异常。但如果 v 是 +0 ，则会抛出异常。</p>
-<ul>
-<li><code>NAN === NAN</code></li>
-</ul>
-<p>与以上类似。</p>
-<h5 id="4、零值相等"><a href="#4、零值相等" class="headerlink" title="4、零值相等"></a>4、零值相等</h5><p>与同值相等类似，不过会认为 +0 与 -0 相等。</p>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><p>根据外层作用域来决定this。</p>
 <hr>
-<h4 id="JavaScript提供三种比较操作："><a href="#JavaScript提供三种比较操作：" class="headerlink" title="JavaScript提供三种比较操作："></a>JavaScript提供三种比较操作：</h4><ul>
-<li>严格相等比较 (也被称作”strict equality”, “identity”, “triple equals”)，使用 <code>===</code>；</li>
-<li>抽象相等比较 (“loose equality”，”double equals”) ，使用 <code>==</code>；</li>
-<li>同值相等的实现： <code>Object.is</code>（ECMAScript 2015/ ES6 新特性）。</li>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>YOU DOM`T KNOW JS</li>
 </ul>
-<h5 id="什么时候使用-Object-is或者-？"><a href="#什么时候使用-Object-is或者-？" class="headerlink" title="什么时候使用 Object.is或者===  ？"></a>什么时候使用 <code>Object.is</code>或者<code>===</code>  ？</h5><p>你的工作需要去镜像<code>Object.defineProperty</code>的一些特性时。例如它对待0的特殊方式，特别是关于属性描述器。如果你的工作不需要这些，那你应该避免使用<code>Object.is</code>，使用<code>===</code>来代替。</p>
 
     </div>
 
@@ -338,13 +358,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/16/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="hexo搭建博客">
-                  <i class="fa fa-chevron-left"></i> hexo搭建博客
+                <a href="/2021/07/10/JS%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" rel="prev" title="JS中的函数">
+                  <i class="fa fa-chevron-left"></i> JS中的函数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/23/JS%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" rel="next" title="JS中的函数">
-                  JS中的函数 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/" rel="next" title="JS中的undefined">
+                  JS中的undefined <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -377,13 +397,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">12k</span>
+    <span title="Symbols count total">14k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11 mins.</span>
+    <span title="Reading time total">13 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
