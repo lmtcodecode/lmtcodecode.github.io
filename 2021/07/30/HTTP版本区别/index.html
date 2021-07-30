@@ -20,32 +20,29 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于HTTP缓存。">
+<meta name="description" content="本篇文章给大家带来的内容是关于HTTP版本区别。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP缓存">
-<meta property="og:url" content="http://lmtcodecode.com/2021/07/30/HTTP%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:title" content="HTTP版本区别">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/30/HTTP%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于HTTP缓存。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于HTTP版本区别。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://mdn.mozillademos.org/files/13771/HTTPStaleness.png">
-<meta property="article:published_time" content="2021-07-30T03:47:19.000Z">
-<meta property="article:modified_time" content="2021-07-30T07:12:16.829Z">
+<meta property="article:published_time" content="2021-07-30T09:51:30.000Z">
+<meta property="article:modified_time" content="2021-07-30T11:24:56.421Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="计算机网络">
-<meta property="article:tag" content="HTTP缓存">
 <meta property="article:tag" content="HTTP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mdn.mozillademos.org/files/13771/HTTPStaleness.png">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/07/30/HTTP%E7%BC%93%E5%AD%98/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/30/HTTP%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/30/HTTP%E7%BC%93%E5%AD%98/","path":"2021/07/30/HTTP缓存/","title":"HTTP缓存"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/30/HTTP%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/","path":"2021/07/30/HTTP版本区别/","title":"HTTP版本区别"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HTTP缓存 | Lmt-codecode</title>
+<title>HTTP版本区别 | Lmt-codecode</title>
   
 
 
@@ -124,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHTTP%E7%BC%93%E5%AD%98-%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是HTTP缓存 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E7%BC%93%E5%AD%98%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">HTTP缓存分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%81%E6%9C%89%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%BC%93%E5%AD%98"><span class="nav-number">2.1.</span> <span class="nav-text">私有（浏览器）缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%EF%BC%88%E4%BB%A3%E7%90%86%EF%BC%89%E7%BC%93%E5%AD%98"><span class="nav-number">2.2.</span> <span class="nav-text">共享（代理）缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">2.3.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#expires"><span class="nav-number">2.3.1.</span> <span class="nav-text">expires</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-control"><span class="nav-number">2.3.2.</span> <span class="nav-text">Cache-control</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E7%BC%93%E5%AD%98"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">没有缓存</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E4%BD%86%E9%87%8D%E6%96%B0%E9%AA%8C%E8%AF%81"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">缓存但重新验证</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A7%81%E6%9C%89%E5%92%8C%E5%85%AC%E5%85%B1%E7%BC%93%E5%AD%98"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">私有和公共缓存</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%87%E6%9C%9F"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">过期</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">验证方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E9%B2%9C%E5%BA%A6"><span class="nav-number">2.4.</span> <span class="nav-text">新鲜度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">2.5.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag-If-Not-Match%E3%80%81Last-Modified-If-Modified-Since"><span class="nav-number">2.5.1.</span> <span class="nav-text">ETag/If-Not-Match、Last-Modified/If-Modified-Since</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Vary%E5%93%8D%E5%BA%94"><span class="nav-number">2.5.2.</span> <span class="nav-text">Vary响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E7%BC%93%E5%AD%98%E5%A5%BD%E5%A4%84"><span class="nav-number">3.</span> <span class="nav-text">HTTP缓存好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8HTTP"><span class="nav-number">4.</span> <span class="nav-text">如何使用HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HTML%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">HTML页面</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">其他静态资源</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.0.1.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-0-9%E2%80%93%E5%8D%95%E8%A1%8C%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">HTTP/0.9–单行协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-X"><span class="nav-number">3.</span> <span class="nav-text">HTTP/1.X</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP/1.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP/1.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-x%E7%BC%BA%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">HTTP/1.x缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-2"><span class="nav-number">4.</span> <span class="nav-text">HTTP/2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-2%E8%BF%9B%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">HTTP/2进化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -139,7 +136,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -198,7 +195,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/30/HTTP%E7%BC%93%E5%AD%98/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/30/HTTP%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -211,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HTTP缓存
+          HTTP版本区别
         </h1>
 
         <div class="post-meta-container">
@@ -223,7 +220,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-30 11:47:19 / Modified: 15:12:16" itemprop="dateCreated datePublished" datetime="2021-07-30T11:47:19+08:00">2021-07-30</time>
+      <time title="Created: 2021-07-30 17:51:30 / Modified: 19:24:56" itemprop="dateCreated datePublished" datetime="2021-07-30T17:51:30+08:00">2021-07-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,14 +246,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>4.3k</span>
+      <span>3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>4 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -267,87 +264,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本篇文章给大家带来的内容是关于HTTP缓存。</p>
+        <p>本篇文章给大家带来的内容是关于HTTP版本区别。</p>
 <span id="more"></span>
 
-<p>前端缓存可分为两大类：http缓存和浏览器缓存。重点讲的是http缓存。</p>
-<h3 id="什么是HTTP缓存-？"><a href="#什么是HTTP缓存-？" class="headerlink" title="什么是HTTP缓存 ？"></a>什么是HTTP缓存 ？</h3><p>通过<strong>复用</strong>以前获取的资源，可以显著提高网站和应用程序的性能。当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。Web 缓存减少了等待时间和网络流量，因此减少了显示资源表示形式所需的时间。</p>
-<h3 id="HTTP缓存分类"><a href="#HTTP缓存分类" class="headerlink" title="HTTP缓存分类"></a>HTTP缓存分类</h3><ul>
-<li><p>根据是否可以被单个或者多个用户使用来分类，可分为(私有缓存，共享缓存)，共享缓存存储的响应能够被多个用户使用。私有缓存只能用于单独用户；</p>
-</li>
-<li><p>根据是否需要重新向服务器发起请求来分类，可分为(强制缓存，协商缓存) ，强制缓存如果生效，不需要再和服务器发生交互，而协商缓存不管是否生效，都需要与服务端发生交互。</p>
-</li>
-</ul>
-<h4 id="私有（浏览器）缓存"><a href="#私有（浏览器）缓存" class="headerlink" title="私有（浏览器）缓存"></a>私有（浏览器）缓存</h4><p>私有缓存只能用于单独用户。你可能已经见过浏览器设置中的“缓存”选项。浏览器缓存拥有用户通过 HTTP下载的所有文档。这些缓存为浏览过的文档提供向后/向前导航，保存网页，查看源码等功能，可以避免再次向服务器发起多余的请求。它同样可以提供缓存内容的离线浏览。</p>
-<h4 id="共享（代理）缓存"><a href="#共享（代理）缓存" class="headerlink" title="共享（代理）缓存"></a>共享（代理）缓存</h4><p>共享缓存可以被多个用户使用。例如，ISP 或你所在的公司可能会架设一个 web 代理来作为本地网络基础的一部分提供给用户。这样热门的资源就会被重复使用，减少网络拥堵与延迟。</p>
-<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>强制缓存在缓存数据未失效的情况下（即Cache-Control的max-age没有过期或者Expires的缓存时间没有过期），那么就会直接使用浏览器的缓存数据，不会再向服务器发送任何请求。</p>
-<p>强制缓存生效时，http状态码为200。</p>
-<h5 id="expires"><a href="#expires" class="headerlink" title="expires"></a>expires</h5><p><code>expires</code> 是 <code>HTTP1.0</code> 中定义的缓存字段。当我们请求一个资源，服务器返回时，可以在 <code>Response Headers</code> 中增加 <code>expires</code> 字段表示资源的过期时间。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">expires</span><span class="punctuation">: </span>Thu, 03 Jan 2019 11:43:04 GMT</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p><code>HTTP</code>协议全称<code>HyperText Transfer Protocol</code>，超文本传输协议。是互联网上应用最为广泛的一种网络协议。HTTP是基于TCP/IP协议的应用层协议，不涉及数据包的传输，主要是规定了客户端和服务器之间的通信格式。默认使用80端口。现在HTTP已经演化出了很多个版本。</p>
+<h3 id="HTTP-0-9–单行协议"><a href="#HTTP-0-9–单行协议" class="headerlink" title="HTTP/0.9–单行协议"></a>HTTP/0.9–单行协议</h3><p><code>HTTP 0.9</code>是第一个版本的HTTP协议，在1991年发布，已过时。它的组成极其简单，只允许客户端发送<code>GET</code>这一种请求，且不支持请求头。由于没有协议头，造成了<code>HTTP 0.9</code>协议只支持一种内容，即纯文本。不过网页仍然支持用HTML语言格式化，同时无法插入图片。</p>
+<p><code>HTTP 0.9</code>具有典型的无状态性，每个事务独立进行处理，事务结束时就释放这个连接。一次<code>HTTP 0.9</code>的传输首先要建立一个由客户端到Web服务器的TCP连接，由客户端发起一个请求，然后由Web服务器返回页面内容，然后连接会关闭。如果请求的页面不存在，也不会返回任何错误码。</p>
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html</span><br></pre></td></tr></tbody></table></figure>
 
-<p>它是一个<strong>时间戳</strong>（准确点应该叫格林尼治时间），当客户端再次请求该资源的时候，会把客户端时间与该时间戳进行对比，如果大于该时间戳则已过期，否则直接使用该缓存资源。</p>
-<p>注意：发送请求时是使用的<strong>客户端时间</strong>去对比。一是客户端和服务端时间可能快慢不一致，另一方面是客户端的时间是可以自行修改的（比如浏览器是跟随系统时间的，修改系统时间会影响到），所以不一定满足预期。</p>
-<h5 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h5><p> <code>Cache-Control</code>是<code>HTTP1.1</code>定义的字段，用来区分对缓存机制的支持情况， 请求头和响应头都支持这个属性。通过它提供的不同的值来定义缓存策略。</p>
-<h6 id="没有缓存"><a href="#没有缓存" class="headerlink" title="没有缓存"></a>没有缓存</h6><p>缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-store</span><br></pre></td></tr></tbody></table></figure>
+<p>响应也极其简单的：只包含响应文档本身。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">这是一个非常简单的HTML页面</span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h6 id="缓存但重新验证"><a href="#缓存但重新验证" class="headerlink" title="缓存但重新验证"></a>缓存但重新验证</h6><p>每次有请求发出时，缓存会将此请求发到服务器（该请求应该会带有与本地缓存相关的验证字段），服务器端会验证请求中所描述的缓存是否过期，若未过期（304），则缓存才使用本地缓存副本。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache</span><br></pre></td></tr></tbody></table></figure>
-
-<h6 id="私有和公共缓存"><a href="#私有和公共缓存" class="headerlink" title="私有和公共缓存"></a>私有和公共缓存</h6><p>“public” 指令表示该响应可以被任何中间人（中间代理、CDN等）缓存。若指定了”public”，则一些通常不被中间人缓存的页面（因为默认是private）（比如 带有HTTP验证信息（帐号密码）的页面 或 某些特定状态码的页面），将会被其缓存。</p>
-<p>而 “private” 则表示该响应是专用于某单个用户的，中间人不能缓存此响应，该响应只能应用于浏览器私有缓存中。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>private</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>public</span><br></pre></td></tr></tbody></table></figure>
-
-<h6 id="过期"><a href="#过期" class="headerlink" title="过期"></a>过期</h6><p>指令 “<code>max-age=&lt;seconds&gt;</code>“，表示资源能够被缓存（保持新鲜）的最大时间。相对<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires">Expires</a>而言，max-age是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>max-age=31536000</span><br></pre></td></tr></tbody></table></figure>
-
-<h6 id="验证方式"><a href="#验证方式" class="headerlink" title="验证方式"></a>验证方式</h6><p>当使用了 “<code>must-revalidate</code>“ 指令，那就意味着缓存在考虑使用一个陈旧的资源时，必须<strong>先验证</strong>它的状态，已过期的缓存将不被使用。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>must-revalidate</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="新鲜度"><a href="#新鲜度" class="headerlink" title="新鲜度"></a>新鲜度</h4><p>由于缓存只有有限的空间用于存储资源副本，所以缓存会定期地将一些副本删除，这个过程叫做<strong>缓存驱逐</strong>。</p>
-<p>另一方面，当服务器上面的资源进行了更新，那么缓存中的对应资源也应该被更新，但由于HTTP是C/S模式的协议，服务器更新一个资源时，不可能直接通知客户端更新缓存，<strong>所以双方必须为该资源约定一个过期时间</strong>，在该过期时间之前，该资源（缓存副本）就是新鲜的，当过了过期时间后，该资源（缓存副本）则变为陈旧的<em>。</em></p>
-<p><strong>驱逐算法</strong>用于将陈旧的资源（缓存副本）替换为新鲜的，注意，一个陈旧的资源（缓存副本）是不会直接被清除或忽略的。</p>
-<p>当客户端发起一个请求时，缓存检索到已有一个对应的陈旧资源（缓存副本），则缓存会先将此请求附加一个<code>If-None-Match</code>头，然后发给目标服务器，以此来检查该资源副本是否是依然还是算新鲜的。具体如下：</p>
+<h3 id="HTTP-1-X"><a href="#HTTP-1-X" class="headerlink" title="HTTP/1.X"></a>HTTP/1.X</h3><h4 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h4><p> <code>HTTP/1.0</code>是HTTP协议的第二个版本在1996年发布，如今仍然被广泛使用，尤其是在代理服务器中。相对于<code>HTTP/0.9 </code>增加了如下主要特性：</p>
 <ul>
-<li>若服务器返回了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304"><code>304</code></a> (Not Modified)（该响应不会有带有实体信息），则表示此资源副本是新鲜的，这样一来，可以节省一些带宽。</li>
-<li>若服务器通过<code>If-None-Match</code>或<code> If-Modified-Since</code>判断后发现已过期，那么会带有该资源的实体内容返回。</li>
+<li>协议版本信息现在会随着每个请求发送（<code>HTTP/1.0</code>被追加到了<code>GET</code>行）。</li>
+<li>状态码会在响应开始时发送，使浏览器能了解请求执行成功或失败，并相应调整行为（如更新或使用本地缓存）。</li>
+<li>引入了HTTP头的概念，无论是对于请求还是响应，允许传输元数据，使协议变得非常灵活，更具扩展性。</li>
+<li>在新HTTP头的帮助下，具备了传输除纯文本HTML文件以外其他类型文档的能力（<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a>头）。</li>
 </ul>
-<img src="https://mdn.mozillademos.org/files/13771/HTTPStaleness.png" alt="Show how a proxy cache acts when a doc is not cache, in the cache and fresh, in the cache and stale." style="zoom: 80%;">
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/mypage.html</span> <span class="meta">HTTP/1.0</span></span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>NCSA_Mosaic/2.0 (Windows 3.1)</span><br><span class="line"></span><br><span class="line"><span class="dts"><span class="number">200</span> OK</span></span><br><span class="line"><span class="dts"><span class="symbol">Date:</span> Tue, <span class="number">15</span> Nov <span class="number">1994</span> <span class="number">08</span>:<span class="number">12</span>:<span class="number">31</span> GMT</span></span><br><span class="line"><span class="dts"><span class="symbol">Server:</span> CERN/<span class="number">3.0</span> libwww/<span class="number">2.17</span></span></span><br><span class="line"><span class="dts">Content-Type: text/html</span></span><br><span class="line"><span class="dts"><span class="params">&lt;HTML&gt;</span></span></span><br><span class="line"><span class="dts">一个包含图片的页面</span></span><br><span class="line"><span class="dts">  <span class="params">&lt;IMG SRC="/myimage.gif"&gt;</span></span></span><br><span class="line"><span class="dts"><span class="params">&lt;/HTML&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>对于含有特定头信息的请求，会去<strong>计算缓存寿命</strong>。</p>
-<p><code>Cache-control: max-age=N</code>的头，相应的缓存的寿命就是<code>N</code>。通常情况下，对于不含这个属性的请求则会去查看是否包含<code>Expires</code>属性，通过比较<code>Expires</code>的值和头里面<code>Date</code>属性的值来判断是否缓存还有效。</p>
-<p>如果<code>max-age</code>和<code>expires</code>属性都没有，找找头里的<code>Last-Modified</code>信息。如果有，缓存的寿命就等于头里面<code>Date</code>的值减去<code>Last-Modified</code>的值除以10（注：根据rfc2626其实也就是乘以10%）。</p>
-<p><code>responseTime</code> 表示浏览器接收到此响应的那个时间点。<br>$$<br>expirationTime = responseTime + freshnessLifetime - currentAge<br>$$</p>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>当第一次请求时服务器返回的响应头中没有Cache-Control和Expires或者Cache-Control和Expires过期还或者它的属性设置为no-cache时(即不走强缓存)。那么浏览器第二次请求时就会与服务器进行协商，与服务器端对比判断资源是否进行了修改更新。</p>
-<p>如果服务器端的资源没有修改，那么就会返回304状态码，告诉浏览器可以使用缓存中的数据，这样就减少了服务器的数据传输压力。如果数据有更新就会返回200状态码，服务器就会返回更新后的资源并且将缓存信息一起返回。</p>
-<p>跟协商缓存相关的header头属性有（ETag/If-Not-Match 、Last-Modified/If-Modified-Since）请求头和响应头需要成对出现</p>
-<h5 id="ETag-If-Not-Match、Last-Modified-If-Modified-Since"><a href="#ETag-If-Not-Match、Last-Modified-If-Modified-Since" class="headerlink" title="ETag/If-Not-Match、Last-Modified/If-Modified-Since"></a>ETag/If-Not-Match、Last-Modified/If-Modified-Since</h5><p>作为缓存的一种强校验器，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag"><code>ETag</code></a> 响应头是一个对用户代理(User Agent, 下面简称UA)不透明的值。如果资源请求的响应头里含有ETag, 客户端可以在后续的请求的头中带上 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-None-Match"><code>If-None-Match</code></a> 头来验证缓存。</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified"><code>Last-Modified</code></a> 响应头可以作为一种弱校验器。说它弱是因为它只能精确到一秒。如果响应头里含有这个信息，客户端可以在后续的请求中带上 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since"><code>If-Modified-Since</code></a> 来验证缓存。</p>
+<h4 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP/1.1"></a>HTTP/1.1</h4><p><code>HTTP/1.0</code> 多种不同的实现方式在实际运用中显得有些混乱，自1995年开始，即<code>HTTP/1.0</code>文档发布的下一年，就开始修订HTTP的第一个标准化版本。在1997年初，<code>HTTP1.1</code> 标准发布，就在<code>HTTP/1.0 </code>发布的几个月后。<code>HTTP1.1</code> 是目前使用最广泛的协议版本 。</p>
 <ul>
-<li>浏览器第一次向服务器发送请求时，会在响应头中返回协商缓存的头属性：<code>ETag</code>和<code>Last-Modified</code>,其中<code>ETa</code>g返回的是一个hash值，<code>Last-Modified</code>返回的是GMT格式的最后修改时间。</li>
-<li>浏览器在第二次发送请求的时候，会在请求头中带上与<code>ETag</code>对应的<code>If-Not-Match</code>，其值就是响应头中返回的<code>ETag</code>的值；<code>Last-Modified</code>对应的<code>If-Modified-Since</code>。服务器在接收到这两个参数后会做比较，如果返回的是304状态码，则说明请求的资源没有修改，浏览器可以直接在缓存中取数据，否则，服务器会直接返回数据。</li>
+<li><strong>连接</strong>可以<strong>复用</strong>，节省了多次打开TCP连接加载网页文档资源的时间。</li>
+<li>增加<strong>管线化技术</strong>，允许在第一个应答被完全发送之前就发送第二个请求，以降低通信延迟。</li>
+<li>支持<strong>响应分块</strong>。</li>
+<li>引入<strong>额外的缓存</strong>控制机制。</li>
+<li>引入内容<strong>协商机制</strong>，包括语言，编码，类型等，并允许客户端和服务器之间约定以最合适的内容进行交换。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Host"><code>Host</code></a>头，能够使不同域名配置在同一个IP地址的服务器上。</li>
 </ul>
-<h5 id="Vary响应"><a href="#Vary响应" class="headerlink" title="Vary响应"></a>Vary响应</h5><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Vary"><code>Vary</code></a> HTTP 响应头决定了对于后续的请求头，如何判断是请求一个新的资源还是使用缓存的文件。当缓存服务器收到一个请求，只有当前的<strong>请求</strong>和<strong>原始</strong>（缓存）的<strong>请求头</strong>跟缓存的响应头里的Vary都匹配，才能使用缓存的响应。</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Vary</span><span class="punctuation">: </span>User-Agent</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/en-US/docs/Glossary/Simple_header</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>developer.mozilla.org</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line"><span class="attribute">Accept-Language</span><span class="punctuation">: </span>en-US,en;q=0.5</span><br><span class="line"><span class="attribute">Accept-Encoding</span><span class="punctuation">: </span>gzip, deflate, br</span><br><span class="line"><span class="attribute">Referer</span><span class="punctuation">: </span>https://developer.mozilla.org/en-US/docs/Glossary/Simple_header</span><br></pre></td></tr></tbody></table></figure>
 
-<p>使用vary头有利于内容服务的动态多样性。例如，使用Vary: User-Agent头，缓存服务器需要通过UA判断是否使用缓存的页面。如果需要区分移动端和桌面端的展示内容，利用这种方式就能避免在不同的终端展示错误的布局。另外，它可以帮助 Google 或者其他搜索引擎更好地发现页面的移动版本，并且告诉搜索引擎没有引入<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cloaking">Cloaking</a>。</p>
-<h3 id="HTTP缓存好处"><a href="#HTTP缓存好处" class="headerlink" title="HTTP缓存好处"></a>HTTP缓存好处</h3><ol>
-<li>减少了冗余的数据传输，节省了网费。</li>
-<li>缓解了服务器的压力， 大大提高了网站的性能</li>
-<li>加快了客户端加载网页的速度</li>
-</ol>
-<h3 id="如何使用HTTP"><a href="#如何使用HTTP" class="headerlink" title="如何使用HTTP"></a>如何使用HTTP</h3><p>一般需要缓存的资源有html页面和其他静态资源：</p>
-<h6 id="HTML页面"><a href="#HTML页面" class="headerlink" title="HTML页面"></a>HTML页面</h6><p>禁用缓存的设置：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span> // IE</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"cache-control"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span> // 其他主流浏览器</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Keep-Alive</span><br><span class="line"><span class="attribute">Content-Encoding</span><span class="punctuation">: </span>gzip</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=utf-8</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Wed, 20 Jul 2016 10:55:30 GMT</span><br><span class="line"><span class="attribute">Etag</span><span class="punctuation">: </span>"547fa7e369ef56031dd3bff2ace9fc0832eb251a"</span><br><span class="line"><span class="attribute">Keep-Alive</span><span class="punctuation">: </span>timeout=5, max=1000</span><br><span class="line"><span class="attribute">Last-Modified</span><span class="punctuation">: </span>Tue, 19 Jul 2016 00:59:33 GMT</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>Apache</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Vary</span><span class="punctuation">: </span>Cookie, Accept-Encoding</span><br><span class="line"></span><br><span class="line">(content)</span><br></pre></td></tr></tbody></table></figure>
 
-<p>设置缓存：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Expires"</span> <span class="attr">content</span>=<span class="string">"Mon, 20 Aug 2018 23:00:00 GMT"</span> /&gt;</span> // IE</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Cache-Control"</span> <span class="attr">content</span>=<span class="string">"max-age=7200"</span> /&gt;</span> // 其他主流浏览器</span><br></pre></td></tr></tbody></table></figure>
-
-<h6 id="其他静态资源"><a href="#其他静态资源" class="headerlink" title="其他静态资源"></a>其他静态资源</h6><p>静态资源的缓存一般是在web服务器上配置的，常用的web服务器有：nginx、apache。</p>
+<h4 id="HTTP-1-x缺点"><a href="#HTTP-1-x缺点" class="headerlink" title="HTTP/1.x缺点"></a>HTTP/1.x缺点</h4><ul>
+<li> 队头阻塞<code>Head-Of-Line Blocking</code>：（队头阻塞是指当顺序发送的请求序列中的一个请求因为某种原因被阻塞时，在后面排队的所有请求也一并被阻塞，会导致客户端迟迟收不到数据）；</li>
+<li>以明文文本字符串的形式传输内容，存在安全问题；</li>
+<li><code>http</code>请求头无状态特性 导致传输效率低下 多个http请求头大部分信息是相同的，重复传输，导致宽带浪费.请求头多达几百字节，而请求主体却只有十几个字节，有效信息比很低；</li>
+<li>只能浏览器主动请求响应，不能服务器主动推送信息过来。</li>
+</ul>
+<h3 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p>这些年来，网页愈渐变得的复杂，甚至演变成了独有的应用，可见媒体的播放量，增进交互的脚本大小也增加了许多：更多的数据通过HTTP请求被传输。HTTP/1.1链接需要请求以正确的顺序发送，理论上可以用一些并行的链接（尤其是5到8个），带来的成本和复杂性堪忧。比如，HTTP管线化（pipelining）就成为了Web开发的负担。</p>
+<p><code>HTTP/2</code>在<code>HTTP/1.1</code>有几处基本的不同:</p>
+<ul>
+<li><code>HTTP/2</code>是<strong>二进制协议</strong>而不是文本协议。<strong>不再可读</strong>，也不可无障碍的手动创建，改善的优化技术现在可被实施。</li>
+<li>这是一个<strong>复用协议</strong>。<strong>并行</strong>的请求能在同一个链接中处理，移除了<code>HTTP/1.x</code>中<strong>顺序和阻塞的约束</strong>。</li>
+<li><strong>压缩了headers</strong>。因为headers在一系列请求中常常是相似的，其移除了重复和传输重复数据的成本。</li>
+<li>其允许服务器在客户端缓存中填充数据，通过一个叫服务器推送的机制来<strong>提前请求</strong>。</li>
+</ul>
+<p>在2015年5月正式标准化后，<code>HTTP/2</code>取得了极大的成功，在2016年7月前，8.7%的站点已经在使用它，代表超过68%的请求 。高流量的站点最迅速的普及，在数据传输上节省了可观的成本和支出。</p>
+<h3 id="HTTP-2进化"><a href="#HTTP-2进化" class="headerlink" title="HTTP/2进化"></a>HTTP/2进化</h3><ul>
+<li>对Alt-Svc的支持允许了给定资源的位置和资源鉴定，允许了更智能的<strong>CDN缓冲</strong>机制。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Client-Hints"><code>Client-Hints</code></a> 的引入允许浏览器或者客户端来<strong>主动交流它的需求</strong>，或者是<strong>硬件约束的信息</strong>给服务端。</li>
+<li>在<code>Cookie</code>头中引入<strong>安全</strong>相关的的<strong>前缀</strong>，现在帮助保证一个安全的<code>cookie</code>没被更改过。</li>
+</ul>
 <hr>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/227cee9c8d15">https://www.jianshu.com/p/227cee9c8d15</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fb59c770160c">https://www.jianshu.com/p/fb59c770160c</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37387316">https://zhuanlan.zhihu.com/p/37387316</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43787334">https://zhuanlan.zhihu.com/p/43787334</a></li>
 <li>MDN</li>
 </ul>
 
@@ -374,7 +347,6 @@
 
           <div class="post-tags">
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
-              <a href="/tags/HTTP%E7%BC%93%E5%AD%98/" rel="tag"># HTTP缓存</a>
               <a href="/tags/HTTP/" rel="tag"># HTTP</a>
           </div>
 
@@ -418,13 +390,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">23k</span>
+    <span title="Symbols count total">26k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">21 mins.</span>
+    <span title="Reading time total">24 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
