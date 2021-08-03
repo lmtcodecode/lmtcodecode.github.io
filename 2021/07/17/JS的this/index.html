@@ -20,15 +20,15 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于JS的this关键字。">
+<meta name="description" content="本篇文章给大家带来的内容是关于JS的this关键字。 this关键字是JavaScript中最复杂的机制之一，与其他语言相比，函数的 this 关键字在 JavaScript 中的表现略有不同，此外，在严格模式和非严格模式之间也会有一些差别。this是很特殊的关键字，被自动定义在所有函数的作用域中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS的this关键字">
 <meta property="og:url" content="http://lmtcodecode.com/2021/07/17/JS%E7%9A%84this/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的this关键字。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的this关键字。 this关键字是JavaScript中最复杂的机制之一，与其他语言相比，函数的 this 关键字在 JavaScript 中的表现略有不同，此外，在严格模式和非严格模式之间也会有一些差别。this是很特殊的关键字，被自动定义在所有函数的作用域中。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-17T12:41:31.000Z">
-<meta property="article:modified_time" content="2021-07-29T05:29:20.398Z">
+<meta property="article:modified_time" content="2021-08-03T08:04:45.147Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="JS知识点">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -225,7 +225,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-29 13:29:20" itemprop="dateModified" datetime="2021-07-29T13:29:20+08:00">2021-07-29</time>
+        <time title="Modified: 2021-08-03 16:04:45" itemprop="dateModified" datetime="2021-08-03T16:04:45+08:00">2021-08-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,6 +234,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
         </span>
     </span>
 
@@ -270,9 +274,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本篇文章给大家带来的内容是关于JS的this关键字。</p>
+<p>this关键字是JavaScript中最复杂的机制之一，与其他语言相比，函数的 <code>this</code> 关键字在 JavaScript 中的表现略有不同，此外，在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式</a>和非严格模式之间也会有一些差别。<code>this</code>是很特殊的关键字，被自动定义在所有函数的作用域中。</p>
 <span id="more"></span>
 
-<p>this关键字是JavaScript中最复杂的机制之一，与其他语言相比，函数的 <code>this</code> 关键字在 JavaScript 中的表现略有不同，此外，在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式</a>和非严格模式之间也会有一些差别。<code>this</code>是很特殊的关键字，被自动定义在所有函数的作用域中。</p>
 <h4 id="为什么要用this？"><a href="#为什么要用this？" class="headerlink" title="为什么要用this？"></a>为什么要用this？</h4><p>this为我们提供了一种更优雅的方式来隐式”传递“一个对象引用，可以将API设计的简介且易于复用。</p>
 <h4 id="this绑定"><a href="#this绑定" class="headerlink" title="this绑定"></a>this绑定</h4><h5 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h5><p>最常见的函数调用类型：独立函数调用。</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> s = <span class="number">2</span>;</span><br><span class="line">foo(); <span class="comment">// 2，函数调用时应用了默认绑定，this指向全局对象</span></span><br></pre></td></tr></tbody></table></figure>

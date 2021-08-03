@@ -20,15 +20,15 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于JS的undefined。">
+<meta name="description" content="本篇文章给大家带来的内容是关于JS的undefined。 在ECMAScript中有六种基本数据类型: Undefined、Null、Boolean、Number 、String、Symbol 。还有一种复杂数据类型——Object。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的undefined">
 <meta property="og:url" content="http://lmtcodecode.com/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的undefined。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于JS的undefined。 在ECMAScript中有六种基本数据类型: Undefined、Null、Boolean、Number 、String、Symbol 。还有一种复杂数据类型——Object。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-24T03:35:29.000Z">
-<meta property="article:modified_time" content="2021-07-26T08:36:38.932Z">
+<meta property="article:modified_time" content="2021-08-03T08:03:03.187Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="JS知识点">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81JS%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">一、JS的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Undefined-%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、Undefined 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81undefined%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">三、undefined的使用</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined-%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">Undefined 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">undefined的使用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -141,7 +141,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -225,7 +225,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-26 16:36:38" itemprop="dateModified" datetime="2021-07-26T16:36:38+08:00">2021-07-26</time>
+        <time title="Modified: 2021-08-03 16:03:03" itemprop="dateModified" datetime="2021-08-03T16:03:03+08:00">2021-08-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,6 +234,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
         </span>
     </span>
 
@@ -251,7 +255,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>908</span>
+      <span>895</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -270,16 +274,16 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本篇文章给大家带来的内容是关于JS的undefined。</p>
+<p>在ECMAScript中有六种基本数据类型: <code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 、<code>String</code>、<code>Symbol </code>。还有一种复杂数据类型——<code>Object</code>。</p>
 <span id="more"></span>
 
-<h4 id="一、JS的数据类型"><a href="#一、JS的数据类型" class="headerlink" title="一、JS的数据类型"></a>一、JS的数据类型</h4><p>在ECMAScript中有六种基本数据类型: <code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 、<code>String</code>、<code>Symbol </code>。还有一种复杂数据类型——<code>Object</code>。</p>
-<h4 id="二、Undefined-类型"><a href="#二、Undefined-类型" class="headerlink" title="二、Undefined 类型"></a>二、Undefined 类型</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p><code>undefined</code>既是一个原始数据类型，也是一个原始值数据；<code>undefined</code>也是全局对象的一个属性(<code>window.undefined</code>)。</p>
+<h4 id="Undefined-类型"><a href="#Undefined-类型" class="headerlink" title="Undefined 类型"></a>Undefined 类型</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p><code>undefined</code>既是一个原始数据类型，也是一个原始值数据；<code>undefined</code>也是全局对象的一个属性(<code>window.undefined</code>)。</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>{</span><br><span class="line">    <span class="comment">//若变量没有被赋值，默认值为undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//一个函数如果没有使用返回语句指定返回值，就会返回一个未定义的值。</span></span><br><span class="line">test();<span class="comment">// 返回"undefined"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 虽然在JS中undefined不是保留字，但不要这样做！</span></span><br><span class="line"><span class="keyword">var</span> <span class="literal">undefined</span> = <span class="string">'foo'</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 <h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><p><code>undefined</code>是一个不能被<strong>配置</strong>（non-configurable），不能被<strong>重写</strong>（non-writable），不能被<strong>枚举</strong>（non-enumerable）的属性。</p>
-<h4 id="三、undefined的使用"><a href="#三、undefined的使用" class="headerlink" title="三、undefined的使用"></a>三、undefined的使用</h4><ul>
+<h4 id="undefined的使用"><a href="#undefined的使用" class="headerlink" title="undefined的使用"></a>undefined的使用</h4><ul>
 <li>可以使用<code>undefined</code>和<code>===</code>或<code>!==</code>操作符来决定一个变量是否拥有值。</li>
 </ul>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) {</span><br><span class="line"><span class="comment">// 执行这些语句</span></span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line"><span class="comment">// 这些语句不会被执行</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -328,8 +332,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/" rel="next" title="算法导论之图论(granph theory)">
-                  算法导论之图论(granph theory) <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/" rel="next" title="图论（一）">
+                  图论（一） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -20,18 +20,18 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="本篇文章给大家带来的内容是关于图论(granph theory)，主要介绍图的表示和图的搜索。">
+<meta name="description" content="本篇文章给大家带来的内容是关于图论(granph theory)的第一部分，主要介绍图的表示和图的搜索。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论之图论(granph theory)">
+<meta property="og:title" content="图论（一）">
 <meta property="og:url" content="http://lmtcodecode.com/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="本篇文章给大家带来的内容是关于图论(granph theory)，主要介绍图的表示和图的搜索。">
+<meta property="og:description" content="本篇文章给大家带来的内容是关于图论(granph theory)的第一部分，主要介绍图的表示和图的搜索。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="d:/lmtcodecode/blog/public/images/markdown/algorithm_45.jpg">
 <meta property="og:image" content="d:/lmtcodecode/blog/public/images/markdown/algorithm_46.jpg">
 <meta property="og:image" content="c:/Users/美彤柚子/Desktop/图论.png">
 <meta property="article:published_time" content="2021-07-28T02:55:08.000Z">
-<meta property="article:modified_time" content="2021-07-28T09:56:21.854Z">
+<meta property="article:modified_time" content="2021-08-03T08:00:22.067Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -42,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/","path":"2021/07/28/图论算法-granph-theory/","title":"算法导论之图论(granph theory)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/","path":"2021/07/28/图论算法-granph-theory/","title":"图论（一）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>算法导论之图论(granph theory) | Lmt-codecode</title>
+<title>图论（一） | Lmt-codecode</title>
   
 
 
@@ -145,7 +145,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -211,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          算法导论之图论(granph theory)
+          图论（一）
         </h1>
 
         <div class="post-meta-container">
@@ -221,10 +221,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-07-28 10:55:08 / Modified: 17:56:21" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
+      <time title="Created: 2021-07-28 10:55:08" itemprop="dateCreated datePublished" datetime="2021-07-28T10:55:08+08:00">2021-07-28</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 16:00:22" itemprop="dateModified" datetime="2021-08-03T16:00:22+08:00">2021-08-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -232,6 +238,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
           <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%9B%BE/" itemprop="url" rel="index"><span itemprop="name">图</span></a>
         </span>
     </span>
 
@@ -267,7 +277,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本篇文章给大家带来的内容是关于图论(granph theory)，主要介绍图的表示和图的搜索。</p>
+        <p>本篇文章给大家带来的内容是关于图论(granph theory)的第一部分，主要介绍图的表示和图的搜索。</p>
 <span id="more"></span>
 
 <h4 id="一、图的简介"><a href="#一、图的简介" class="headerlink" title="一、图的简介"></a>一、图的简介</h4><p>图论〔Graph Theory〕是数学的一个分支。它以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE/13018767">图</a>为研究对象。</p>
