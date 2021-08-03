@@ -20,23 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lmt-codecode">
-<meta property="og:url" content="http://lmtcodecode.com/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%A6%82%E5%BF%B5/index.html">
+<meta name="description" content="Angular 是一个基于 TypeScript构建的开发平台。它包括：  一个基于组件的框架，用于构建可伸缩的 Web 应用； 一组完美集成的库，涵盖各种功能，包括路由、表单管理、客户端-服务器通信等； 一套开发工具，可帮助你开发、构建、测试和更新代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular指令-内置指令">
+<meta property="og:url" content="http://lmtcodecode.com/2021/08/01/Angular%E6%8C%87%E4%BB%A4-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="Angular 是一个基于 TypeScript构建的开发平台。它包括：  一个基于组件的框架，用于构建可伸缩的 Web 应用； 一组完美集成的库，涵盖各种功能，包括路由、表单管理、客户端-服务器通信等； 一套开发工具，可帮助你开发、构建、测试和更新代码。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-01T02:41:05.000Z">
+<meta property="article:modified_time" content="2021-08-03T14:16:05.146Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%A6%82%E5%BF%B5/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/08/01/Angular%E6%8C%87%E4%BB%A4-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/前端/Angular框架/Angular概念/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/01/Angular%E6%8C%87%E4%BB%A4-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/","path":"2021/08/01/Angular指令-内置指令/","title":"Angular指令-内置指令"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: Angular概念 | Lmt-codecode</title>
+<title>Angular指令-内置指令 | Lmt-codecode</title>
   
 
 
@@ -102,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">内置指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%9E%8B%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">内置属性型指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NgClass%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4%E7%B1%BB"><span class="nav-number">1.1.1.</span> <span class="nav-text">NgClass添加和删除类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NgStyle%E8%AE%BE%E7%BD%AE%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">NgStyle设置内联样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8-ngModel-%E6%98%BE%E7%A4%BA%E5%92%8C%E6%9B%B4%E6%96%B0%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.3.</span> <span class="nav-text">用 ngModel 显示和更新属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NgModel%E7%9A%84%E5%80%BC%E8%AE%BF%E9%97%AE%E5%99%A8"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">NgModel的值访问器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E7%BB%93%E6%9E%84%E5%9E%8B%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">内置结构型指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8NgIf%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.1.</span> <span class="nav-text">用NgIf添加或删除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2null"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">防止null</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NgFor%E6%9D%A1%E7%9B%AE%E5%88%97%E8%A1%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">NgFor条目列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%8D%E5%86%99%E7%BB%84%E4%BB%B6%E8%A7%86%E5%9B%BE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">复写组件视图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-ngFor-%E7%9A%84-index"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">获取 *ngFor 的 index</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%93%E6%9D%A1%E4%BB%B6%E4%B8%BA%E7%9C%9F%E6%97%B6%E5%A4%8D%E5%86%99%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">当条件为真时复写元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8-ngFor-%E7%9A%84-trackBy-%E8%B7%9F%E8%B8%AA%E6%9D%A1%E7%9B%AE"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">用 *ngFor 的 trackBy 跟踪条目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E6%B2%A1%E6%9C%89-DOM-%E5%85%83%E7%B4%A0%E7%9A%84%E6%8C%87%E4%BB%A4%E5%AE%89%E6%8E%92%E5%AE%BF%E4%B8%BB"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">为没有 DOM 元素的指令安排宿主</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NgSwitch"><span class="nav-number">1.2.3.</span> <span class="nav-text">NgSwitch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,102 +183,294 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Angular概念
-          <small>Category</small>
-        </h2>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/01/Angular%E6%8C%87%E4%BB%A4-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my.gif">
+      <meta itemprop="name" content="美彤·柚子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lmt-codecode">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Angular指令-内置指令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-01 10:41:05" itemprop="dateCreated datePublished" datetime="2021-08-01T10:41:05+08:00">2021-08-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 22:16:05" itemprop="dateModified" datetime="2021-08-03T22:16:05+08:00">2021-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%8C%87%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">Angular指令</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>7.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time ≈</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Angular 是一个基于 <code>TypeScript</code>构建的开发平台。它包括：</p>
+<ul>
+<li>一个基于组件的框架，用于构建可伸缩的 Web 应用；</li>
+<li>一组完美集成的库，涵盖各种功能，包括路由、表单管理、客户端-服务器通信等；</li>
+<li>一套开发工具，可帮助你开发、构建、测试和更新代码。</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="内置指令"><a href="#内置指令" class="headerlink" title="内置指令"></a>内置指令</h2><p>指令是为 Angular 应用程序中的元素添加额外行为的类。使用 Angular 的内置指令，你可以管理表单、列表、样式以及要让用户看到的任何内容。</p>
+<p>Angular 指令的不同类型如下：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/component-overview">组件</a> —— 带有模板的指令。这种指令类型是最常见的指令类型。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#built-in-attribute-directives">属性型指令</a> —— 更改元素、组件或其他指令的外观或行为的指令。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#built-in-structural-directives">结构型指令</a> —— 通过添加和删除 DOM 元素来更改 DOM 布局的指令。</li>
+</ol>
+<h3 id="内置属性型指令"><a href="#内置属性型指令" class="headerlink" title="内置属性型指令"></a>内置属性型指令</h3><p>属性型指令会监听并修改其它 HTML 元素和组件的行为、Attribute 和 Property。</p>
+<p>许多 NgModule（例如 <a target="_blank" rel="noopener" href="https://angular.cn/guide/router"><code>RouterModule</code></a> 和 <a target="_blank" rel="noopener" href="https://angular.cn/guide/forms"><code>FormsModule</code></a> 都定义了自己的属性型指令。最常见的属性型指令如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngClass"><code>NgClass</code></a> —— 添加和删除一组 CSS 类。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngstyle"><code>NgStyle</code></a> —— 添加和删除一组 HTML 样式。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngModel"><code>NgModel</code></a> —— 将数据双向绑定添加到 HTML 表单元素。</li>
+</ul>
+<h4 id="NgClass添加和删除类"><a href="#NgClass添加和删除类" class="headerlink" title="NgClass添加和删除类"></a><code>NgClass</code>添加和删除类</h4><p>用 <code>ngClass</code> 同时添加或删除多个 CSS 类。单个类请使用类绑定。</p>
+<h5 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h5><p>在要设置样式的元素上，添加 <code>[ngClass]</code> 并将其设置为等于某个表达式。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- isSpecial是布尔值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngClass</span>]=<span class="string">"isSpecial ? 'special' : ''"</span>&gt;</span>This div is special<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>要将 <code>NgClass</code> 与方法一起使用，请将方法添加到组件类中。在下面的示例中，<code>setCurrentClasses()</code> 使用一个对象来设置属性 <code>currentClasses</code>，该对象根据另外三个组件属性为 <code>true</code> 或 <code>false</code> 来添加或删除三个 CSS 类。</p>
+<p>该对象的每个键（key）都是一个 CSS 类名。如果键为 <code>true</code>，则 <code>ngClass</code> 添加该类。如果键为 <code>false</code>，则 <code>ngClass</code> 删除该类。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">currentClasses: Record&lt;string, boolean&gt; = {};</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">  <span class="function"><span class="title">setCurrentClasses</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="comment">// CSS classes: added/removed per current state of component properties</span></span><br><span class="line">    <span class="built_in">this</span>.currentClasses =  {</span><br><span class="line">      <span class="attr">saveable</span>: <span class="built_in">this</span>.canSave,</span><br><span class="line">      <span class="attr">modified</span>: !<span class="built_in">this</span>.isUnchanged,</span><br><span class="line">      <span class="attr">special</span>:  <span class="built_in">this</span>.isSpecial</span><br><span class="line">    };</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在模板中，把 <code>ngClass</code> 属性绑定到 <code>currentClasses</code>，根据它来设置此元素的 CSS 类：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngClass</span>]=<span class="string">"currentClasses"</span>&gt;</span></span><br><span class="line">    This div is initially saveable, unchanged, and special.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子中，Angular 会在初始化以及发生更改的情况下应用这些类。完整的示例会在 <code>ngOnInit()</code> 中进行初始化以及通过单击按钮更改相关属性时调用 <code>setCurrentClasses()</code>。这些步骤对于实现 <code>ngClass</code> 不是必需的。</p>
+<h4 id="NgStyle设置内联样式"><a href="#NgStyle设置内联样式" class="headerlink" title="NgStyle设置内联样式"></a><code>NgStyle</code>设置内联样式</h4><p>要使用 <code>NgStyle</code>，请向组件类添加一个方法。</p>
+<p>在下面的例子中，<code>setCurrentStyles()</code> 方法基于该组件另外三个属性的状态，用一个定义了三个样式的对象设置了 <code>currentStyles</code> 属性。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">currentStyles: Record&lt;string, string&gt; = {};</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">  <span class="function"><span class="title">setCurrentStyles</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="comment">// CSS styles: set per current state of component properties</span></span><br><span class="line">    <span class="built_in">this</span>.currentStyles = {</span><br><span class="line">      <span class="string">'font-style'</span>:  <span class="built_in">this</span>.canSave      ? <span class="string">'italic'</span> : <span class="string">'normal'</span>,</span><br><span class="line">      <span class="string">'font-weight'</span>: !<span class="built_in">this</span>.isUnchanged ? <span class="string">'bold'</span>   : <span class="string">'normal'</span>,</span><br><span class="line">      <span class="string">'font-size'</span>:   <span class="built_in">this</span>.isSpecial    ? <span class="string">'24px'</span>   : <span class="string">'12px'</span></span><br><span class="line">    };</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>要设置元素的样式，请将 <code>ngStyle</code> 属性绑定到 <code>currentStyles</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngStyle</span>]=<span class="string">"currentStyles"</span>&gt;</span></span><br><span class="line">  This div is initially italic, normal weight, and extra large (24px).</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子中，Angular 会在初始化以及发生更改的情况下应用这些类。完整的示例会在 <code>ngOnInit()</code> 中进行初始化以及通过单击按钮更改相关属性时调用 <code>setCurrentClasses()</code>。这些步骤对于实现 <code>ngClass</code> 不是必需的。</p>
+<h4 id="用-ngModel-显示和更新属性"><a href="#用-ngModel-显示和更新属性" class="headerlink" title="用 ngModel 显示和更新属性"></a>用 <code>ngModel</code> 显示和更新属性</h4><p>你可以使用 <code>NgModel</code> 指令显示数据属性，并在用户进行更改时更新该属性。</p>
+<p>导入 <code>FormsModule</code>，并将其添加到 NgModule 的 <code>imports</code> 列表中。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { FormsModule } <span class="keyword">from</span> <span class="string">'@angular/forms'</span>; <span class="comment">// &lt;--- JavaScript import from Angular</span></span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">@NgModule({</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">    BrowserModule,</span><br><span class="line">    FormsModule <span class="comment">// &lt;--- import into the NgModule</span></span><br><span class="line">  ],</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>{ }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在 HTML 的 <code>&lt;form&gt;</code> 元素上添加 <code>[(ngModel)]</code> 绑定，并将其设置为等于此属性，这里是 <code>name</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"example-ngModel"</span>&gt;</span>[(ngModel)]:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> [(<span class="attr">ngModel</span>)]=<span class="string">"currentItem.name"</span> <span class="attr">id</span>=<span class="string">"example-ngModel"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>此 <code>[(ngModel)]</code> 语法只能设置数据绑定属性。</p>
+<p>要自定义配置，你可以编写可展开的表单，该表单将属性绑定和事件绑定分开。使用<a target="_blank" rel="noopener" href="https://angular.cn/guide/property-binding">属性绑定</a>来设置属性，并使用<a target="_blank" rel="noopener" href="https://angular.cn/guide/event-binding">事件绑定</a>来响应更改。以下示例将 <code>&lt;input&gt;</code> 值更改为大写：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> [<span class="attr">ngModel</span>]=<span class="string">"currentItem.name"</span> </span></span><br><span class="line"><span class="tag">       (<span class="attr">ngModelChange</span>)=<span class="string">"setUppercaseName($event)"</span> <span class="attr">id</span>=<span class="string">"example-uppercase"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="NgModel的值访问器"><a href="#NgModel的值访问器" class="headerlink" title="NgModel的值访问器"></a><code>NgModel的值访问器</code></h5><p><code>NgModel</code> 指令适用于<a target="_blank" rel="noopener" href="https://angular.cn/api/forms/ControlValueAccessor">ControlValueAccessor</a>支持的元素。Angular 为所有基本 HTML 表单元素提供了<em>值访问器。</em>有关更多信息，请参见<a target="_blank" rel="noopener" href="https://angular.cn/guide/forms">Forms</a>。</p>
+<p>要将 <code>[(ngModel)]</code> 应用于非格式本机元素或第三方自定义组件，必须编写一个值访问器。有关更多信息，请参见<a target="_blank" rel="noopener" href="https://angular.cn/api/forms/DefaultValueAccessor">DefaultValueAccessor</a>上的 API 文档。</p>
+<blockquote>
+<p>编写 Angular 组件时，如果根据 Angular 的<a target="_blank" rel="noopener" href="https://angular.cn/guide/two-way-binding#how-two-way-binding-works">双向绑定语法</a>命名 value 和 event 属性，则不需要用值访问器（ControlValueAccessor）或 <code>NgModel</code>。</p>
+</blockquote>
+<hr>
+<h3 id="内置结构型指令"><a href="#内置结构型指令" class="headerlink" title="内置结构型指令"></a>内置结构型指令</h3><p>结构型指令的职责是 HTML 布局。 它们塑造或重塑 DOM 的<em>结构</em>，这通常是通过添加、移除和操纵它们所附加到的宿主元素来实现的。</p>
+<p>本节会介绍最常见的内置结构型指令：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngIf"><code>NgIf</code></a> —— 从模板中创建或销毁子视图。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngFor"><code>NgFor</code></a> —— 为列表中的每个条目重复渲染一个节点。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives#ngSwitch"><code>NgSwitch</code></a> —— 一组在备用视图之间切换的指令。</li>
+</ul>
+<h4 id="用NgIf添加或删除元素"><a href="#用NgIf添加或删除元素" class="headerlink" title="用NgIf添加或删除元素"></a>用<code>NgIf</code>添加或删除元素</h4><p>如果 <code>NgIf</code> 为 <code>false</code>，则 Angular 将从 DOM 中<strong>移除</strong>一个元素及其后代。然后，Angular 会销毁其组件，从而释放内存和资源。</p>
+<p>要添加或删除元素，请在以下示例 <code>*ngIf</code> 绑定到条件表达式，例如 <code>isActive</code></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-item-detail</span> *<span class="attr">ngIf</span>=<span class="string">"isActive"</span> [<span class="attr">item</span>]=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-item-detail</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>当 <code>isActive</code> 表达式返回真值时，<code>NgIf</code> 会把 <code>ItemDetailComponent</code> 添加到 DOM 中。当表达式为假值时，<code>NgIf</code> 会从 <strong>DOM 中删除</strong> <code>ItemDetailComponent</code> 并<strong>销毁</strong>该组件及其所有子组件。</p>
+<h5 id="防止null"><a href="#防止null" class="headerlink" title="防止null"></a>防止null</h5><p>默认情况下，<code>NgIf</code> 会阻止显示已绑定到空值的元素。</p>
+<p>要使用 <code>NgIf</code> 保护 <code>&lt;div&gt;</code>，请将 <code>*ngIf="yourProperty"</code> 添加到此 <code>&lt;div&gt;</code>。在下面的例子中，<code>currentCustomer</code> 名字出现了，是因为确实存在一个 <code>currentCustomer</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">"currentCustomer"</span>&gt;</span>Hello, {{currentCustomer.name}}<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>但是，如果该属性为 <code>null</code>，则 Angular 就不会显示 <code>&lt;div&gt;</code>。在这个例子中，Angular 就不会显示 <code>nullCustomer</code>，因为它为 <code>null</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">"nullCustomer"</span>&gt;</span>Hello, <span class="tag">&lt;<span class="name">span</span>&gt;</span>{{nullCustomer}}<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="NgFor条目列表"><a href="#NgFor条目列表" class="headerlink" title="NgFor条目列表"></a><code>NgFor</code>条目列表</h4><ol>
+<li>定义一个 HTML 块，该块会决定 Angular 如何渲染单个条目。</li>
+<li>要列出你的条目，请把一个简写形式 <code>let item of items</code> 赋值给 <code>*ngFor</code>。</li>
+</ol>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意要声明一下 let item --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items"</span>&gt;</span>{{item.name}}<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>字符串 <code>"let item of items"</code> 会指示 Angular 执行以下操作：</p>
+<ul>
+<li>将 <code>items</code> 中的每个条目存储在局部循环变量 <code>item</code> 中</li>
+<li>让每个条目都可用于每次迭代时的模板 HTML 中</li>
+<li>将 <code>"let item of items"</code> 转换为环绕宿主元素的 <code>&lt;ng-template&gt;</code></li>
+<li>对列表中的每个 <code>item</code> 复写这个 <code>&lt;ng-template&gt;</code></li>
+</ul>
+<h5 id="复写组件视图"><a href="#复写组件视图" class="headerlink" title="复写组件视图"></a>复写组件视图</h5><p>要复写某个组件元素，请将 <code>*ngFor</code> 应用于其选择器。在以下示例中，选择器为 <code>&lt;app-item-detail&gt;</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-item-detail</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items"</span> [<span class="attr">item</span>]=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-item-detail</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>你可以在以下位置引用模板输入变量，例如 <code>item</code>：</p>
+<ul>
+<li>在 <code>ngFor</code> 的宿主元素中</li>
+<li>在宿主元素的后代中，用以访问条目的属性</li>
+</ul>
+<p>以下示例首先在插值中引用 <code>item</code>，然后将它通过绑定传递给 <code>&lt;app-item-detail&gt;</code> 组件的 <code>item</code> 属性。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items"</span>&gt;</span>{{item.name}}<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- . . . --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app-item-detail</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items"</span> [<span class="attr">item</span>]=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-item-detail</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="获取-ngFor-的-index"><a href="#获取-ngFor-的-index" class="headerlink" title="获取 *ngFor 的 index"></a>获取 <code>*ngFor</code> 的 <code>index</code></h5><p>在 <code>*ngFor</code> 中，添加一个分号和 <code>let i=index</code> 简写形式。下面的例子中把 <code>index</code> 取到一个名为 <code>i</code> 的变量中，并将其与条目名称一起显示。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items; let i=index"</span>&gt;</span>{{i + 1}} - {{item.name}}<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意：需要用分号隔开</p>
+</blockquote>
+<p><code>NgFor</code> 指令上下文的 <code>index</code> 属性在每次迭代中都会返回该条目的从零开始的索引号。</p>
+<p>Angular 会将此指令转换为 <code>&lt;ng-template&gt;</code>，然后反复使用此模板为列表中的每个 <code>item</code> 创建一组新的元素和绑定。</p>
+<h5 id="当条件为真时复写元素"><a href="#当条件为真时复写元素" class="headerlink" title="当条件为真时复写元素"></a>当条件为真时复写元素</h5><p>要在特定条件为 true 时复写 HTML 块，请将 <code>*ngIf</code> 放在 <code>*ngFor</code> 元素的容器元素上。它们之一或两者都可以是 <code>&lt;ng-container&gt;</code>，这样你就不必引入额外的 HTML 层次了。</p>
+<blockquote>
+<p>由于结构型指令会在 DOM 中添加和删除节点，因此每个元素<strong>只能应用一个结构型指令</strong>。</p>
+</blockquote>
+<h5 id="用-ngFor-的-trackBy-跟踪条目"><a href="#用-ngFor-的-trackBy-跟踪条目" class="headerlink" title="用 *ngFor 的 trackBy 跟踪条目"></a>用 <code>*ngFor</code> 的 <code>trackBy</code> 跟踪条目</h5><p>通过跟踪对条目列表的更改，可以减少应用程序对服务器的调用次数。使用 <code>*ngFor</code> 的 <code>trackBy</code> 属性，Angular <strong>只能更改和重新渲染已更改的条目，而不必重新加载整个条目列表。</strong>（有点vue的:key的意思）</p>
+<p>向该组件添加一个方法，该方法返回 <code>NgFor</code> 应该跟踪的值。这个例子中，该值是英雄的 <code>id</code>。如果浏览器已经渲染过此 <code>id</code>，Angular 就会跟踪它，而不会重新向服务器查询相同的 <code>id</code>。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trackByItems(index: <span class="built_in">number</span>, <span class="attr">item</span>: Item): <span class="built_in">number</span> { <span class="keyword">return</span> item.id; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在简写表达式中，将 <code>trackBy</code> 设置为 <code>trackByItems()</code> 方法。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let item of items; trackBy: trackByItems"</span>&gt;</span></span><br><span class="line">  ({{item.id}}) {{item.name}}</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="为没有-DOM-元素的指令安排宿主"><a href="#为没有-DOM-元素的指令安排宿主" class="headerlink" title="为没有 DOM 元素的指令安排宿主"></a>为没有 DOM 元素的指令安排宿主</h5><p>Angular 的 <code>&lt;ng-container&gt;</code> 是一个分组元素，它不会干扰样式或布局，因为 Angular 不会将其放置在 DOM 中。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  I turned the corner</span><br><span class="line">  <span class="tag">&lt;<span class="name">ng-container</span> *<span class="attr">ngIf</span>=<span class="string">"hero"</span>&gt;</span></span><br><span class="line">    and saw {{hero.name}}. I waved</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ng-container</span>&gt;</span></span><br><span class="line">  and continued on my way.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="NgSwitch"><a href="#NgSwitch" class="headerlink" title="NgSwitch"></a><code>NgSwitch</code></h4><p>就像 JavaScript 的 <code>switch</code> 语句一样。<code>NgSwitch</code> 会根据切换条件显示几个可能的元素中的一个。Angular 只会将选定的元素放入 DOM。</p>
+<p><code>NgSwitch</code> 是一组指令（共三个）：</p>
+<ul>
+<li><code>NgSwitch</code> —— 一个属性型指令，它更改其伴生指令的行为。</li>
+<li><code>NgSwitchCase</code> —— 结构型指令，当其绑定值等于开关值时将其元素添加到 DOM 中，而在其不等于开关值时将其绑定值移除。</li>
+<li><code>NgSwitchDefault</code> —— 结构型指令，当没有选中的 <code>NgSwitchCase</code> 时，将其宿主元素添加到 DOM 中。</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngSwitch</span>]=<span class="string">"currentItem.feature"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-stout-item</span>    *<span class="attr">ngSwitchCase</span>=<span class="string">"'stout'"</span>    [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-stout-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-device-item</span>   *<span class="attr">ngSwitchCase</span>=<span class="string">"'slim'"</span>     [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-device-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-lost-item</span>     *<span class="attr">ngSwitchCase</span>=<span class="string">"'vintage'"</span>  [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-lost-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-best-item</span>     *<span class="attr">ngSwitchCase</span>=<span class="string">"'bright'"</span>   [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-best-item</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- . . . --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-unknown-item</span>  *<span class="attr">ngSwitchDefault</span>           [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-unknown-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在父组件中，定义 <code>currentItem</code> 以便可以在 <code>[ngSwitch]</code> 表达式中使用它。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 感叹号是非null和非undefined的类型断言</span></span><br><span class="line">currentItem!: Item;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在每个子组件中，添加一个<a target="_blank" rel="noopener" href="https://angular.cn/guide/inputs-outputs#input">输入属性</a> <code>item</code>，该属性会绑定到父组件的 <code>currentItem</code>。以下两个片段显示了父组件和其中一个子组件。其他子组件与 <code>StoutItemComponent</code> 中的相同。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">StoutItemComponent</span> </span>{</span><br><span class="line">  <span class="meta">@Input</span>() item!: Item;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Switch 指令也同样适用于原生 HTML 元素和 Web Component。 比如，你可以像下面的例子中一样把 <code>&lt;app-best-item&gt;</code> 分支替换为 <code>&lt;div&gt;</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'bright'"</span>&gt;</span> Are you as bright as {{currentItem.name}}?<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated" datetime="2021-07-27T21:19:14+08:00" content="2021-07-27">
-          07-27
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>我很可爱 请给我钱</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.png" alt="美彤·柚子 Alipay">
+        <span>Alipay</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/" itemprop="url">
-            <span itemprop="name">Angular概念-模板变量</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated" datetime="2021-07-27T19:38:44+08:00" content="2021-07-27">
-          07-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/" itemprop="url">
-            <span itemprop="name">Angular概念-事件绑定原理</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated" datetime="2021-07-27T19:38:05+08:00" content="2021-07-27">
-          07-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E7%BB%84%E4%BB%B6%E7%AE%80%E4%BB%8B/" itemprop="url">
-            <span itemprop="name">Angular概念-组件简介</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated" datetime="2021-07-27T19:23:31+08:00" content="2021-07-27">
-          07-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/" itemprop="url">
-            <span itemprop="name">Angular概念-模块简介</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/" rel="prev" title="Angular模板语法-属性绑定">
+                  <i class="fa fa-chevron-left"></i> Angular模板语法-属性绑定
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/03/Angular-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EID%E7%AE%80%E4%BB%8B/" rel="next" title="Angular-服务器与ID简介">
+                  Angular-服务器与ID简介 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>

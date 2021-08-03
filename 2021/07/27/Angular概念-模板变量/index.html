@@ -20,22 +20,25 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="模板变量可以帮助你在模板的另一部分使用这个部分的数据。使用模板变量，你可以执行某些任务，比如响应用户输入或微调应用的表单。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular概念-模板变量">
-<meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/index.html">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="模板变量可以帮助你在模板的另一部分使用这个部分的数据。使用模板变量，你可以执行某些任务，比如响应用户输入或微调应用的表单。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T13:19:14.000Z">
-<meta property="article:modified_time" content="2021-08-03T13:19:14.076Z">
+<meta property="article:published_time" content="2021-07-27T13:19:14.000Z">
+<meta property="article:modified_time" content="2021-08-03T14:08:23.654Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/08/03/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/03/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/","path":"2021/08/03/Angular概念-模板变量/","title":"Angular概念-模板变量"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/","path":"2021/07/27/Angular概念-模板变量/","title":"Angular概念-模板变量"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Angular概念-模板变量 | Lmt-codecode</title>
@@ -104,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%BA%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%E7%9A%84%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">Angular 是如何为模板变量赋值的（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86-NgForm-%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">将 NgForm 与模板变量一起使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">3.</span> <span class="nav-text">模板变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%B5%8C%E5%A5%97%E6%A8%A1%E6%9D%BF%E7%A7%8D%E8%AE%BF%E9%97%AE"><span class="nav-number">3.1.</span> <span class="nav-text">在嵌套模板种访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-lt-ng-template-gt-%E7%9A%84%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">访问 &lt;ng-template&gt; 的模板变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%BE%93%E5%85%A5%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">模板输入变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -137,7 +141,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -190,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/03/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E6%9D%BF%E5%8F%98%E9%87%8F/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -214,7 +218,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-03 21:19:14" itemprop="dateCreated datePublished" datetime="2021-08-03T21:19:14+08:00">2021-08-03</time>
+      <time title="Created: 2021-07-27 21:19:14" itemprop="dateCreated datePublished" datetime="2021-07-27T21:19:14+08:00">2021-07-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 22:08:23" itemprop="dateModified" datetime="2021-08-03T22:08:23+08:00">2021-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%A6%82%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">Angular概念</span></a>
+        </span>
     </span>
 
   
@@ -231,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>4.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -249,7 +277,78 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>模板变量可以帮助你在模板的另一部分使用这个部分的数据。使用模板变量，你可以执行某些任务，比如响应用户输入或微调应用的表单。</p>
+<span id="more"></span>
+
+<p>模板变量可以引用这些东西：</p>
+<ul>
+<li>模板中的 DOM 元素</li>
+<li>指令</li>
+<li>元素</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/api/core/TemplateRef">TemplateRef</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web 组件</a></li>
+</ul>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>在模板中，要使用井号 <code>#</code> 来声明一个模板变量。下列模板变量 <code>#phone</code> 语法在 <code>&lt;input&gt;</code> 元素上声明了一个名为 <code>phone</code> 的变量。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> #<span class="attr">phone</span> <span class="attr">placeholder</span>=<span class="string">"phone number"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>你可以在组件模板中的任何地方引用某个模板变量。这里的 <code>&lt;button&gt;</code> 就引用了 <code>phone</code> 变量。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> #<span class="attr">phone</span> <span class="attr">placeholder</span>=<span class="string">"phone number"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- lots of other elements --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- phone refers to the input element; pass its `value` to an event handler --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"callPhone(phone.value)"</span>&gt;</span>Call<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Angular-是如何为模板变量赋值的（重要）"><a href="#Angular-是如何为模板变量赋值的（重要）" class="headerlink" title="Angular 是如何为模板变量赋值的（重要）"></a>Angular 是如何为模板变量赋值的（重要）</h3><p>Angular 根据你<strong>所声明的变量的位置</strong>给模板变量赋值：</p>
+<ol>
+<li>如果在组件上声明变量，该变量就会引用该<strong>组件实例</strong>。</li>
+<li>如果在标准的 HTML 标记上声明变量，该变量就会引用该<strong>元素</strong>。</li>
+<li>如果你在 <code>&lt;ng-template&gt;</code> 元素上声明变量，该变量就会引用一个 <code>TemplateRef</code> 实例来代表此模板。关于 <code>&lt;ng-template&gt;</code> 的更多信息，请参阅<a target="_blank" rel="noopener" href="https://angular.cn/guide/structural-directives#asterisk">结构型指令</a> 中的 <a target="_blank" rel="noopener" href="https://angular.cn/guide/structural-directives#asterisk">Angular 如何使用 <code>*</code> 语法</a>部分。</li>
+<li>如果该变量在右侧指定了一个名字，比如 <code>#var="ngModel"</code> ，那么该变量就会引用所在元素上具有这个 <code>exportAs</code> 名字的指令或组件。</li>
+</ol>
+<h4 id="将-NgForm-与模板变量一起使用"><a href="#将-NgForm-与模板变量一起使用" class="headerlink" title="将 NgForm 与模板变量一起使用"></a>将 <code>NgForm</code> 与模板变量一起使用</h4><p>在大多数情况下，Angular 会把模板变量的值设置为它所在的元素。在前面的例子中， <code>phone</code> 引用的是电话号码 <code>&lt;input&gt;</code> 。该按钮的 click 处理程序会把这个 <code>&lt;input&gt;</code> 的值传给该组件的 <code>callPhone()</code> 方法。</p>
+<p>这里的 <code>NgForm</code> 指令演示了如何通过引用指令的的 <code>exportAs</code> 名字来引用不同的值。在下面的例子中，模板变量 <code>itemForm</code> 在 HTML 中分别出现了三次。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> #<span class="attr">itemForm</span>=<span class="string">"ngForm"</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit(itemForm)"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">ngModel</span> <span class="attr">required</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">hidden</span>]=<span class="string">"!itemForm.form.valid"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>{{ submitMessage }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果没有 <code>ngForm</code> 这个属性值，<code>itemForm</code> 引用的值将是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement">HTMLFormElement</a> 也就是 <code>&lt;form&gt;</code> 元素。而 <code>Component</code> 和 <code>Directive</code> 之间的差异在于 Angular 在没有指定属性值的情况下，Angular 会引用 <code>Component</code>，而 <code>Directive</code> 不会改变这种隐式引用（即它的宿主元素）。</p>
+<p>而使用了 <code>NgForm</code> 之后，<code>itemForm</code> 就是对 <a target="_blank" rel="noopener" href="https://angular.cn/api/forms/NgForm">NgForm</a> 指令的引用，<strong>可以用它来跟踪表单中每一个控件的值和有效性。</strong></p>
+<p>与原生的 <code>&lt;form&gt;</code> 元素不同， <code>NgForm</code> 指令有一个 <code>form</code> 属性。如果 <code>itemForm.form.valid</code> 无效，那么 <code>NgForm</code> 的 <code>form</code> 属性就会让你禁用提交按钮。</p>
+<h3 id="模板变量的作用域"><a href="#模板变量的作用域" class="headerlink" title="模板变量的作用域"></a>模板变量的作用域</h3><p>你可以在包含此模板变量的模板中的任何地方引用它。而 <a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives">结构型指令</a>（如 <code>*ngIf</code> 和 <code>*ngFor</code> 或 <code>&lt;ng-template&gt;</code> 同样充当了模板的边界。你不能在这些边界之外访问其中的模板变量。</p>
+<blockquote>
+<p>同名变量在模板中只能定义一次，这样运行时它的值就是可预测的。</p>
+</blockquote>
+<h4 id="在嵌套模板种访问"><a href="#在嵌套模板种访问" class="headerlink" title="在嵌套模板种访问"></a>在嵌套模板种访问</h4><p>内部模板可以访问外模板定义的模板变量。</p>
+<p>在下面的例子中，修改 <code>&lt;input&gt;</code> 中的文本值也会改变 <code>&lt;span&gt;</code> 中的值，因为 Angular 会立即通过模板变量 <code>ref1</code> 来更新这种变化。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> #<span class="attr">ref1</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"firstExample"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> *<span class="attr">ngIf</span>=<span class="string">"true"</span>&gt;</span>Value: {{ ref1.value }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这种情况下，有一个包含这个 <code>&lt;span&gt;</code> 的隐式 <code>&lt;ng-template&gt;</code>，而该变量的定义在该隐式模板之外。访问父模板中的模板变量是可行的，因为子模板会从父模板继承上下文。</p>
+<p>我们用更啰嗦的形式重写上述的代码，可以明确地显示出 <code>&lt;ng-template&gt;</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> #<span class="attr">ref1</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"firstExample"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- New template --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ng-template</span> [<span class="attr">ngIf</span>]=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Since the context is inherited, the value is available to the new template --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Value: {{ ref1.value }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>但是，从外部的父模板访问本模板中的变量是行不通的。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> *<span class="attr">ngIf</span>=<span class="string">"true"</span> #<span class="attr">ref2</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"secondExample"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Value: {{ ref2?.value }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="comment">&lt;!-- doesn't work --&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个更啰嗦的形式表明 <code>ref2</code> 位于外部的父模板中。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ng-template</span> [<span class="attr">ngIf</span>]=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- The reference is defined within a template --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> #<span class="attr">ref2</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"secondExample"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ref2 accessed from outside that template doesn't work --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Value: {{ ref2?.value }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>考虑下面这个带 <code>*ngFor</code> 的使用范例。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ng-container</span> *<span class="attr">ngFor</span>=<span class="string">"let i of [1,2]"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> #<span class="attr">ref</span> <span class="attr">type</span>=<span class="string">"text"</span> [<span class="attr">value</span>]=<span class="string">"i"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-container</span>&gt;</span></span><br><span class="line">{{ ref.value }}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里，<code>ref.value</code> <strong>不起作用</strong>。结构型指令 <code>*ngFor</code> 将模板实例化了两次，因为 <code>*ngFor</code> 在对数组中的两个条目进行迭代。因此不可能定义出 <code>ref.value</code> 指向的是谁。</p>
+<p>对于结构型指令，比如 <code>*ngFor</code> 或 <code>*ngIf</code> ，Angular 也无法知道模板是否曾被实例化过。</p>
+<p>结果，Angular 无法访问该值并返回错误。</p>
+<h4 id="访问-lt-ng-template-gt-的模板变量"><a href="#访问-lt-ng-template-gt-的模板变量" class="headerlink" title="访问 <ng-template> 的模板变量"></a>访问 <code>&lt;ng-template&gt;</code> 的模板变量</h4><p>在 <code>&lt;ng-template&gt;</code> 上声明变量时，该变量会引用一个 <code>TemplateRef</code> 实例来表示该模板。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">ref3</span>&gt;</span><span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"log(ref3)"</span>&gt;</span>Log type of #ref<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子中，单击该按钮会调用 <code>log()</code> 函数，它把 <code>#ref3</code> 的值输出到控制台。因为 <code>#ref</code> 变量在 <code>&lt;ng-template&gt;</code> 上，所以它的值是一个 <code>TemplateRef</code>。</p>
+<p>下面是一个名为 <code>TemplateRef</code> 的 <code>TemplateRef()</code> 函数在浏览器控制台中展开时的输出。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">▼ ƒ TemplateRef()</span><br><span class="line">name: "TemplateRef"</span><br><span class="line">__proto__: Function</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="模板输入变量"><a href="#模板输入变量" class="headerlink" title="模板输入变量"></a>模板输入变量</h3><p><em>模板输入变量</em>是可以<strong>在模板的单个实例中引用的变量</strong>。你可以用 <code>let</code> 关键字声明模板输入变量，比如 <code>let hero</code>。</p>
+<p>在这个例子中，有几个这样的变量：<code>hero</code>、<code>i</code> 和 <code>odd</code>。</p>
+<p>此变量的范围仅限于可复写模板中的单个实例。你可以在其他结构型指令的定义中再次使用相同的变量名。</p>
+<p>相反，你可以通过在变量名称前加上 <code>#</code> 来声明模板变量，如 <code>#var</code>。模板变量引用其附加的元素、组件或指令。</p>
+<p>模板输入变量和模板变量名称具有各自的名称空间。<code>let hero</code> 中的模板输入变量 <code>hero</code> 和 <code>#hero</code> 中的模板变量 <code>hero</code> 是不同的。</p>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -271,16 +370,22 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/03/Angular-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EID%E7%AE%80%E4%BB%8B/" rel="prev" title="Angular-服务器与ID简介">
-                  <i class="fa fa-chevron-left"></i> Angular-服务器与ID简介
+                <a href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/" rel="prev" title="Angular概念-事件绑定原理">
+                  <i class="fa fa-chevron-left"></i> Angular概念-事件绑定原理
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/07/28/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95-granph-theory/" rel="next" title="图论（一）">
+                  图论（一） <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -312,13 +417,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">53k</span>
+    <span title="Symbols count total">57k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">48 mins.</span>
+    <span title="Reading time total">52 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">

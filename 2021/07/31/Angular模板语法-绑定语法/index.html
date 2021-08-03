@@ -20,28 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的模板语句部分。">
+<meta name="description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的绑定语法部分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular-模板语法-模板语句">
-<meta property="og:url" content="http://lmtcodecode.com/2021/08/01/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5/index.html">
+<meta property="og:title" content="Angular模板语法-绑定语法">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的模板语句部分。">
+<meta property="og:description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的绑定语法部分。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-01T09:27:50.000Z">
-<meta property="article:modified_time" content="2021-08-03T10:03:54.004Z">
+<meta property="article:published_time" content="2021-07-31T09:47:08.000Z">
+<meta property="article:modified_time" content="2021-08-03T14:11:32.377Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/08/01/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/01/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5/","path":"2021/08/01/Angular-模板语法-模板语句/","title":"Angular-模板语法-模板语句"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/","path":"2021/07/31/Angular模板语法-绑定语法/","title":"Angular模板语法-绑定语法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Angular-模板语法-模板语句 | Lmt-codecode</title>
+<title>Angular模板语法-绑定语法 | Lmt-codecode</title>
   
 
 
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.1.</span> <span class="nav-text">模板语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">1.1.2.</span> <span class="nav-text">语句的上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.1.3.</span> <span class="nav-text">模板语句最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.3.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">绑定语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8CHTML"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据绑定和HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-Attribute-%E5%92%8C-DOM-Property"><span class="nav-number">1.1.2.</span> <span class="nav-text">HTML Attribute 和 DOM Property</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E4%BE%8B"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">范例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Property-%E5%92%8C-Attribute-%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Property 和 Attribute 的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据绑定的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.4.</span> <span class="nav-text">绑定类型和目标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.4.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -141,7 +141,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -194,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/01/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -207,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Angular-模板语法-模板语句
+          Angular模板语法-绑定语法
         </h1>
 
         <div class="post-meta-container">
@@ -218,14 +218,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-01 17:27:50" itemprop="dateCreated datePublished" datetime="2021-08-01T17:27:50+08:00">2021-08-01</time>
+      <time title="Created: 2021-07-31 17:47:08" itemprop="dateCreated datePublished" datetime="2021-07-31T17:47:08+08:00">2021-07-31</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-03 18:03:54" itemprop="dateModified" datetime="2021-08-03T18:03:54+08:00">2021-08-03</time>
+        <time title="Modified: 2021-08-03 22:11:32" itemprop="dateModified" datetime="2021-08-03T22:11:32+08:00">2021-08-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,6 +238,10 @@
           , 
         <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">Angular模板语法</span></a>
         </span>
     </span>
 
@@ -255,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.7k</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>2 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -274,7 +278,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。</p>
-<p>此篇介绍模板语法中的模板语句部分。</p>
+<p>此篇介绍模板语法中的绑定语法部分。</p>
 <span id="more"></span>
 
 <h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><ol>
@@ -291,42 +295,121 @@
 <li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-expression-operators">模板表达式运算符</a> - 了解管道运算符 <code>|</code> ，以及如何防范空值 <code>null</code> 或 <code>undefined</code>。</li>
 <li><a target="_blank" rel="noopener" href="https://angular.cn/guide/svg-in-templates">模板中的 SVG</a> - 动态生成交互式图形。</li>
 </ol>
-<h2 id="模板语句"><a href="#模板语句" class="headerlink" title="模板语句"></a>模板语句</h2><p>模板语句是可在 HTML 中用于响应用户事件的方法或属性。使用模板语句，你的应用可以通过诸如显示动态内容或提交表单之类的动作吸引用户。</p>
-<p>在以下示例中，模板语句 <code>deleteHero()</code> 出现在 <code>=</code> 号右侧的引号中，<code>(event)="statement"</code> 。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"deleteHero()"</span>&gt;</span>Delete hero<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="绑定语法"><a href="#绑定语法" class="headerlink" title="绑定语法"></a>绑定语法</h2><p>数据绑定会根据应用程序的状态自动使你的页面保持最新状态。你可以使用数据绑定来指定诸如图像源、按钮状态或特定用户的数据之类的内容。</p>
+<h3 id="数据绑定和HTML"><a href="#数据绑定和HTML" class="headerlink" title="数据绑定和HTML"></a>数据绑定和HTML</h3><p>开发人员可以使用字符串值指定属性来定制 HTML。在以下示例中，<code>class</code>、<code>src</code> 和 <code>disabled</code> 修饰了 <code>&lt;div&gt;</code>、<code>&lt;img&gt;</code> 和 <code>&lt;button&gt;</code> 元素。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"special"</span>&gt;</span>Plain old HTML<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/item.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">disabled</span>&gt;</span>Save<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>当用户单击 <strong>Delete hero</strong> 按钮时，Angular 就会调用组件类中 <code>deleteHero()</code> 方法。</p>
-<p>你可以将模板语句与元素、组件或指令一起使用以响应事件。</p>
-<blockquote>
-<p>响应事件是 Angular <a target="_blank" rel="noopener" href="https://angular.cn/guide/glossary#unidirectional-data-flow">单向数据流</a>的一个方面。你可以在单个事件循环中更改应用程序中的任何内容。</p>
-</blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>与<a target="_blank" rel="noopener" href="https://angular.cn/guide/interpolation">模板表达式</a>一样，模板语句使用类似于 JavaScript 的语言。但是，模板语句的解析器与模板表达式的解析器有所不同。此外，模板语句解析器特别支持基本赋值 <code>=</code> 和带有分号 <code>;</code> 的串联表达式。</p>
-<p>不允许使用以下 JavaScript 和模板表达式语法：</p>
+<p>可以使用数据绑定来控制按钮状态等：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bind button disabled state to `isUnchanged` property --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> [<span class="attr">disabled</span>]=<span class="string">"isUnchanged"</span>&gt;</span>Save<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>请注意，绑定是绑定到 <code>disabled</code> 这个 Property（属性），而不是 Attribute（属性）。数据绑定使用的是 DOM 元素、组件和指令的 Property，而不是 HTML Attribute。</p>
+<h3 id="HTML-Attribute-和-DOM-Property"><a href="#HTML-Attribute-和-DOM-Property" class="headerlink" title="HTML Attribute 和 DOM Property"></a>HTML Attribute 和 DOM Property</h3><p>对于 Angular 绑定来说，<strong>HTML Attribute</strong> 和 <strong>DOM Property</strong> 是有显著区别的。</p>
+<p>Attribute 会初始化 DOM Property，你可以配置它们以修改元素的行为。Property 则是 DOM 节点的特性。</p>
 <ul>
-<li><code>new</code></li>
-<li>递增和递减运算符 <code>++</code> 和 <code>--</code></li>
-<li>赋值运算符，例如 <code>+=</code> 和 <code>-=</code></li>
-<li>按位运算符，例如 <code>|</code> 和 <code>&amp;</code></li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/pipes">管道操作符</a></li>
+<li>少数 HTML Attribute 可以 1:1 映射到同名的 Property。例如 <code>id</code>。</li>
+<li>某些 HTML Attribute 没有相应的 Property。例如，<code>aria-*</code>。</li>
+<li>某些 DOM Property 没有相应的 Attribute。例如，<code>textContent</code>。</li>
 </ul>
-<h3 id="语句的上下文"><a href="#语句的上下文" class="headerlink" title="语句的上下文"></a>语句的上下文</h3><p>语句具有上下文 - 也就是语句所属应用中的特定部分。</p>
-<p>语句只能引用语句上下文中的内容，通常是组件实例。例如，<code>(click)="deleteHero()"</code> 中的 <code>deleteHero()</code> 就是下面代码段中的组件方法之一。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"deleteHero()"</span>&gt;</span>Delete hero<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>请记住，即使 HTML Attribute 和 DOM Property 具有相同的名称，它们也仍然是不同的。</p>
+</blockquote>
+<p>在 Angular 中，<strong>HTML Attribute 的唯一作用是初始化元素和指令的状态</strong>。</p>
+<p>编写数据绑定时，你只是在处理 DOM Property 和目标对象的事件。</p>
+<h4 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h4><p>1：<code>&lt;input&gt;</code></p>
+<p>当浏览器渲染 <code>&lt;input type="text" value="Sarah"&gt;</code> 时，它将创建一个具有 <code>value</code> 这个 Property 的相应 DOM 节点，并将其 <code>value</code> 初始化为 “Sarah”。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"Sarah"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>语句上下文还可以引用模板自身的上下文属性。</p>
-<p>在下面的示例中，组件的事件处理方法 <code>onSave()</code> 将模板自己的 <code>$event</code> 对象用作参数。在接下来的两行中， <code>deleteHero()</code> 方法接收了<a target="_blank" rel="noopener" href="https://angular.cn/guide/structural-directives#shorthand">模板输入变量</a> <code>hero</code> 作为参数，而 <code>onSubmit()</code> 接收了<a target="_blank" rel="noopener" href="https://angular.cn/guide/template-reference-variables">模板引用变量</a> <code>#heroForm</code> 作为参数。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"onSave($event)"</span>&gt;</span>Save<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> *<span class="attr">ngFor</span>=<span class="string">"let hero of heroes"</span> (<span class="attr">click</span>)=<span class="string">"deleteHero(hero)"</span>&gt;</span>{{hero.name}}<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> #<span class="attr">heroForm</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit(heroForm)"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>当用户将 <code>Sally</code> 输入到 <code>&lt;input&gt;</code> 时，DOM 元素的 <code>value</code> Property 会变为 <code>Sally</code>。但是，如果使用 <code>input.getAttribute('value')</code> 读取 <code>value</code>，你会看到该 Attribute 保持不变 - 它仍然会返回 “Sarah”。</p>
+<p>作为 HTML Attribute 的 <code>value</code> 会指定<strong>初始值</strong>； 而 DOM 的 Property <code>value</code> 则是<strong>当前值</strong>。</p>
+<p>2：禁用按钮</p>
+<p>默认情况下，按钮的 <code>disabled</code> Property 为 <code>false</code>，因此启用了此按钮。</p>
+<p>当添加 <code>disabled</code> Attribute 时，你正在将按钮的 <code>disabled</code> Property 初始化为 <code>true</code>，这将禁用该按钮。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">disabled</span>&gt;</span>Test Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>在这个例子中， <code>$event</code> 对象、<code>hero</code> 和 <code>#heroForm</code> 的上下文都是其模板。</p>
-<p>模板上下文中的名称优先于组件上下文中的名称。前面 <code>deleteHero(hero)</code> 中的 <code>hero</code> 是模板输入变量，而不是组件的 <code>hero</code> 属性。</p>
-<h3 id="模板语句最佳实践"><a href="#模板语句最佳实践" class="headerlink" title="模板语句最佳实践"></a>模板语句最佳实践</h3><ul>
-<li><p><strong>简明</strong></p>
-<p>通过只使用方法调用或基本属性赋值，让模板语句最少化。</p>
-</li>
-<li><p><strong>在上下文中工作</strong></p>
-<p>模板语句的上下文可以是组件类实例或模板。因此，模板语句无法引用全局名称空间中的任何内容，例如 <code>window</code> 或 <code>document</code>。例如，模板语句不能调用 <code>console.log()</code> 或 <code>Math.max()</code></p>
-</li>
+<p>添加或删除 <code>disabled</code> 这个 Attribute 将禁用或启用该按钮。但是，该 Attribute 的值无关紧要，这就是为什么你无法通过编写 <code>&lt;button disabled="false"&gt;Still Disabled&lt;/button&gt;</code> 来启用按钮的原因。</p>
+<p>要控制按钮的状态，请设置 <code>disabled</code> 这个 Property。</p>
+<h4 id="Property-和-Attribute-的比较"><a href="#Property-和-Attribute-的比较" class="headerlink" title="Property 和 Attribute 的比较"></a>Property 和 Attribute 的比较</h4><p>尽管从技术角度上说，可以设置 <code>[attr.disabled]</code> Attribute 这个绑定，但是它的值是不同的，差异在于其 Property 绑定必须是布尔值，而其相应的 Attribute 绑定则取决于该值是否为 <code>null</code>。考虑以下情况：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* 使用 `disabled` 这个 Property，要使用布尔值 */</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> [<span class="attr">disabled</span>]=<span class="string">"condition ? true : false"</span>&gt;</span></span><br><span class="line">/* 使用 `disabled` 这个 Attribute，要判定是否为 `null`。 */</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> [<span class="attr">attr.disabled</span>]=<span class="string">"condition ? 'disabled' : null"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>通常，要使用 <strong>Property 绑定</strong>而不是 Attribute 绑定。因为布尔值很容易阅读，语法较短，并且 Property 绑定的性能更高。</p>
+<h3 id="数据绑定的类型"><a href="#数据绑定的类型" class="headerlink" title="数据绑定的类型"></a>数据绑定的类型</h3><p>Angular 根据数据流的方向提供三种类型的数据绑定：</p>
+<ul>
+<li>从源到视图</li>
+<li>从视图到源</li>
+<li>双向，从视图到源再到视图</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th align="left">绑定类型</th>
+<th align="left">语法</th>
+<th align="left">分类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">插值 属性 Attribute CSS 类 样式</td>
+<td align="left">                                                      [target]=”expression” bind-target=”expression”</td>
+<td align="left"><strong>单向</strong>， 从数据源 到视图</td>
+</tr>
+<tr>
+<td align="left">事件</td>
+<td align="left">(target)=”statement”                                                                            on-target=”statement”</td>
+<td align="left"><strong>单向</strong>，从视图到数据源的绑定</td>
+</tr>
+<tr>
+<td align="left">双向</td>
+<td align="left">[(target)]=”expression”                                                                 bindon-target=”expression”</td>
+<td align="left"><strong>双向</strong></td>
+</tr>
+</tbody></table>
+<p>除插值以外的绑定类型，在等号的左侧会有一个目标名称。绑定目标是一个 Property 或事件名称，被方括号 <code>[]</code>、圆括号 <code>()</code> 或两者共同 <code>[()]</code> 包裹起来。</p>
+<p><code>[]</code>、<code>()</code>、<code>[()]</code> 这些绑定标点以及前缀，用来指定数据流的方向。</p>
+<ul>
+<li>使用 <code>[]</code> 从<strong>源绑定到视图</strong>。</li>
+<li>使用 <code>()</code> 从<strong>视图绑定到源</strong>。</li>
+<li>使用 <code>[()]</code> 进行<strong>双向绑定</strong>，将视图绑定到源再绑定到视图。</li>
+</ul>
+<p>将表达式或语句放在双引号 <code>""</code> 中等号的右侧。</p>
+<h3 id="绑定类型和目标"><a href="#绑定类型和目标" class="headerlink" title="绑定类型和目标"></a>绑定类型和目标</h3><p>数据绑定的目标可以是 Property、事件或 Attribute 的名称。源指令的每个 public 成员都可以自动用于绑定模板表达式或模板语句中。下表总结了不同绑定类型的目标。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">目标</th>
+<th align="left">范例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">属性</td>
+<td align="left">元素属性 组件属性 指令属性</td>
+<td align="left"><code>src</code>、<code>hero</code> 和 <code>ngClass</code>，代码如下:                                                                            &lt;img [src]=”heroImageUrl”&gt;                                                                                                     &lt;app-hero-detail [hero]=”currentHero”&gt;                                                                                                            &lt;div [ngClass]=”{‘special’: isSpecial}”&gt;</td>
+</tr>
+<tr>
+<td align="left">事件</td>
+<td align="left">元素事件 组件事件 指令事件</td>
+<td align="left"><code>click</code>、<code>deleteRequest</code> 和 <code>myClick</code>，代码如下：                                                    &lt;button (click)=”onSave()”&gt;Save                                                                          &lt;app-hero-detail (deleteRequest)=”deleteHero()”&gt;                             &lt;div (myClick)=”clicked=$event” clickable&gt;click me</td>
+</tr>
+<tr>
+<td align="left">双向</td>
+<td align="left">事件与属性</td>
+<td align="left">&lt;input [(ngModel)]=”name”&gt;</td>
+</tr>
+<tr>
+<td align="left">Attribute</td>
+<td align="left">Attribute (少数特例情况)</td>
+<td align="left">&lt;button [attr.aria-label]=”help”&gt;help</td>
+</tr>
+<tr>
+<td align="left">类</td>
+<td align="left"><code>class</code> 属性</td>
+<td align="left">&lt;div [class.special]=”isSpecial”&gt;Special</td>
+</tr>
+<tr>
+<td align="left">样式</td>
+<td align="left"><code>style</code> 属性</td>
+<td align="left">&lt;button [style.color]=”isSpecial ? ‘red’ : ‘green’”&gt;</td>
+</tr>
+</tbody></table>
 <hr>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
 <li>Angular官方文档</li>
@@ -361,13 +444,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/01/Angular-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" rel="prev" title="Angular-内置指令">
-                  <i class="fa fa-chevron-left"></i> Angular-内置指令
+                <a href="/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5/" rel="prev" title="Angular模板语法-模板语句">
+                  <i class="fa fa-chevron-left"></i> Angular模板语法-模板语句
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/02/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/" rel="next" title="Angular-模板语法-绑定语法">
-                  Angular-模板语法-绑定语法 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/31/Angular%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/" rel="next" title="Angular模板语法-属性绑定">
+                  Angular模板语法-属性绑定 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -400,13 +483,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">53k</span>
+    <span title="Symbols count total">57k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">48 mins.</span>
+    <span title="Reading time total">52 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">

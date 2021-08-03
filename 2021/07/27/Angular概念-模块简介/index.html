@@ -20,28 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta name="description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的属性绑定部分。">
+<meta name="description" content="Angular 应用是模块化的，它拥有自己的模块化系统，称作 NgModule。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供者或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgModule 使用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular-模板语法-属性绑定">
-<meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/index.html">
+<meta property="og:title" content="Angular概念-模块简介">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
-<meta property="og:description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。 此篇介绍模板语法中的属性绑定部分。">
+<meta property="og:description" content="Angular 应用是模块化的，它拥有自己的模块化系统，称作 NgModule。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供者或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgModule 使用。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T11:15:06.000Z">
-<meta property="article:modified_time" content="2021-08-03T11:22:37.388Z">
+<meta property="article:published_time" content="2021-07-27T11:23:31.000Z">
+<meta property="article:modified_time" content="2021-08-03T13:22:50.991Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/","path":"2021/08/03/Angular-模板语法-属性绑定/","title":"Angular-模板语法-属性绑定"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/","path":"2021/07/27/Angular概念-模块简介/","title":"Angular概念-模块简介"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Angular-模板语法-属性绑定 | Lmt-codecode</title>
+<title>Angular概念-模块简介 | Lmt-codecode</title>
   
 
 
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">模板语法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NgModule-%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">@NgModule 元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgModule-%E5%92%8C%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">NgModule 和组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgModule-%E5%92%8C-JavaScript-%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">NgModule 和 JavaScript 的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">Angular自带的库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -141,7 +141,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -194,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -207,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Angular-模板语法-属性绑定
+          Angular概念-模块简介
         </h1>
 
         <div class="post-meta-container">
@@ -217,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-03 19:15:06 / Modified: 19:22:37" itemprop="dateCreated datePublished" datetime="2021-08-03T19:15:06+08:00">2021-08-03</time>
+      <time title="Created: 2021-07-27 19:23:31" itemprop="dateCreated datePublished" datetime="2021-07-27T19:23:31+08:00">2021-07-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 21:22:50" itemprop="dateModified" datetime="2021-08-03T21:22:50+08:00">2021-08-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -232,6 +238,10 @@
           , 
         <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E6%A6%82%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">Angular概念</span></a>
         </span>
     </span>
 
@@ -249,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>361</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -267,24 +277,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。</p>
-<p>此篇介绍模板语法中的属性绑定部分。</p>
+        <p>Angular 应用是模块化的，它拥有自己的模块化系统，称作 <em>NgModule</em>。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供者或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgModule 使用。</p>
 <span id="more"></span>
 
-<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/interpolation">插值</a> - 学习如何在 HTML 中使用插值和表达式。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-statements">模板语句</a> - 响应模板中的事件。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/binding-syntax">绑定语法</a> - 使用绑定来协调应用程序中的值。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/property-binding">属性绑定</a> - 设置目标元素的属性或指令中带 <code>@Input()</code> 装饰器的属性。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/attribute-binding">属性（Attribute），类和样式绑定</a> - 设置属性、类和样式的值。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/event-binding">事件绑定</a> - 监听事件和 HTML。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/two-way-binding">双向绑定</a> - 在类及其模板之间共享数据。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives">内置指令</a> - 监听和修改 HTML 的行为和布局。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-reference-variables">模板引用变量</a> - 使用特殊变量来引用模板中的 DOM 元素。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/inputs-outputs">输入和输出</a> - 在父级上下文和子指令或组件之间共享数据</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-expression-operators">模板表达式运算符</a> - 了解管道运算符 <code>|</code> ，以及如何防范空值 <code>null</code> 或 <code>undefined</code>。</li>
-<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/svg-in-templates">模板中的 SVG</a> - 动态生成交互式图形。</li>
-</ol>
+<p><strong>每个 Angular 应用都至少有一个 NgModule 类，也就是<a target="_blank" rel="noopener" href="https://angular.cn/guide/bootstrapping">根模块</a>，它习惯上命名为 <code>AppModule</code><strong>，</strong>并位于一个名叫 <code>app.module.ts</code> 的文件中。引导这个根模块就可以启动你的应用。</strong></p>
+<p>虽然小型的应用可能只有一个 NgModule，不过大多数应用都会有很多<em>特性模块</em>。应用的<em>根模块</em>之所以叫根模块，是因为它可以包含任意深度的层次化子模块。</p>
+<h3 id="NgModule-元数据"><a href="#NgModule-元数据" class="headerlink" title="@NgModule 元数据"></a><code>@NgModule</code> 元数据</h3><p>NgModule 是一个带有 <code>@NgModule()</code> 装饰器的类。<code>@NgModule()</code> 装饰器是一个函数，它接受一个元数据对象，该对象的属性用来描述这个模块。其中最重要的属性如下。</p>
+<ul>
+<li><code>declarations</code>（可声明对象表） —— 那些属于本 NgModule 的<a target="_blank" rel="noopener" href="https://angular.cn/guide/architecture-components">组件</a>、<em>指令</em>、<em>管道</em>。</li>
+<li><code>exports</code>（导出表） —— 那些能在其它模块的<em>组件模板</em>中使用的可声明对象的子集。</li>
+<li><code>imports</code>（导入表） —— 那些导出了<em>本</em>模块中的组件模板所需的类的其它模块。</li>
+<li><code>providers</code> —— 本模块向全局服务中贡献的那些<a target="_blank" rel="noopener" href="https://angular.cn/guide/architecture-services">服务</a>的创建器。 这些服务能被本应用中的任何部分使用。（你也可以在组件级别指定服务提供者，这通常是首选方式。）</li>
+<li><code>bootstrap</code> —— 应用的主视图，称为<em>根组件</em>。它是应用中所有其它视图的宿主。只有<em>根模块</em>才应该设置这个 <code>bootstrap</code> 属性。</li>
+</ul>
+<p>下面是一个简单的根 NgModule 定义：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { NgModule } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { BrowserModule } <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"><span class="meta">@NgModule</span>({</span><br><span class="line">  <span class="attr">imports</span>:      [ BrowserModule ],</span><br><span class="line">  <span class="attr">providers</span>:    [ Logger ],</span><br><span class="line">  <span class="attr">declarations</span>: [ AppComponent ],</span><br><span class="line">  <span class="attr">exports</span>:      [ AppComponent ],</span><br><span class="line">  <span class="attr">bootstrap</span>:    [ AppComponent ]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>{ }</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>把 <code>AppComponent</code> 放到 <code>exports</code> 中是为了演示导出的语法，这在本例子中实际上是没必要的。 根模块没有任何理由<em>导出</em>任何东西，因为其它模块永远不需要<em>导入</em>根模块。</p>
+</blockquote>
+<h3 id="NgModule-和组件"><a href="#NgModule-和组件" class="headerlink" title="NgModule 和组件"></a>NgModule 和组件</h3><p>NgModule 为其中的组件提供了一个<em>编译上下文环境</em>。根模块总会有一个根组件，并在引导期间创建它。 但是，任何模块都能包含任意数量的其它组件，这些组件可以通过路由器加载，也可以通过模板创建。<strong>那些属于这个 NgModule 的组件会共享同一个编译上下文环境。</strong></p>
+<p>组件及其模板共同定义<em>视图</em>。组件还可以包含<em>视图层次结构</em>，它能让你定义任意复杂的屏幕区域，可以将其作为一个整体进行创建、修改和销毁。 <strong>一个视图层次结构中可以混合使用由不同 NgModule 中的组件定义的视图。</strong> 这种情况很常见，特别是对一些 UI 库来说。</p>
+<p>当你创建一个组件时，它直接与一个叫做<strong>宿主视图</strong>的视图关联起来。 宿主视图可以是视图层次结构的根，该视图层次结构可以包含一些<strong>内嵌视图</strong>，这些内嵌视图又是其它组件的宿主视图。 这些组件可以位于相同的 NgModule 中，也可以从其它 NgModule 中导入。 树中的视图可以嵌套到任意深度。</p>
+<blockquote>
+<p><strong>注意：</strong> 视图的这种层次结构是 Angular 在 DOM 和应用数据中检测与响应变更时的关键因素。</p>
+</blockquote>
+<h3 id="NgModule-和-JavaScript-的模块"><a href="#NgModule-和-JavaScript-的模块" class="headerlink" title="NgModule 和 JavaScript 的模块"></a>NgModule 和 JavaScript 的模块</h3><p>NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块系统<strong>不同</strong>，而且也没有直接关联。 这两种模块系统<strong>不同但<em>互补</em></strong>。<strong>你可以使用它们来共同编写你的应用</strong>。</p>
+<p>JavaScript 中，每个<em>文件</em>是一个模块，文件中定义的所有对象都从属于那个模块。 通过 <code>export</code> 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用<em>import 语句</em>来访问这些公共对象。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { NgModule } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { AppComponent } <span class="keyword">from</span> <span class="string">'./app.component'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>{ }</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Angular自带的库"><a href="#Angular自带的库" class="headerlink" title="Angular自带的库"></a>Angular自带的库</h3><p>Angular 会作为一组 JavaScript 模块进行加载，你可以把它们看成库模块。每个 Angular 库的名称都带有 <code>@angular</code> 前缀。 使用 <code>npm</code> 包管理器安装 Angular 的库，并使用 JavaScript 的 <code>import</code> 语句导入其中的各个部分。</p>
+<p>例如，像下面这样，从 <code>@angular/core</code> 库中导入 Angular 的 <code>Component</code> 装饰器：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>还可以使用 JavaScript 的导入语句从 Angular <em>库</em>中导入 Angular <em>模块</em>。 比如，下列代码从 <code>platform-browser</code> 库中导入了 <code>BrowserModule</code> 这个 NgModule。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { BrowserModule } <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在上面这个简单的根模块范例中，应用的根模块需要来自 <code>BrowserModule</code> 中的素材。要访问这些素材，就要把它加入 <code>@NgModule</code> 元数据的 <code>imports</code> 中，代码如下：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imports:      [ BrowserModule ],</span><br></pre></td></tr></tbody></table></figure>
+
+<p>通过这种方式，你可以<em>同时</em>使用 Angular 和 JavaScript 的这两种模块系统。 虽然这两种模块系统容易混淆（它们共享了同样的词汇 <code>import</code> 和 <code>export</code>），不过只要多用用你就会熟悉它们各自的语境了。</p>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
 
     </div>
 
@@ -315,13 +353,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/02/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95-%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95/" rel="prev" title="Angular-模板语法-绑定语法">
-                  <i class="fa fa-chevron-left"></i> Angular-模板语法-绑定语法
+                <a href="/2021/07/24/JS%E4%B8%AD%E7%9A%84undefined/" rel="prev" title="JS中的undefined">
+                  <i class="fa fa-chevron-left"></i> JS中的undefined
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/03/Angular-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EID%E7%AE%80%E4%BB%8B/" rel="next" title="Angular-服务器与ID简介">
-                  Angular-服务器与ID简介 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/27/Angular%E6%A6%82%E5%BF%B5-%E7%BB%84%E4%BB%B6%E7%AE%80%E4%BB%8B/" rel="next" title="Angular概念-组件简介">
+                  Angular概念-组件简介 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -354,13 +392,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">53k</span>
+    <span title="Symbols count total">57k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">48 mins.</span>
+    <span title="Reading time total">52 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
