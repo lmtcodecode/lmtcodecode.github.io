@@ -20,26 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular-模板语法">
-<meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="Angular-模板语法（一）">
+<meta property="og:url" content="http://lmtcodecode.com/2021/07/31/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T07:47:01.000Z">
-<meta property="article:modified_time" content="2021-08-03T08:05:54.596Z">
+<meta property="article:published_time" content="2021-07-31T07:47:01.000Z">
+<meta property="article:modified_time" content="2021-08-03T08:49:31.097Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/07/31/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/","path":"2021/08/03/Angular-模板语法/","title":"Angular-模板语法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/07/31/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2021/07/31/Angular-模板语法（一）/","title":"Angular-模板语法（一）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Angular-模板语法 | Lmt-codecode</title>
+<title>Angular-模板语法（一） | Lmt-codecode</title>
   
 
 
@@ -105,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -118,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%8F%92%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">文本插值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E8%AF%AD%E6%B3%95%E6%98%BE%E7%A4%BA%E5%80%BC"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用插值语法显示值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">模板表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%8F%92%E5%80%BC%E8%A7%A3%E6%9E%90%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">用插值解析表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">1.1.3.</span> <span class="nav-text">表达式上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">防止命名冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.1.4.</span> <span class="nav-text">表达式最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.4.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,7 +194,7 @@
   
 
   <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/03/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/07/31/Angular-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.gif">
@@ -204,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Angular-模板语法
+          Angular-模板语法（一）
         </h1>
 
         <div class="post-meta-container">
@@ -214,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-03 15:47:01 / Modified: 16:05:54" itemprop="dateCreated datePublished" datetime="2021-08-03T15:47:01+08:00">2021-08-03</time>
+      <time title="Created: 2021-07-31 15:47:01" itemprop="dateCreated datePublished" datetime="2021-07-31T15:47:01+08:00">2021-07-31</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-03 16:49:31" itemprop="dateModified" datetime="2021-08-03T16:49:31+08:00">2021-08-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -246,14 +255,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -264,7 +273,106 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+        <p>在 Angular 中，模板就是一块 HTML。在模板中，你可以通过一种特殊语法来使用 Angular 的许多功能。</p>
+<span id="more"></span>
+
+<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/interpolation">插值</a> - 学习如何在 HTML 中使用插值和表达式。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-statements">模板语句</a> - 响应模板中的事件。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/binding-syntax">绑定语法</a> - 使用绑定来协调应用程序中的值。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/property-binding">属性绑定</a> - 设置目标元素的属性或指令中带 <code>@Input()</code> 装饰器的属性。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/attribute-binding">属性（Attribute），类和样式绑定</a> - 设置属性、类和样式的值。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/event-binding">事件绑定</a> - 监听事件和 HTML。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/two-way-binding">双向绑定</a> - 在类及其模板之间共享数据。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/built-in-directives">内置指令</a> - 监听和修改 HTML 的行为和布局。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-reference-variables">模板引用变量</a> - 使用特殊变量来引用模板中的 DOM 元素。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/inputs-outputs">输入和输出</a> - 在父级上下文和子指令或组件之间共享数据</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/template-expression-operators">模板表达式运算符</a> - 了解管道运算符 <code>|</code> ，以及如何防范空值 <code>null</code> 或 <code>undefined</code>。</li>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/guide/svg-in-templates">模板中的 SVG</a> - 动态生成交互式图形。</li>
+</ol>
+<h2 id="文本插值"><a href="#文本插值" class="headerlink" title="文本插值"></a>文本插值</h2><h3 id="使用插值语法显示值"><a href="#使用插值语法显示值" class="headerlink" title="使用插值语法显示值"></a>使用插值语法显示值</h3><p>插值是指将表达式嵌入到被标记的文本中。默认情况下，插值使用双花括号 <code>{{` 和 `}}</code> 作为定界符。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">currentCustomer = 'Maria';</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>Current customer: {{ currentCustomer }}<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="模板表达式"><a href="#模板表达式" class="headerlink" title="模板表达式"></a>模板表达式</h3><p>模板<strong>表达式</strong>会产生一个值，它出现在双花括号 <code>{{ }}</code> 中。 Angular 解析该表达式并将其赋值给绑定目标的某个属性。目标可以是 HTML 元素、组件或指令。</p>
+<h4 id="用插值解析表达式"><a href="#用插值解析表达式" class="headerlink" title="用插值解析表达式"></a>用插值解析表达式</h4><p>一般来说，括号间的文本是一个模板表达式，Angular 先对它<strong>求值</strong>，再把它转换成<strong>字符串</strong>。 下列插值通过把括号中的两个数字相加说明了这一点：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- "The sum of 1 + 1 is 2" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The sum of 1 + 1 is {{1 + 1}}.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- "The sum of 1 + 1 is not 4" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The sum of 1 + 1 is not {{1 + 1 + getVal()}}.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>通过插值，Angular 执行以下任务：</p>
+<ol>
+<li><strong>计算</strong>所有位于双花括号中的表达式。</li>
+<li>将这些表达式的结果转换为<strong>字符串</strong>。</li>
+<li>将这些结果<strong>融入</strong>相邻的字符串文本中。</li>
+<li>将融合后的结果<strong>赋值</strong>给元素或指令的属性。</li>
+</ol>
+<blockquote>
+<p>如果你想用别的分隔符来代替 <code>{{` 和 `}}</code>，也可以通过 <code>@Component()</code> 元数据中的 <a target="_blank" rel="noopener" href="https://angular.cn/api/core/Component#interpolation">interpolation</a> 选项来配置插值分隔符。</p>
+</blockquote>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>模板表达式和 JavaScript 很相似。许多 JavaScript 表达式都是合法的模板表达式，但以下情况除外。</p>
+<p>你不能使用那些具有或可能引发副作用的 JavaScript 表达式，包括：</p>
+<ul>
+<li><strong>赋值</strong> (<code>=</code>, <code>+=</code>, <code>-=</code>, <code>...</code>)</li>
+<li><strong>运算符</strong>，比如 <code>new</code>、<code>typeof</code> 或 <code>instanceof</code> 等。</li>
+<li>使用 <code>;</code> 或 <code>,</code> 串联起来的表达式</li>
+<li><strong>自增</strong>和<strong>自减</strong>运算符：<code>++</code> 和 <code>--</code></li>
+<li>一些 ES2015+ 版本的运算符</li>
+</ul>
+<p>和 JavaScript 语法的其它显著差异包括：</p>
+<ul>
+<li>不支持<strong>位运算</strong>，比如 <code>|</code> 和 <code>&amp;</code></li>
+<li>新的<a target="_blank" rel="noopener" href="https://angular.cn/guide/template-expression-operators">模板表达式运算符</a>，例如 <code>|</code>，<code>?.</code> 和 <code>!</code></li>
+</ul>
+<h3 id="表达式上下文"><a href="#表达式上下文" class="headerlink" title="表达式上下文"></a>表达式上下文</h3><p>插值表达式具有上下文 —— 表达式所属应用中的特定部分。通常，此上下文就是组件实例。</p>
+<p>在下面的代码片段中，表达式 <code>recommended</code> 和 <code>itemImageUrl2</code> 表达式所引用的都是 <code>AppComponent</code> 中的属性。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* app.component.html  */</span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>{{recommended}}<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> [<span class="attr">src</span>]=<span class="string">"itemImageUrl2"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>表达式也可以引用<em>模板</em>上下文中的属性，例如<a target="_blank" rel="noopener" href="https://angular.cn/guide/structural-directives#shorthand">模板输入变量</a>或<a target="_blank" rel="noopener" href="https://angular.cn/guide/template-reference-variables">模板引用变量</a>。</p>
+<p>下面的例子就使用了<strong>模板输入变量</strong> <code>customer</code>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> *<span class="attr">ngFor</span>=<span class="string">"let customer of customers"</span>&gt;</span>{{customer.name}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来的例子使用了<strong>模板引用变量</strong> <code>#customerInput</code>。</p>
+<ul>
+<li>模板引用变量通常用来引用 模板中的某个DOM元素</li>
+<li>模板引用变量还可以用来引用Angular组件、指令 或 Web Component</li>
+<li>可以在模板中的任何地方引用模板引用变量</li>
+<li>模板引用变量的值默认是设置模板引用变量的元素</li>
+<li>模板引用变量的值也可以设置为其它内容的引用（比如表单中引用为ngForm指令）</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>Type something:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> #<span class="attr">customerInput</span>&gt;</span>{{customerInput.value}}</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>模板表达式不能引用全局命名空间中的任何东西，比如 <code>window</code> 或 <code>document</code>。它们也不能调用 <code>console.log</code> 或 <code>Math.max</code>。 它们只能引用表达式上下文中的成员。</p>
+</blockquote>
+<h4 id="防止命名冲突"><a href="#防止命名冲突" class="headerlink" title="防止命名冲突"></a>防止命名冲突</h4><p>表达式求值的上下文是模板变量、指令的上下文对象（如果有的话）以及组件成员的并集。如果所引用的名称在多个命名空间都有，则 Angular 将应用以下逻辑来确定上下文：</p>
+<ol>
+<li>模板变量的名称。</li>
+<li>指令上下文中的名称。</li>
+<li>组件成员的名称。</li>
+</ol>
+<h3 id="表达式最佳实践"><a href="#表达式最佳实践" class="headerlink" title="表达式最佳实践"></a>表达式最佳实践</h3><p>使用模板表达式时，请遵循以下最佳实践：</p>
+<ul>
+<li><p><strong>使用短表达式</strong></p>
+<p>尽可能使用属性名称或方法调用。将应用和业务逻辑保留在易于开发和测试的组件中。</p>
+</li>
+<li><p><strong>快速执行</strong></p>
+<p>Angular 会在每个<a target="_blank" rel="noopener" href="https://angular.cn/guide/glossary#change-detection">变更检测</a>周期之后执行模板表达式。许多异步活动都会触发变更检测周期，例如解析 Promise、HTTP 结果、计时器事件、按键和鼠标移动。</p>
+<p>表达式应尽快完成，以保持用户体验的性能，尤其是在速度较慢的设备上。当计算值需要更多资源时，请考虑缓存值。</p>
+</li>
+<li><p><strong>没有可见的副作用</strong></p>
+<p>根据 Angular 的<a target="_blank" rel="noopener" href="https://angular.cn/guide/glossary#unidirectional-data-flow">单向数据流模型</a>，除了目标属性的值之外，模板表达式不应更改任何应用状态。读取组件值不应更改其他显示值。该视图应在整个渲染过程中保持稳定。</p>
+</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Idempotence">幂等</a>的表达式是最理想的，因为它没有副作用，并且可以提高 Angular 的变更检测性能。 用 Angular 术语来说，幂等表达式总会返回<em>完全相同的东西</em>，除非其依赖值之一发生了变化。</p>
+</blockquote>
+<p>在单独的一次事件循环中，被依赖的值不应该改变。 如果幂等的表达式返回一个字符串或数字，如果连续调用它两次，会返回<strong>相同</strong>的字符串或数字。 如果幂等的表达式返回一个对象（包括 <code>Date</code> 或 <code>Array</code>），如果连续调用它两次，会返回同一个对象的<em>引用</em>。</p>
+<blockquote>
+<p>对于 <code>*ngFor</code>，这种行为有一个例外。<code>*ngFor</code> 具有 <code>trackBy</code> 功能，在迭代对象时它可以正确处理对象值的变化。</p>
+</blockquote>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -294,11 +402,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/01/Angular-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" rel="prev" title="Angular-内置指令">
-                  <i class="fa fa-chevron-left"></i> Angular-内置指令
+                <a href="/2021/07/30/BOM%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/" rel="prev" title="BOM-浏览器对象模型">
+                  <i class="fa fa-chevron-left"></i> BOM-浏览器对象模型
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/08/01/Angular-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" rel="next" title="Angular-内置指令">
+                  Angular-内置指令 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -330,13 +441,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">33 mins.</span>
+    <span title="Reading time total">36 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
