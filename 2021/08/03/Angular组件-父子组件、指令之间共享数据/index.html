@@ -20,14 +20,17 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="Angular 中的一个常见模式就是在父组件和一个或多个子组件之间共享数据。你可以用 @Input() 和 @Output() 来实现这个模式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular组件-父子组件、指令之间共享数据">
 <meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E3%80%81%E6%8C%87%E4%BB%A4%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="Angular 中的一个常见模式就是在父组件和一个或多个子组件之间共享数据。你可以用 @Input() 和 @Output() 来实现这个模式。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T14:18:23.000Z">
-<meta property="article:modified_time" content="2021-08-03T14:18:23.466Z">
+<meta property="article:published_time" content="2021-08-03T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-04T08:58:11.837Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
@@ -104,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81%E5%88%B0%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">把数据发送到子组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%88%B6%E7%BB%84%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">配置父组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">配置子组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E8%A7%86-Input-%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="nav-number">1.3.</span> <span class="nav-text">监视@Input()的变更</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81%E5%88%B0%E7%88%B6%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">把数据发送到父组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AD%90%E7%BB%84%E4%BB%B6-1"><span class="nav-number">2.1.</span> <span class="nav-text">配置子组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.2.</span> <span class="nav-text">配置子组件的模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%88%B6%E7%BB%84%E4%BB%B6-1"><span class="nav-number">2.3.</span> <span class="nav-text">配置父组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%88%B6%E7%BB%84%E4%BB%B6%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.4.</span> <span class="nav-text">配置父组件模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8-Input-%E5%92%8C-Output"><span class="nav-number">3.</span> <span class="nav-text">同时使用 @Input() 和 @Output()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -214,7 +218,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-03 22:18:23" itemprop="dateCreated datePublished" datetime="2021-08-03T22:18:23+08:00">2021-08-03</time>
+      <time title="Created: 2021-08-03 12:00:00" itemprop="dateCreated datePublished" datetime="2021-08-03T12:00:00+08:00">2021-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-04 16:58:11" itemprop="dateModified" datetime="2021-08-04T16:58:11+08:00">2021-08-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E7%BB%84%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">Angular组件</span></a>
+        </span>
     </span>
 
   
@@ -231,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -249,7 +277,75 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>Angular 中的一个常见模式就是在父组件和一个或多个子组件之间共享数据。你可以用 <code>@Input()</code> 和 <code>@Output()</code> 来实现这个模式。</p>
+<span id="more"></span>
+
+<h2 id="把数据发送到子组件"><a href="#把数据发送到子组件" class="headerlink" title="把数据发送到子组件"></a>把数据发送到子组件</h2><p>子组件或指令中的 <code>@Input()</code> 装饰器表示该属性可以从其父组件中获取值。要使用 <code>@Input()</code>，就必须对父组件和子组件进行配置。</p>
+<h3 id="配置父组件"><a href="#配置父组件" class="headerlink" title="配置父组件"></a>配置父组件</h3><p>在父组件的模板中绑定该属性。在这个例子中，父组件模板是 <code>app.component.html</code> 。</p>
+<ol>
+<li>使用子组件的 selector (<code>&lt;app-item-detail&gt;</code>) 作为父组件模板中的指令。</li>
+<li>使用<a target="_blank" rel="noopener" href="https://angular.cn/guide/property-binding">属性绑定</a>把子组件的 <code>item</code> 属性绑定到父组件的 <code>currentItem</code> 属性上。</li>
+</ol>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-item-detail</span> [<span class="attr">item</span>]=<span class="string">"currentItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-item-detail</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在父组件类中，为 <code>currentItem</code> 指定一个值：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>{</span><br><span class="line">  currentItem = <span class="string">'Television'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置子组件"><a href="#配置子组件" class="headerlink" title="配置子组件"></a>配置子组件</h3><p>要使用 <code>@Input()</code> 装饰器，首先要导入 <code>Input</code>，然后用 <code>@Input()</code> 装饰该属性，如下例所示。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Component, Input } <span class="keyword">from</span> <span class="string">'@angular/core'</span>; <span class="comment">// First, import Input</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemDetailComponent</span> </span>{</span><br><span class="line">  <span class="meta">@Input</span>() item = <span class="string">''</span>; <span class="comment">// decorate the property with @Input()</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子中， <code>@Input()</code> 会修饰属性 <code>item</code>，它的类型为 <code>string</code>，但 <code>@Input()</code> 属性可以是任意类型，比如 <code>number</code>、<code>string</code>、<code>boolean</code> 或 <code>object</code>。<code>item</code> 的值来自父组件。</p>
+<p>接下来，在子组件模板中添加以下内容：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  Today's item: {{item}}</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>通过 <code>@Input()</code>，Angular 把 <code>currentItem</code> 的值传给子组件，以便 <code>item</code> 渲染为 <code>Television</code> 。</p>
+<h3 id="监视-Input-的变更"><a href="#监视-Input-的变更" class="headerlink" title="监视@Input()的变更"></a>监视@Input()的变更</h3><p>要想监视 <code>@Input()</code> 属性的变化，你可以使用 Angular 的<a target="_blank" rel="noopener" href="https://angular.cn/guide/lifecycle-hooks">生命周期钩子</a><code>OnChanges</code> </p>
+<h2 id="把数据发送到父组件"><a href="#把数据发送到父组件" class="headerlink" title="把数据发送到父组件"></a>把数据发送到父组件</h2><p>子组件或指令中的 <code>@Output()</code> 装饰器允许数据从子组件传给父组件。</p>
+<p><code>@Output()</code> 在子组件中标记了一个属性，作为数据从子组件传递到父组件的途径。</p>
+<p>子组件使用 <code>@Output()</code> 属性来引发事件，以通知父组件这一变化。为了引发事件， <code>@Output()</code> 必须是 <code>EventEmitter</code> 类型，它是 <code>@angular/core</code> 中用来发出自定义事件的类。</p>
+<p>下面的例子给出了如何在组件中设置 <code>@Output()</code>，来把数据从 HTML 的 <code>&lt;input&gt;</code> 推送到父组件的数组中。</p>
+<p>要使用 <code>@Output()</code> ，就必须配置父组件和子组件。</p>
+<h3 id="配置子组件-1"><a href="#配置子组件-1" class="headerlink" title="配置子组件"></a>配置子组件</h3><p>下面的例子中有一个 <code>&lt;input&gt;</code> ，用户可以输入一个值，然后点击一个引发事件 <code>&lt;button&gt;</code> 然后， <code>EventEmitter</code> 数据中继到父组件。</p>
+<p>在子组件类中导入 <code>Output</code> 和 <code>EventEmitter</code></p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Output, EventEmitter } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在组件类中，用 <code>@Output()</code> 装饰一个属性。下面的例子中 <code>newItemEvent</code> 这个 <code>@Output()</code> 的类型为 <code>EventEmitter</code> ，这意味着它是一个事件。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Output</span>() newItemEvent = <span class="keyword">new</span> EventEmitter&lt;<span class="built_in">string</span>&gt;();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述声明中的差异点如下：</p>
+<ul>
+<li><code>@Output()</code> - 一个装饰器函数，它把该属性标记为数据从子组件进入父组件的一种途径</li>
+<li><code>newItemEvent</code> - 这个 <code>@Output()</code> 的名字</li>
+<li><code>EventEmitter&lt;string&gt;</code> - 这个 <code>@Output()</code> 的类型</li>
+<li><code>new EventEmitter&lt;string&gt;()</code> - 使用 Angular 来创建一个新的事件发射器，它发出的数据是 <code>string</code> 类型的。关于 <code>EventEmitter</code> 的详细信息，请参阅 <a target="_blank" rel="noopener" href="https://angular.cn/api/core/EventEmitter">EventEmitter API 文档</a>。</li>
+</ul>
+<p>在同一个组件类中创建一个 <code>addNewItem()</code> 方法：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemOutputComponent</span> </span>{</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Output</span>() newItemEvent = <span class="keyword">new</span> EventEmitter&lt;<span class="built_in">string</span>&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">addNewItem</span>(<span class="params">value: <span class="built_in">string</span></span>)</span> {</span><br><span class="line">    <span class="built_in">this</span>.newItemEvent.emit(value);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>addNewItem()</code> 函数使用 <code>newItemEvent</code> 这个 <code>@Output()</code> 来引发一个事件，该事件带有用户输入到 <code>&lt;input&gt;</code> 中的值。</p>
+<h3 id="配置子组件的模板"><a href="#配置子组件的模板" class="headerlink" title="配置子组件的模板"></a>配置子组件的模板</h3><p>子组件的模板有两个控件。第一个是带有<a target="_blank" rel="noopener" href="https://angular.cn/guide/template-reference-variables">模板引用变量</a> <code>#newItem</code> 的 <code>&lt;input&gt;</code>，用户可在其中输入条目名称。 <code>#newItem</code> 变量的 <code>value</code> 属性存储了用户输入到 <code>&lt;input&gt;</code> 中的值。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"item-input"</span>&gt;</span>Add an item:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"item-input"</span> #<span class="attr">newItem</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"addNewItem(newItem.value)"</span>&gt;</span>Add to parent's list<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>第二个元素是带有 <code>click</code> <a target="_blank" rel="noopener" href="https://angular.cn/guide/event-binding">事件绑定</a> 的 <code>&lt;button&gt;</code> 元素。</p>
+<p><code>(click)</code> 事件绑定到了子组件类中 <code>addNewItem()</code> 方法。<code>addNewItem()</code> 方法接受一个 <code>#newItem.value</code> 属性的值作为参数。</p>
+<h3 id="配置父组件-1"><a href="#配置父组件-1" class="headerlink" title="配置父组件"></a>配置父组件</h3><p>此范例中的 <code>AppComponent</code> 有一个 <code>items</code> 列表，以及一个向数组中添加更多条目的方法。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AppComponent</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>{</span><br><span class="line">  items = [<span class="string">'item1'</span>, <span class="string">'item2'</span>, <span class="string">'item3'</span>, <span class="string">'item4'</span>];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">addItem</span>(<span class="params">newItem: <span class="built_in">string</span></span>)</span> {</span><br><span class="line">    <span class="built_in">this</span>.items.push(newItem);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>addItem()</code> 方法接受一个字符串形式的参数，然后把该字符串添加到 <code>items</code> 数组中。</p>
+<h3 id="配置父组件模板"><a href="#配置父组件模板" class="headerlink" title="配置父组件模板"></a>配置父组件模板</h3><ol>
+<li>在父模板中，把父组件的方法绑定到子组件的事件上。</li>
+<li>把子组件选择器（<code>&lt;app-item-output&gt;</code>）放在父组件的模板 <code>app.component.html</code> 中。</li>
+</ol>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-item-output</span> (<span class="attr">newItemEvent</span>)=<span class="string">"addItem($event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-item-output</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>事件绑定 <code>(newItemEvent)='addItem($event)'</code> 会把子组件中的 <code>newItemEvent</code> 事件连接到父组件的 <code>addItem()</code> 方法。</p>
+<p><code>$event</code> 中包含用户在子组件模板上的 <code>&lt;input&gt;</code> 中键入的数据。</p>
+<h2 id="同时使用-Input-和-Output"><a href="#同时使用-Input-和-Output" class="headerlink" title="同时使用 @Input() 和 @Output()"></a>同时使用 <code>@Input()</code> 和 <code>@Output()</code></h2><p>你可以在同一个子组件上使用 <code>@Input()</code> 和 <code>@Output()</code>。</p>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -271,18 +367,21 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F/" rel="prev" title="Angular组件-组件样式">
-                  <i class="fa fa-chevron-left"></i> Angular组件-组件样式
+                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3%EF%BC%88%E4%B8%8B%EF%BC%89/" rel="prev" title="Angular组件-生命周期（下）">
+                  <i class="fa fa-chevron-left"></i> Angular组件-生命周期（下）
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E5%86%85%E5%AE%B9%E6%8A%95%E5%BD%B1/" rel="next" title="Angular组件-内容投影">
-                  Angular组件-内容投影 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92/" rel="next" title="Angular组件-组件交互">
+                  Angular组件-组件交互 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -315,13 +414,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">75k</span>
+    <span title="Symbols count total">78k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:08</span>
+    <span title="Reading time total">1:11</span>
   </span>
 </div>
 <div class="busuanzi-count">
