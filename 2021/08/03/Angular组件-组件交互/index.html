@@ -20,14 +20,17 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="本文包含了常见的组件通讯场景，也就是让两个或多个组件之间共享信息的方法，7种。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular组件-组件交互">
 <meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="本文包含了常见的组件通讯场景，也就是让两个或多个组件之间共享信息的方法，7种。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T14:17:39.000Z">
-<meta property="article:modified_time" content="2021-08-03T14:17:39.956Z">
+<meta property="article:published_time" content="2021-08-03T04:17:39.000Z">
+<meta property="article:modified_time" content="2021-08-04T06:42:44.406Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
@@ -104,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E8%BE%93%E5%85%A5%E5%9E%8B%E7%BB%91%E5%AE%9A-Input-%E6%8A%8A%E6%95%B0%E6%8D%AE%E4%BB%8E%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%88%B0%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">通过输入型绑定(@Input)把数据从父组件传到子组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-setter-%E6%88%AA%E5%90%AC%E8%BE%93%E5%85%A5%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">通过 setter 截听输入属性值的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-ngOnChanges-%E6%9D%A5%E6%88%AA%E5%90%AC%E8%BE%93%E5%85%A5%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">通过*ngOnChanges()*来截听输入属性值的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">父组件监听子组件事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F%E4%BA%92%E5%8A%A8"><span class="nav-number">5.</span> <span class="nav-text">父组件与子组件通过本地变量互动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8-ViewChild"><span class="nav-number">6.</span> <span class="nav-text">父组件调用*@ViewChild()*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E5%92%8C%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87%E6%9C%8D%E5%8A%A1%E6%9D%A5%E9%80%9A%E8%AE%AF"><span class="nav-number">7.</span> <span class="nav-text">父组件和子组件通过服务来通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,18 +135,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -214,7 +218,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-03 22:17:39" itemprop="dateCreated datePublished" datetime="2021-08-03T22:17:39+08:00">2021-08-03</time>
+      <time title="Created: 2021-08-03 12:17:39" itemprop="dateCreated datePublished" datetime="2021-08-03T12:17:39+08:00">2021-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-04 14:42:44" itemprop="dateModified" datetime="2021-08-04T14:42:44+08:00">2021-08-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E7%BB%84%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">Angular组件</span></a>
+        </span>
     </span>
 
   
@@ -231,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>8.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>8 mins.</span>
     </span>
 </div>
 
@@ -249,7 +277,67 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>本文包含了常见的组件通讯场景，也就是让两个或多个组件之间共享信息的方法，7种。</p>
+<span id="more"></span>
+
+<h3 id="通过输入型绑定-Input-把数据从父组件传到子组件"><a href="#通过输入型绑定-Input-把数据从父组件传到子组件" class="headerlink" title="通过输入型绑定(@Input)把数据从父组件传到子组件"></a>通过输入型绑定(@Input)把数据从父组件传到子组件</h3><p><code>HeroChildComponent</code>有两个<strong>输入型属性</strong>，它们通常带<a target="_blank" rel="noopener" href="https://angular.cn/guide/inputs-outputs#input">@Input 装饰器</a>。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HeroChildComponent.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component, Input } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> { Hero } <span class="keyword">from</span> <span class="string">'./hero'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-hero-child'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h3&gt;{{hero.name}} says:&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;I, {{hero.name}}, am at your service, {{masterName}}.&lt;/p&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroChildComponent</span> </span>{</span><br><span class="line">  <span class="meta">@Input</span>() hero!: Hero;</span><br><span class="line">  <span class="meta">@Input</span>(<span class="string">'master'</span>) masterName = <span class="string">''</span>; <span class="comment">// tslint:disable-line: no-input-rename</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>第二个 <code>@Input</code> 为子组件的属性名 <code>masterName</code> 指定一个别名 <code>master</code>。</p>
+<blockquote>
+<p>不推荐为起别名，请参阅风格指南</p>
+</blockquote>
+<p>父组件 <code>HeroParentComponent</code> 把子组件的 <code>HeroChildComponent</code> 放到 <code>*ngFor</code> 循环器中，把自己的 <code>master</code> 字符串属性绑定到子组件的 <code>master</code> 别名上，并把每个循环的 <code>hero</code> 实例绑定到子组件的 <code>hero</code> 属性。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HeroParentComponent.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> { HEROES } <span class="keyword">from</span> <span class="string">'./hero'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-hero-parent'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h2&gt;{{master}} controls {{heroes.length}} heroes&lt;/h2&gt;</span></span><br><span class="line"><span class="string">    &lt;app-hero-child *ngFor="let hero of heroes"</span></span><br><span class="line"><span class="string">      [hero]="hero"</span></span><br><span class="line"><span class="string">      [master]="master"&gt;</span></span><br><span class="line"><span class="string">    &lt;/app-hero-child&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroParentComponent</span> </span>{</span><br><span class="line">  heroes = HEROES;</span><br><span class="line">  master = <span class="string">'Master'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="通过-setter-截听输入属性值的变化"><a href="#通过-setter-截听输入属性值的变化" class="headerlink" title="通过 setter 截听输入属性值的变化"></a>通过 setter 截听输入属性值的变化</h3><p>使用一个输入属性的 setter，以拦截父组件中值的变化，并采取行动。</p>
+<p>子组件 <code>NameChildComponent</code> 的输入属性 <code>name</code> 上的这个 setter，会 trim 掉名字里的空格，并把空值替换成默认字符串。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NameChildComponent.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component, Input } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-name-child'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">'&lt;h3&gt;"{{name}}"&lt;/h3&gt;'</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">NameChildComponent</span> </span>{</span><br><span class="line">  <span class="meta">@Input</span>()</span><br><span class="line">  <span class="keyword">get</span> <span class="title">name</span>(): <span class="title">string</span> { <span class="keyword">return</span> <span class="built_in">this</span>._name; }</span><br><span class="line">  <span class="keyword">set</span> <span class="title">name</span>(<span class="params">name: <span class="built_in">string</span></span>) {</span><br><span class="line">    <span class="built_in">this</span>._name = (name &amp;&amp; name.trim()) || <span class="string">'&lt;no name set&gt;'</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">private</span> _name = <span class="string">''</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面的 <code>NameParentComponent</code> 展示了各种名字的处理方式，包括一个全是空格的名字。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NameParentComponent.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-name-parent'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;h2&gt;Master controls {{names.length}} names&lt;/h2&gt;</span></span><br><span class="line"><span class="string">  &lt;app-name-child *ngFor="let name of names" [name]="name"&gt;&lt;/app-name-child&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">NameParentComponent</span> </span>{</span><br><span class="line">  <span class="comment">// Displays 'Dr IQ', '&lt;no name set&gt;', 'Bombasto'</span></span><br><span class="line">  names = [<span class="string">'Dr IQ'</span>, <span class="string">'   '</span>, <span class="string">'  Bombasto  '</span>];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="通过-ngOnChanges-来截听输入属性值的变化"><a href="#通过-ngOnChanges-来截听输入属性值的变化" class="headerlink" title="通过*ngOnChanges()*来截听输入属性值的变化"></a>通过*ngOnChanges()*来截听输入属性值的变化</h3><p>使用 <code>OnChanges</code> 生命周期钩子接口的 <code>ngOnChanges()</code> 方法来监测输入属性值的变化并做出回应。</p>
+<blockquote>
+<p>当需要监视多个、交互式输入属性的时候，本方法比用属性的 setter 更合适。</p>
+</blockquote>
+<h3 id="父组件监听子组件事件"><a href="#父组件监听子组件事件" class="headerlink" title="父组件监听子组件事件"></a>父组件监听子组件事件</h3><p>子组件暴露一个 <code>EventEmitter</code> 属性，当事件发生时，子组件利用该属性 <code>emits</code>(向上弹射)事件。父组件绑定到这个事件属性，并在事件发生时作出回应。</p>
+<p>子组件的 <code>EventEmitter</code> 属性是一个<strong>输出属性</strong>，通常带有<a target="_blank" rel="noopener" href="https://angular.cn/guide/inputs-outputs#output">@Output 装饰器</a>，就像在 <code>VoterComponent</code> 中看到的。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// voter.component.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component, EventEmitter, Input, Output } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-voter'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h4&gt;{{name}}&lt;/h4&gt;</span></span><br><span class="line"><span class="string">    &lt;button (click)="vote(true)"  [disabled]="didVote"&gt;Agree&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;button (click)="vote(false)" [disabled]="didVote"&gt;Disagree&lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">VoterComponent</span> </span>{</span><br><span class="line">  <span class="meta">@Input</span>()  name = <span class="string">''</span>;</span><br><span class="line">  <span class="meta">@Output</span>() voted = <span class="keyword">new</span> EventEmitter&lt;<span class="built_in">boolean</span>&gt;();</span><br><span class="line">  didVote = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">vote</span>(<span class="params">agreed: <span class="built_in">boolean</span></span>)</span> {</span><br><span class="line">    <span class="built_in">this</span>.voted.emit(agreed);</span><br><span class="line">    <span class="built_in">this</span>.didVote = <span class="literal">true</span>;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>点击按钮会触发 <code>true</code> 或 <code>false</code>(布尔型<em>有效载荷</em>)的事件。</p>
+<p>父组件 <code>VoteTakerComponent</code> 绑定了一个事件处理器(<code>onVoted()</code>)，用来响应子组件的事件(<code>$event</code>)并更新一个计数器。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// votetaker.component.ts</span></span><br><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-vote-taker'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h2&gt;Should mankind colonize the Universe?&lt;/h2&gt;</span></span><br><span class="line"><span class="string">    &lt;h3&gt;Agree: {{agreed}}, Disagree: {{disagreed}}&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;app-voter *ngFor="let voter of voters"</span></span><br><span class="line"><span class="string">      [name]="voter"</span></span><br><span class="line"><span class="string">      (voted)="onVoted($event)"&gt;</span></span><br><span class="line"><span class="string">    &lt;/app-voter&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">VoteTakerComponent</span> </span>{</span><br><span class="line">  agreed = <span class="number">0</span>;</span><br><span class="line">  disagreed = <span class="number">0</span>;</span><br><span class="line">  voters = [<span class="string">'Narco'</span>, <span class="string">'Celeritas'</span>, <span class="string">'Bombasto'</span>];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">onVoted</span>(<span class="params">agreed: <span class="built_in">boolean</span></span>)</span> {</span><br><span class="line">    agreed ? <span class="built_in">this</span>.agreed++ : <span class="built_in">this</span>.disagreed++;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="父组件与子组件通过本地变量互动"><a href="#父组件与子组件通过本地变量互动" class="headerlink" title="父组件与子组件通过本地变量互动"></a>父组件与子组件通过本地变量互动</h3><p>父组件不能使用数据绑定来读取子组件的属性或调用子组件的方法。但可以在父组件模板里，新建一个本地变量来代表子组件，然后利用这个变量来读取子组件的属性和调用子组件的方法，如下例所示。</p>
+<p>子组件 <code>CountdownTimerComponent</code> 进行倒计时，归零时发射一个导弹。<code>start</code> 和 <code>stop</code> 方法负责控制时钟并在模板里显示倒计时的状态信息。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CountdownTimerComponent</span></span><br><span class="line"><span class="keyword">import</span> { Component, OnDestroy } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-countdown-timer'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;{{message}}&lt;/p&gt;'</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CountdownTimerComponent</span> <span class="title">implements</span> <span class="title">OnDestroy</span> </span>{</span><br><span class="line"></span><br><span class="line">  intervalId = <span class="number">0</span>;</span><br><span class="line">  message = <span class="string">''</span>;</span><br><span class="line">  seconds = <span class="number">11</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">ngOnDestroy</span>(<span class="params"></span>)</span> { <span class="built_in">this</span>.clearTimer(); }</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">start</span>(<span class="params"></span>)</span> { <span class="built_in">this</span>.countDown(); }</span><br><span class="line">  <span class="function"><span class="title">stop</span>(<span class="params"></span>)</span>  {</span><br><span class="line">    <span class="built_in">this</span>.clearTimer();</span><br><span class="line">    <span class="built_in">this</span>.message = <span class="string">`Holding at T-<span class="subst">${<span class="built_in">this</span>.seconds}</span> seconds`</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="title">clearTimer</span>(<span class="params"></span>)</span> { <span class="built_in">clearInterval</span>(<span class="built_in">this</span>.intervalId); }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="title">countDown</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="built_in">this</span>.clearTimer();</span><br><span class="line">    <span class="built_in">this</span>.intervalId = <span class="built_in">window</span>.setInterval(<span class="function">() =&gt;</span> {</span><br><span class="line">      <span class="built_in">this</span>.seconds -= <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.seconds === <span class="number">0</span>) {</span><br><span class="line">        <span class="built_in">this</span>.message = <span class="string">'Blast off!'</span>;</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.seconds &lt; <span class="number">0</span>) { <span class="built_in">this</span>.seconds = <span class="number">10</span>; } <span class="comment">// reset</span></span><br><span class="line">        <span class="built_in">this</span>.message = <span class="string">`T-<span class="subst">${<span class="built_in">this</span>.seconds}</span> seconds and counting`</span>;</span><br><span class="line">      }</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>计时器组件的宿主组件 <code>CountdownLocalVarParentComponent</code> 如下：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { CountdownTimerComponent } <span class="keyword">from</span> <span class="string">'./countdown-timer.component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-countdown-parent-lv'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;h3&gt;Countdown to Liftoff (via local variable)&lt;/h3&gt;</span></span><br><span class="line"><span class="string">  &lt;button (click)="timer.start()"&gt;Start&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;button (click)="timer.stop()"&gt;Stop&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;div class="seconds"&gt;{{timer.seconds}}&lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;app-countdown-timer #timer&gt;&lt;/app-countdown-timer&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">styleUrls</span>: [<span class="string">'../assets/demo.css'</span>]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CountdownLocalVarParentComponent</span> </span>{ }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>父组件不能通过数据绑定使用子组件的 <code>start</code> 和 <code>stop</code> 方法，也不能访问子组件的 <code>seconds</code> 属性。</p>
+<p>把本地变量(<code>#timer</code>)放到(<code>&lt;countdown-timer&gt;</code>)标签中，用来代表子组件。这样父组件的模板就得到了子组件的引用，于是可以在父组件的模板中访问子组件的所有属性和方法。</p>
+<p>这个例子把父组件的按钮绑定到子组件的 <code>start</code> 和 <code>stop</code> 方法，并用插值来显示子组件的 <code>seconds</code> 属性。</p>
+<h3 id="父组件调用-ViewChild"><a href="#父组件调用-ViewChild" class="headerlink" title="父组件调用*@ViewChild()*"></a>父组件调用*@ViewChild()*</h3><p><strong>本地变量方法</strong>是个简单便利的方法。但是它也有局限性，因为父组件-子组件的连接必须全部在父组件的模板中进行。父组件本身的代码对子组件没有访问权。</p>
+<p>如果父组件的<em>类</em>需要读取子组件的属性值或调用子组件的方法，就不能使用<em>本地变量</em>方法。</p>
+<p>当父组件<em>类</em>需要这种访问时，可以把子组件作为 <em>ViewChild</em>，***注入***到父组件里面。</p>
+<p>下面是父组件 <code>CountdownViewChildParentComponent</code>:</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { AfterViewInit, ViewChild } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { CountdownTimerComponent } <span class="keyword">from</span> <span class="string">'./countdown-timer.component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-countdown-parent-vc'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;h3&gt;Countdown to Liftoff (via ViewChild)&lt;/h3&gt;</span></span><br><span class="line"><span class="string">  &lt;button (click)="start()"&gt;Start&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;button (click)="stop()"&gt;Stop&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;div class="seconds"&gt;{{ seconds() }}&lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;app-countdown-timer&gt;&lt;/app-countdown-timer&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">styleUrls</span>: [<span class="string">'../assets/demo.css'</span>]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CountdownViewChildParentComponent</span> <span class="title">implements</span> <span class="title">AfterViewInit</span> </span>{</span><br><span class="line"></span><br><span class="line">  <span class="meta">@ViewChild</span>(CountdownTimerComponent)</span><br><span class="line">  <span class="keyword">private</span> timerComponent!: CountdownTimerComponent;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">seconds</span>(<span class="params"></span>)</span> { <span class="keyword">return</span> <span class="number">0</span>; }</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">ngAfterViewInit</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="comment">// Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...</span></span><br><span class="line">    <span class="comment">// but wait a tick first to avoid one-time devMode</span></span><br><span class="line">    <span class="comment">// unidirectional-data-flow-violation error</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="built_in">this</span>.seconds = <span class="function">() =&gt;</span> <span class="built_in">this</span>.timerComponent.seconds, <span class="number">0</span>);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">start</span>(<span class="params"></span>)</span> { <span class="built_in">this</span>.timerComponent.start(); }</span><br><span class="line">  <span class="function"><span class="title">stop</span>(<span class="params"></span>)</span> { <span class="built_in">this</span>.timerComponent.stop(); }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>首先，你<strong>必须</strong>导入对装饰器 <code>ViewChild</code> 以及生命周期钩子 <code>AfterViewInit</code> 的引用。</p>
+<p>接着，通过 <code>@ViewChild</code> 属性装饰器，将子组件 <code>CountdownTimerComponent</code> 注入到私有属性 <code>timerComponent</code> 里面。</p>
+<p>组件元数据里就不再需要 <code>#timer</code> 本地变量了。而是把按钮绑定到父组件自己的 <code>start</code> 和 <code>stop</code> 方法，使用父组件的 <code>seconds</code> 方法的插值来展示秒数变化。这些方法可以直接访问被注入的计时器组件。</p>
+<p><code>ngAfterViewInit()</code> 生命周期钩子是非常重要的一步。被注入的计时器组件只有在 Angular 显示了父组件视图之后才能访问，所以它先把秒数显示为 0.</p>
+<p>然后 Angular 会调用 <code>ngAfterViewInit</code> 生命周期钩子，但这时候再更新父组件视图的倒计时就已经太晚了。Angular 的单向数据流规则会阻止在同一个周期内更新父组件视图。应用在显示秒数之前会被迫<em>再等一轮</em>。</p>
+<p>使用 <code>setTimeout()</code> 来等下一轮，然后改写 <code>seconds()</code> 方法，这样它接下来就会从注入的这个计时器组件里获取秒数的值。</p>
+<h3 id="父组件和子组件通过服务来通讯"><a href="#父组件和子组件通过服务来通讯" class="headerlink" title="父组件和子组件通过服务来通讯"></a>父组件和子组件通过服务来通讯</h3><p>父组件和它的子组件共享同一个服务，利用该服务<em>在组件家族内部</em>实现双向通讯。</p>
+<p>该服务实例的作用域被限制在父组件和其子组件内。这个组件子树之外的组件将无法访问该服务或者与它们通讯。</p>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -271,13 +359,16 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E8%A7%86%E5%9B%BE%E5%8C%85%E8%A3%85/" rel="prev" title="Angular组件-视图包装">
-                  <i class="fa fa-chevron-left"></i> Angular组件-视图包装
+                <a href="/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3%EF%BC%88%E4%B8%8B%EF%BC%89/" rel="prev" title="Angular组件-生命周期（下）">
+                  <i class="fa fa-chevron-left"></i> Angular组件-生命周期（下）
                 </a>
             </div>
             <div class="post-nav-item">
@@ -315,13 +406,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">65k</span>
+    <span title="Symbols count total">75k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">59 mins.</span>
+    <span title="Reading time total">1:08</span>
   </span>
 </div>
 <div class="busuanzi-count">

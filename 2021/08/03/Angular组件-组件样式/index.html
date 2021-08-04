@@ -20,14 +20,17 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="Angular 应用使用标准的 CSS 来设置样式。这意味着你可以把关于 CSS 的那些知识和技能直接用于 Angular 程序中，例如：样式表、选择器、规则以及媒体查询等。 另外，Angular 还能把组件样式捆绑在组件上，以实现比标准样式表更加模块化的设计。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular组件-组件样式">
 <meta property="og:url" content="http://lmtcodecode.com/2021/08/03/Angular%E7%BB%84%E4%BB%B6-%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="Angular 应用使用标准的 CSS 来设置样式。这意味着你可以把关于 CSS 的那些知识和技能直接用于 Angular 程序中，例如：样式表、选择器、规则以及媒体查询等。 另外，Angular 还能把组件样式捆绑在组件上，以实现比标准样式表更加模块化的设计。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T14:17:47.000Z">
-<meta property="article:modified_time" content="2021-08-03T14:17:47.326Z">
+<meta property="article:published_time" content="2021-08-03T05:17:47.000Z">
+<meta property="article:modified_time" content="2021-08-04T07:41:31.166Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
@@ -104,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">使用组件样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E5%8C%96%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">范围化的样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">特殊的选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#host"><span class="nav-number">3.1.</span> <span class="nav-text">:host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#host-context"><span class="nav-number">3.2.</span> <span class="nav-text">:host-context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E6%A0%B7%E5%BC%8F%E5%8A%A0%E8%BD%BD%E8%BF%9B%E7%BB%84%E4%BB%B6%E4%B8%AD%EF%BC%88%E4%BA%94%E7%A7%8D%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">把样式加载进组件中（五种）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">元数据中的样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%85%83%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">组件元数据中的样式文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">模板内联样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84link%E6%A0%87%E7%AD%BE"><span class="nav-number">4.4.</span> <span class="nav-text">模板中的link标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-imports%E8%AF%AD%E6%B3%95"><span class="nav-number">4.5.</span> <span class="nav-text">CSS @imports语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E4%BB%A5%E5%8F%8A%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="nav-number">4.6.</span> <span class="nav-text">外部以及全局样式文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9ECSS%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="nav-number">4.7.</span> <span class="nav-text">非CSS样式文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.7.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,18 +135,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -214,7 +218,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-03 22:17:47" itemprop="dateCreated datePublished" datetime="2021-08-03T22:17:47+08:00">2021-08-03</time>
+      <time title="Created: 2021-08-03 13:17:47" itemprop="dateCreated datePublished" datetime="2021-08-03T13:17:47+08:00">2021-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-04 15:41:31" itemprop="dateModified" datetime="2021-08-04T15:41:31+08:00">2021-08-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E7%BB%84%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">Angular组件</span></a>
+        </span>
     </span>
 
   
@@ -231,14 +259,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>4.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -249,7 +277,90 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>Angular 应用使用标准的 CSS 来设置样式。这意味着你可以把关于 CSS 的那些知识和技能直接用于 Angular 程序中，例如：样式表、选择器、规则以及媒体查询等。</p>
+<p>另外，Angular 还能把组件样式捆绑在组件上，以实现比标准样式表更加模块化的设计。</p>
+<span id="more"></span>
+
+<h2 id="使用组件样式"><a href="#使用组件样式" class="headerlink" title="使用组件样式"></a>使用组件样式</h2><p>对你编写的每个 Angular 组件来说，除了定义 HTML 模板之外，还要定义用于模板的 CSS 样式、 指定任意的选择器、规则和媒体查询。</p>
+<p>实现方式之一，是在组件的元数据中设置 <code>styles</code> 属性。 <code>styles</code> 属性可以接受一个包含 CSS 代码的字符串数组。 通常你只给它一个字符串就行了，如同下例：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-root'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;app-hero-main [hero]="hero"&gt;&lt;/app-hero-main&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">styles</span>: [<span class="string">'h1 { font-weight: normal; }'</span>]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroAppComponent</span> </span>{</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="范围化的样式"><a href="#范围化的样式" class="headerlink" title="范围化的样式"></a>范围化的样式</h2><blockquote>
+<p>在 <code>@Component</code> 的元数据中指定的样式只会对该组件的模板生效。</p>
+</blockquote>
+<p>它们既不会被模板中嵌入的组件继承，也不会被通过内容投影（如 ng-content）嵌进来的组件继承。</p>
+<p>在这个例子中，<code>h1</code> 的样式只对 <code>HeroAppComponent</code> 生效，既不会作用于内嵌的 <code>HeroMainComponent</code>，也不会作用于应用中其它任何地方的 <code>&lt;h1&gt;</code> 标签。</p>
+<p>这种范围限制就是所谓的***样式模块化***特性</p>
+<ul>
+<li>可以使用对每个组件最有意义的 CSS 类名和选择器。</li>
+<li>类名和选择器是<strong>局限</strong>于该组件的，它不会和应用中其它地方的类名和选择器冲突。</li>
+<li>组件的样式不会因为别的地方修改了样式而被意外改变。</li>
+<li>你可以让每个组件的 CSS 代码和它的 TypeScript、HTML 代码放在一起，这将促成清爽整洁的项目结构。</li>
+<li>将来你可以修改或移除组件的 CSS 代码，而不用遍历整个应用来看它有没有在别处用到。</li>
+</ul>
+<h2 id="特殊的选择器"><a href="#特殊的选择器" class="headerlink" title="特殊的选择器"></a>特殊的选择器</h2><p>组件样式中有一些从影子(Shadow) DOM 样式范围领域（记录在<a target="_blank" rel="noopener" href="https://www.w3.org/">W3C</a>的<a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-scoping-1">CSS Scoping Module Level 1</a>中） 引入的特殊<em>选择器</em>：</p>
+<h3 id="host"><a href="#host" class="headerlink" title=":host"></a>:host</h3><p>使用 <code>:host</code> 伪类选择器，用来选择组件<em>宿主</em>元素中的元素（相对于组件模板<em>内部</em>的元素）。</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:host</span> {</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>:host</code> 选择是是把宿主元素作为目标的<em>唯一</em>方式。除此之外，你将没办法指定它， 因为宿主不是组件自身模板的一部分，而是父组件模板的一部分。</p>
+<p>要把宿主样式作为条件，就要像<em>函数</em>一样把其它选择器放在 <code>:host</code> 后面的括号中。</p>
+<p>下一个例子再次把宿主元素作为目标，但是只有当它同时带有 <code>active</code> CSS 类的时候才会生效。</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:host</span>(<span class="selector-class">.active</span>) {</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>:host</code> 选择器也可以与其他选择器组合使用。在 <code>:host</code> 后面添加选择器以选择子元素，例如，使用 <code>:host h2</code> 定位组件视图内的 <code>&lt;h2&gt;</code>。</p>
+<blockquote>
+<p>不应该在 <code>:host</code> 选择器前面添加除 <code>:host-context</code> 之外的选择器来试图基于组件视图的外部上下文为本组件设置样式。因为此类选择器的作用域不会限于组件的视图，而是会选择外部上下文，但这不是自然的行为。请改用 <code>:host-context</code> 选择器。</p>
+</blockquote>
+<h3 id="host-context"><a href="#host-context" class="headerlink" title=":host-context"></a>:host-context</h3><p>有时候，基于某些来自组件视图<em>外部</em>的条件应用样式是很有用的。 例如，在文档的 <code>&lt;body&gt;</code> 元素上可能有一个用于表示样式主题 (theme) 的 CSS 类，你应当基于它来决定组件的样式。</p>
+<p>这时可以使用 <code>:host-context()</code> 伪类选择器。它也以类似 <code>:host()</code> 形式使用。它在当前组件宿主元素的<em>祖先节点</em>中查找 CSS 类， 直到文档的根节点为止。在与其它选择器组合使用时，它非常有用。</p>
+<p>在下面的例子中，只有当某个祖先元素有 CSS 类 <code>theme-light</code> 时，才会把 <code>background-color</code> 样式应用到组件<em>内部</em>的所有 <code>&lt;h2&gt;</code> 元素中。</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:host</span>-context(<span class="selector-class">.theme-light</span>) <span class="selector-tag">h2</span> {</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#eef</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="把样式加载进组件中（五种）"><a href="#把样式加载进组件中（五种）" class="headerlink" title="把样式加载进组件中（五种）"></a>把样式加载进组件中（五种）</h2><p>有几种方式把样式加入组件：</p>
+<ol>
+<li>设置 <code>styles</code> 或 <code>styleUrls</code> 元数据</li>
+<li>内联在模板的 HTML 中</li>
+<li>通过 CSS 文件导入</li>
+</ol>
+<p>上述作用域规则对所有这些加载模式都适用。</p>
+<h3 id="元数据中的样式"><a href="#元数据中的样式" class="headerlink" title="元数据中的样式"></a>元数据中的样式</h3><p>你可以给 <code>@Component</code> 装饰器添加一个 <code>styles</code> 数组型属性。</p>
+<p>这个数组中的每一个字符串（通常也只有一个）定义一份 CSS。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-root'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;app-hero-main [hero]="hero"&gt;&lt;/app-hero-main&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">styles</span>: [<span class="string">'h1 { font-weight: normal; }'</span>]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroAppComponent</span> </span>{</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意：这些样式<strong>只对当前组件生效</strong>。 它们<strong>既不会作用于模板中嵌入的任何组件</strong>，也不会作用于投影进来的组件（如 <code>ng-content</code> ）。</p>
+</blockquote>
+<p>当使用 <code>--inline-styles</code> 标识创建组件时，Angular CLI 的 <a target="_blank" rel="noopener" href="https://angular.cn/cli/generate"><code>ng generate component</code></a> 命令就会定义一个空的 <code>styles</code> 数组。</p>
+<h3 id="组件元数据中的样式文件"><a href="#组件元数据中的样式文件" class="headerlink" title="组件元数据中的样式文件"></a>组件元数据中的样式文件</h3><p>你可以通过把外部 CSS 文件添加到 <code>@Component</code> 的 <code>styleUrls</code> 属性中来加载外部样式。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-root'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;app-hero-main [hero]="hero"&gt;&lt;/app-hero-main&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">styleUrls</span>: [<span class="string">'./hero-app.component.css'</span>]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroAppComponent</span> </span>{</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你可以指定多个样式文件，甚至可以组合使用 <code>style</code> 和 <code>styleUrls</code> 方式。</p>
+</blockquote>
+<h3 id="模板内联样式"><a href="#模板内联样式" class="headerlink" title="模板内联样式"></a>模板内联样式</h3><p>你也可以直接在组件的 HTML 模板中写 <code>&lt;style&gt;</code> 标签来内嵌 CSS 样式。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-hero-controls'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;style&gt;</span></span><br><span class="line"><span class="string">      button {</span></span><br><span class="line"><span class="string">        background-color: white;</span></span><br><span class="line"><span class="string">        border: 1px solid #777;</span></span><br><span class="line"><span class="string">      }</span></span><br><span class="line"><span class="string">    &lt;/style&gt;</span></span><br><span class="line"><span class="string">    &lt;h3&gt;Controls&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;button (click)="activate()"&gt;Activate&lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="模板中的link标签"><a href="#模板中的link标签" class="headerlink" title="模板中的link标签"></a>模板中的link标签</h3><p>你也可以在组件的 HTML 模板中写 <code>&lt;link&gt;</code> 标签。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-hero-team'</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;!-- We must use a relative URL so that the AOT compiler can find the stylesheet --&gt;</span></span><br><span class="line"><span class="string">    &lt;link rel="stylesheet" href="../assets/hero-team.component.css"&gt;</span></span><br><span class="line"><span class="string">    &lt;h3&gt;Team&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">      &lt;li *ngFor="let member of hero.team"&gt;</span></span><br><span class="line"><span class="string">        {{member}}</span></span><br><span class="line"><span class="string">      &lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;`</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="CSS-imports语法"><a href="#CSS-imports语法" class="headerlink" title="CSS @imports语法"></a>CSS @imports语法</h3><p>你还可以利用标准的 CSS <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/CSS/@import"><code>@import</code>规则</a>来把其它 CSS 文件导入到 CSS 文件中。</p>
+<p>在<em>这种</em>情况下，URL 是相对于你正在导入的 CSS 文件的。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The AOT compiler needs the `./` to show that this is local */</span></span><br><span class="line"><span class="meta">@import</span> <span class="string">'./hero-details-box.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="外部以及全局样式文件"><a href="#外部以及全局样式文件" class="headerlink" title="外部以及全局样式文件"></a>外部以及全局样式文件</h3><p>当使用 CLI 进行构建时，你必须配置 <code>angular.json</code> 文件，使其包含<em>所有外部资源</em>（包括外部的样式表文件）。</p>
+<p>在它的 <code>styles</code> 区注册这些<strong>全局</strong>样式文件，默认情况下，它会有一个预先配置的全局 <code>styles.css</code> 文件。</p>
+<h3 id="非CSS样式文件"><a href="#非CSS样式文件" class="headerlink" title="非CSS样式文件"></a>非CSS样式文件</h3><p>如果使用 CLI 进行构建，那么你可以用 <a target="_blank" rel="noopener" href="http://sass-lang.com/">sass</a>、<a target="_blank" rel="noopener" href="http://lesscss.org/">less</a> 或 <a target="_blank" rel="noopener" href="http://stylus-lang.com/">stylus</a> 来编写样式，并使用相应的扩展名（<code>.scss</code>、<code>.less</code>、<code>.styl</code>）把它们指定到 <code>@Component.styleUrls</code> 元数据中。例子如下：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-root'</span>,</span><br><span class="line">  <span class="attr">templateUrl</span>: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  <span class="attr">styleUrls</span>: [<span class="string">'./app.component.scss'</span>]</span><br><span class="line">})</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+
+<p>CLI 的构建过程会运行相关的预处理器。</p>
+<blockquote>
+<p>添加到 <code>@Component.styles</code> 数组中的字符串<em>必须写成 CSS</em>，因为 CLI 没法对这些内联的样式使用任何 CSS 预处理器。</p>
+</blockquote>
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -271,6 +382,9 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
 
         
 
@@ -315,13 +429,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">65k</span>
+    <span title="Symbols count total">75k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">59 mins.</span>
+    <span title="Reading time total">1:08</span>
   </span>
 </div>
 <div class="busuanzi-count">
