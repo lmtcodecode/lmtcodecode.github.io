@@ -20,13 +20,15 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
+<meta name="description" content="响应式编程是一种面向数据流和变更传播的异步编程范式（Wikipedia）。RxJS（响应式扩展的 JavaScript 版）是一个使用可观察对象进行响应式编程的库，它让组合异步代码和基于回调的代码变得更简单。参阅 RxJS 官方文档。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular-RxJS库">
 <meta property="og:url" content="http://lmtcodecode.com/2021/08/05/Angular-RxJS%E5%BA%93/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="响应式编程是一种面向数据流和变更传播的异步编程范式（Wikipedia）。RxJS（响应式扩展的 JavaScript 版）是一个使用可观察对象进行响应式编程的库，它让组合异步代码和基于回调的代码变得更简单。参阅 RxJS 官方文档。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-05T10:44:09.000Z">
-<meta property="article:modified_time" content="2021-08-05T10:46:45.918Z">
+<meta property="article:published_time" content="2021-08-05T02:44:09.000Z">
+<meta property="article:modified_time" content="2021-08-05T14:24:28.394Z">
 <meta property="article:author" content="美彤·柚子">
 <meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
@@ -105,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -118,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E8%AF%8D%E6%B1%87"><span class="nav-number">1.</span> <span class="nav-text">基本用法和词汇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%A7%82%E5%AF%9F%E8%80%85"><span class="nav-number">2.</span> <span class="nav-text">定义观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A2%E9%98%85"><span class="nav-number">3.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">创建可观察对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%92%AD"><span class="nav-number">5.</span> <span class="nav-text">多播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">7.</span> <span class="nav-text">操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">7.1.</span> <span class="nav-text">常用操作符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-1"><span class="nav-number">8.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%AF%95%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.</span> <span class="nav-text">重试失败的可观察对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A"><span class="nav-number">9.</span> <span class="nav-text">可观察对象的命名约定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.0.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,7 +219,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-05 18:44:09 / Modified: 18:46:45" itemprop="dateCreated datePublished" datetime="2021-08-05T18:44:09+08:00">2021-08-05</time>
+      <time title="Created: 2021-08-05 10:44:09 / Modified: 22:24:28" itemprop="dateCreated datePublished" datetime="2021-08-05T10:44:09+08:00">2021-08-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,14 +253,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>6.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time ≈</span>
-      <span>1 mins.</span>
+      <span>6 mins.</span>
     </span>
 </div>
 
@@ -268,7 +271,125 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>响应式编程是一种面向数据流和变更传播的异步编程范式（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B">Wikipedia</a>）。RxJS（响应式扩展的 JavaScript 版）是一个使用可观察对象进行响应式编程的库，它让组合异步代码和基于回调的代码变得更简单。参阅 <a target="_blank" rel="noopener" href="https://rxjs.dev/guide/overview">RxJS 官方文档</a>。</p>
+<span id="more"></span>
+
+<p>RxJS 提供了一种对 <code>Observable</code> 类型的实现，直到 <code>Observable</code> 成为了 JavaScript 语言的一部分并且浏览器支持它之前，它都是必要的。这个库还提供了一些工具函数，用于创建和使用可观察对象。这些工具函数可用于：</p>
+<ul>
+<li>把现有的异步代码转换成可观察对象</li>
+<li>迭代流中的各个值</li>
+<li>把这些值映射成其它类型</li>
+<li>对流进行过滤</li>
+<li>组合多个流</li>
+</ul>
+<h2 id="基本用法和词汇"><a href="#基本用法和词汇" class="headerlink" title="基本用法和词汇"></a>基本用法和词汇</h2><p>作为发布者，你创建一个 <code>Observable</code> 的实例，其中定义了一个<em>订阅者（subscriber）</em>函数。 当有消费者调用 <code>subscribe()</code> 方法时，这个函数就会执行。 订阅者函数用于定义<strong>“如何获取或生成那些要发布的值或消息”</strong>。</p>
+<p>要执行所创建的可观察对象，并开始从中接收通知，你就要<strong>调用它的 <code>subscribe()</code> 方法，并传入一个<em>观察者（observer）</em>。</strong> 这是一个 JavaScript 对象，它定义了你收到的这些消息的处理器（handler）。 <code>subscribe()</code> 调用会返回一个 <code>Subscription</code> 对象，该对象具有一个 <code>unsubscribe()</code> 方法。 当调用该方法时，你就会停止接收通知。</p>
+<h2 id="定义观察者"><a href="#定义观察者" class="headerlink" title="定义观察者"></a>定义观察者</h2><p>用于接收可观察对象通知的处理器要实现 <code>Observer</code> 接口。这个对象定义了一些回调函数来处理可观察对象可能会发来的三种通知：</p>
+<table>
+<thead>
+<tr>
+<th align="left">通知类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>next</code></td>
+<td align="left">必要。用来处理每个送达值。在开始执行后可能执行零次或多次。</td>
+</tr>
+<tr>
+<td align="left"><code>error</code></td>
+<td align="left">可选。用来处理错误通知。错误会中断这个可观察对象实例的执行过程。</td>
+</tr>
+<tr>
+<td align="left"><code>complete</code></td>
+<td align="left">可选。用来处理执行完毕（complete）通知。当执行完毕后，这些值就会继续传给下一个处理器。</td>
+</tr>
+</tbody></table>
+<p>观察者对象可以定义这三种处理器的任意组合。如果你不为某种通知类型提供处理器，这个观察者就会忽略相应类型的通知。</p>
+<h2 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h2><p>只有当有人<strong>订阅 <code>Observable</code> 的实例时，它才会开始发布值。</strong> 订阅时要先调用该实例的 <code>subscribe()</code> 方法，并把一个观察者对象传给它，用来接收通知。也可以使用 <code>Observable</code> 上定义的一些静态方法来创建一些常用的简单可观察对象：</p>
+<ul>
+<li><code>of(...items)</code> —— 返回一个 <code>Observable</code> 实例，它用同步的方式把参数中提供的这些值发送出来。</li>
+<li><code>from(iterable)</code> —— 把它的参数转换成一个 <code>Observable</code> 实例。 该方法通常用于把一个数组转换成一个（发送多个值的）可观察对象。</li>
+</ul>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create simple observable that emits three values</span></span><br><span class="line"><span class="keyword">const</span> myObservable = <span class="keyword">of</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create observer object</span></span><br><span class="line"><span class="keyword">const</span> myObserver = {</span><br><span class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">x: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</span><br><span class="line">  <span class="attr">error</span>: <span class="function">(<span class="params">err: <span class="built_in">Error</span></span>) =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</span><br><span class="line">  <span class="attr">complete</span>: <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>),</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// Execute with the observer object</span></span><br><span class="line">myObservable.subscribe(myObserver);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Logs:</span></span><br><span class="line"><span class="comment">// Observer got a next value: 1</span></span><br><span class="line"><span class="comment">// Observer got a next value: 2</span></span><br><span class="line"><span class="comment">// Observer got a next value: 3</span></span><br><span class="line"><span class="comment">// Observer got a complete notification</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>subscribe()</code> 方法还可以接收定义在同一行中的回调函数，无论 <code>next</code>、<code>error</code> 还是 <code>complete</code> 处理器。<code>next</code> 处理器都是必要的，而 <code>error</code> 和 <code>complete</code> 处理器是可选的。</p>
+<p>注意，<code>next()</code> 函数可以接受消息字符串、事件对象、数字值或各种结构，具体类型取决于上下文。 为了更通用一点，我们把由可观察对象发布出来的数据统称为<em>流</em>。任何类型的值都可以表示为可观察对象，而这些值会被发布为一个流。</p>
+<h2 id="创建可观察对象"><a href="#创建可观察对象" class="headerlink" title="创建可观察对象"></a>创建可观察对象</h2><p>使用 <code>Observable</code> 构造函数可以创建任何类型的可观察流。 当执行可观察对象的 <code>subscribe()</code> 方法时，这个构造函数就会把它接收到的参数作为订阅函数来运行。 订阅函数会接收一个 <code>Observer</code> 对象，并把值发布给观察者的 <code>next()</code> 方法。</p>
+<p>比如，要创建一个与前面的 <code>of(1, 2, 3)</code> 等价的可观察对象，你可以这样做</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This function runs when subscribe() is called</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sequenceSubscriber</span>(<span class="params">observer: Observer&lt;<span class="built_in">number</span>&gt;</span>) </span>{</span><br><span class="line">  <span class="comment">// synchronously deliver 1, 2, and 3, then complete</span></span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  observer.complete();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// unsubscribe function doesn't need to do anything in this</span></span><br><span class="line">  <span class="comment">// because values are delivered synchronously</span></span><br><span class="line">  <span class="keyword">return</span> {<span class="function"><span class="title">unsubscribe</span>(<span class="params"></span>)</span> {}};</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a new Observable that will deliver the above sequence</span></span><br><span class="line"><span class="keyword">const</span> sequence = <span class="keyword">new</span> Observable(sequenceSubscriber);</span><br><span class="line"></span><br><span class="line"><span class="comment">// execute the Observable and print the result of each notification</span></span><br><span class="line">sequence.subscribe({</span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params">num</span>)</span> { <span class="built_in">console</span>.log(num); },</span><br><span class="line">  <span class="function"><span class="title">complete</span>(<span class="params"></span>)</span> { <span class="built_in">console</span>.log(<span class="string">'Finished sequence'</span>); }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// Logs:</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// Finished sequence</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="多播"><a href="#多播" class="headerlink" title="多播"></a>多播</h2><p>典型的可观察对象会为每一个观察者创建一次新的、独立的执行。 当观察者进行订阅时，该可观察对象会连上一个事件处理器，并且向那个观察者发送一些值。当第二个观察者订阅时，这个可观察对象就会连上一个新的事件处理器，并独立执行一次，把这些值发送给第二个可观察对象。</p>
+<p>有时候，不应该对每一个订阅者都独立执行一次，你可能会希望每次订阅都得到同一批值 —— 即使是那些你已经发送过的。这在某些情况下有用，比如用来发送 <code>document</code> 上的点击事件的可观察对象。</p>
+<p><em>多播</em>用来让可观察对象在一次执行中同时广播给多个订阅者。借助支持多播的可观察对象，你不必注册多个监听器，而是复用第一个（<code>next</code>）监听器，并且把值发送给各个订阅者。</p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>由于可观察对象会异步生成值，所以用 <code>try/catch</code> 是无法捕获错误的。你应该在观察者中指定一个 <code>error</code> 回调来处理错误。发生错误时还会导致可观察对象清理现有的订阅，并且停止生成值。可观察对象可以生成值（调用 <code>next</code> 回调），也可以调用 <code>complete</code> 或 <code>error</code> 回调来主动结束。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myObservable.subscribe({</span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params">num</span>)</span> { <span class="built_in">console</span>.log(<span class="string">'Next num: '</span> + num)},</span><br><span class="line">  <span class="function"><span class="title">error</span>(<span class="params">err</span>)</span> { <span class="built_in">console</span>.log(<span class="string">'Received an error: '</span> + err)}</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p>操作符是基于可观察对象构建的一些对集合进行复杂操作的函数。RxJS 定义了一些操作符。<strong>比如 <code>map()</code>、<code>filter()</code>、<code>concat()</code> 和 <code>flatMap()</code>。</strong></p>
+<p><strong>操作符接受一些配置项，然后返回一个以来源可观察对象为参数的函数。</strong>当执行这个返回的函数时，这个操作符会观察来源可观察对象中发出的值，转换它们，并返回由转换后的值组成的新的可观察对象。下面是一个简单的例子：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { <span class="keyword">of</span> } <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> { map } <span class="keyword">from</span> <span class="string">'rxjs/operators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> nums = <span class="keyword">of</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> squareValues = map(<span class="function">(<span class="params">val: <span class="built_in">number</span></span>) =&gt;</span> val * val);</span><br><span class="line"><span class="keyword">const</span> squaredNums = squareValues(nums);</span><br><span class="line"></span><br><span class="line">squaredNums.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Logs</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 9</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>你可以使用<em>管道</em>来把这些操作符链接起来。管道让你可以把多个由操作符返回的函数组合成一个。</strong><code>pipe()</code> 函数以你要组合的这些函数作为参数，并且返回一个新的函数，当执行这个新函数时，就会顺序执行那些被组合进去的函数。</p>
+<p>应用于某个可观察对象上的一组操作符就像一个处理流程 —— 也就是说，对你感兴趣的这些值进行处理的一组操作步骤。这个处理流程本身不会做任何事。你需要调用 <code>subscribe()</code> 来通过处理流程得出并生成一个结果。</p>
+<p><code>pipe()</code> 函数也同时是 RxJS 的 <code>Observable</code> 上的一个方法，所以你可以用下列简写形式来达到同样的效果：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { <span class="keyword">of</span> } <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> { filter, map } <span class="keyword">from</span> <span class="string">'rxjs/operators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> squareOdd = <span class="keyword">of</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">  .pipe(</span><br><span class="line">    filter(<span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span> !== <span class="number">0</span>),</span><br><span class="line">    map(<span class="function"><span class="params">n</span> =&gt;</span> n * n)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="comment">// Subscribe to get values</span></span><br><span class="line">squareOdd.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h3><p>RxJS 提供了很多操作符，不过只有少数是常用的。 下面是一个常用操作符的列表和用法范例，参阅 <a target="_blank" rel="noopener" href="https://rxjs.dev/api">RxJS API 文档</a>。</p>
+<blockquote>
+<p>注意，对于 Angular 应用来说，我们提倡使用管道来组合操作符，而不是使用链式写法。链式写法仍然在很多 RxJS 中使用着。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">创建</td>
+<td align="left"><code>from</code>, <code>fromEvent</code>, <code>of``from</code>, <code>fromPromise</code>,<code>fromEvent</code>, <code>of</code></td>
+</tr>
+<tr>
+<td align="left">组合</td>
+<td align="left"><code>combineLatest</code>, <code>concat</code>, <code>merge</code>, <code>startWith</code> , <code>withLatestFrom</code>, <code>zip</code></td>
+</tr>
+<tr>
+<td align="left">过滤</td>
+<td align="left"><code>debounceTime</code>, <code>distinctUntilChanged</code>, <code>filter</code>, <code>take</code>, <code>takeUntil</code></td>
+</tr>
+<tr>
+<td align="left">转换</td>
+<td align="left"><code>bufferTime</code>, <code>concatMap</code>, <code>map</code>, <code>mergeMap</code>, <code>scan</code>, <code>switchMap</code></td>
+</tr>
+<tr>
+<td align="left">工具</td>
+<td align="left"><code>tap</code></td>
+</tr>
+<tr>
+<td align="left">多播</td>
+<td align="left"><code>share</code></td>
+</tr>
+</tbody></table>
+<h2 id="错误处理-1"><a href="#错误处理-1" class="headerlink" title="错误处理"></a>错误处理</h2><p>除了可以在订阅时提供 <code>error()</code> 处理器外，RxJS 还提供了 <code>catchError</code> 操作符，它允许你在管道中处理已知错误。</p>
+<p>假设你有一个可观察对象，它发起 API 请求，然后对服务器返回的响应进行映射。如果服务器返回了错误或值不存在，就会生成一个错误。如果你捕获这个错误并提供了一个默认值，流就会继续处理这些值，而不会报错。</p>
+<p>下面是使用 <code>catchError</code> 操作符实现这种效果的例子：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Observable, <span class="keyword">of</span> } <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> { ajax } <span class="keyword">from</span> <span class="string">'rxjs/ajax'</span>;</span><br><span class="line"><span class="keyword">import</span> { map, catchError } <span class="keyword">from</span> <span class="string">'rxjs/operators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Return "response" from the API. If an error happens,</span></span><br><span class="line"><span class="comment">// return an empty array.</span></span><br><span class="line"><span class="keyword">const</span> apiData = ajax(<span class="string">'/api/data'</span>).pipe(</span><br><span class="line">  map(<span class="function">(<span class="params">res: <span class="built_in">any</span></span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">if</span> (!res.response) {</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Value expected!'</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res.response;</span><br><span class="line">  }),</span><br><span class="line">  catchError(<span class="function">() =&gt;</span> <span class="keyword">of</span>([]))</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">apiData.subscribe({</span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params">x: T</span>)</span> { <span class="built_in">console</span>.log(<span class="string">'data: '</span>, x); },</span><br><span class="line">  <span class="function"><span class="title">error</span>(<span class="params"></span>)</span> { <span class="built_in">console</span>.log(<span class="string">'errors already caught... will not run'</span>); }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="重试失败的可观察对象"><a href="#重试失败的可观察对象" class="headerlink" title="重试失败的可观察对象"></a>重试失败的可观察对象</h3><p><code>catchError</code> 提供了一种简单的方式进行恢复，而 <code>retry</code> 操作符让你可以尝试失败的请求。</p>
+<p>可以在 <code>catchError</code> 之前使用 <code>retry</code> 操作符。它会订阅到原始的来源可观察对象，它可以重新运行导致结果出错的动作序列。如果其中包含 HTTP 请求，它就会重新发起那个 HTTP 请求。</p>
+<p>下列代码把前面的例子改成了在捕获错误之前重发请求：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Observable, <span class="keyword">of</span> } <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> { ajax } <span class="keyword">from</span> <span class="string">'rxjs/ajax'</span>;</span><br><span class="line"><span class="keyword">import</span> { map, retry, catchError } <span class="keyword">from</span> <span class="string">'rxjs/operators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> apiData = ajax(<span class="string">'/api/data'</span>).pipe(</span><br><span class="line">  map(<span class="function">(<span class="params">res: <span class="built_in">any</span></span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">if</span> (!res.response) {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Error occurred.'</span>);</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Value expected!'</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res.response;</span><br><span class="line">  }),</span><br><span class="line">  retry(<span class="number">3</span>), <span class="comment">// Retry up to 3 times before failing</span></span><br><span class="line">  catchError(<span class="function">() =&gt;</span> <span class="keyword">of</span>([]))</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">apiData.subscribe({</span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params">x: T</span>)</span> { <span class="built_in">console</span>.log(<span class="string">'data: '</span>, x); },</span><br><span class="line">  <span class="function"><span class="title">error</span>(<span class="params"></span>)</span> { <span class="built_in">console</span>.log(<span class="string">'errors already caught... will not run'</span>); }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="可观察对象的命名约定"><a href="#可观察对象的命名约定" class="headerlink" title="可观察对象的命名约定"></a>可观察对象的命名约定</h2><p>由于 Angular 的应用几乎都是用 TypeScript 写的，你通常会希望知道某个变量是否可观察对象。虽然 Angular 框架并没有针对可观察对象的强制性命名约定，不过你经常会看到可观察对象的名字以“$”符号结尾。</p>
+<p>这在快速浏览代码并查找可观察对象值时会非常有用。同样的，如果你希望用某个属性来存储来自可观察对象的最近一个值，它的命名惯例是与可观察对象同名，但不带“$”后缀。</p>
+<p>比如：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Component } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { Observable } <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>({</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">'app-stopwatch'</span>,</span><br><span class="line">  <span class="attr">templateUrl</span>: <span class="string">'./stopwatch.component.html'</span></span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">StopwatchComponent</span> </span>{</span><br><span class="line"></span><br><span class="line">  stopwatchValue = <span class="number">0</span>;</span><br><span class="line">  stopwatchValue$!: Observable&lt;<span class="built_in">number</span>&gt;;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">start</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="built_in">this</span>.stopwatchValue$.subscribe(<span class="function"><span class="params">num</span> =&gt;</span></span><br><span class="line">      <span class="built_in">this</span>.stopwatchValue = num</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
@@ -334,13 +455,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">105k</span>
+    <span title="Symbols count total">112k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:35</span>
+    <span title="Reading time total">1:42</span>
   </span>
 </div>
 <div class="busuanzi-count">
