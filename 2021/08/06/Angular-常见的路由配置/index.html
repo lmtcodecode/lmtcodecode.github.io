@@ -20,26 +20,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lmtcodecode.com","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://lmtcodecode.com/tags/index.html">
+<meta name="description" content="在单页应用中，你可以通过显示或隐藏与特定组件相对应的部分来更改用户看到的内容，而不用去服务器获取新页面。用户执行应用程序任务时，他们需要在定义好的不同视图之间移动。 要处理从一个视图到下一个视图的导航，请使用 Angular **Router**。 Router 会通过将浏览器 URL 解释为更改视图的操作指令来启用导航。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular-常见的路由配置">
+<meta property="og:url" content="http://lmtcodecode.com/2021/08/06/Angular-%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Lmt-codecode">
+<meta property="og:description" content="在单页应用中，你可以通过显示或隐藏与特定组件相对应的部分来更改用户看到的内容，而不用去服务器获取新页面。用户执行应用程序任务时，他们需要在定义好的不同视图之间移动。 要处理从一个视图到下一个视图的导航，请使用 Angular **Router**。 Router 会通过将浏览器 URL 解释为更改视图的操作指令来启用导航。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-27T03:51:30.000Z">
-<meta property="article:modified_time" content="2021-07-27T03:57:23.812Z">
+<meta property="article:published_time" content="2021-08-06T02:30:13.000Z">
+<meta property="article:modified_time" content="2021-08-06T06:56:24.435Z">
 <meta property="article:author" content="美彤·柚子">
+<meta property="article:tag" content="Angular框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lmtcodecode.com/tags/">
+<link rel="canonical" href="http://lmtcodecode.com/2021/08/06/Angular-%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/tags/index.html","path":"tags/index.html","title":"tags"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lmtcodecode.com/2021/08/06/Angular-%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/","path":"2021/08/06/Angular-常见的路由配置/","title":"Angular-常见的路由配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>tags | Lmt-codecode
-</title>
+<title>Angular-常见的路由配置 | Lmt-codecode</title>
   
 
 
@@ -105,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -118,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">定义一个基本路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">路由顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">获取路由参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%80%9A%E9%85%8D%E7%AC%A6%E8%B7%AF%E7%94%B1"><span class="nav-number">3.</span> <span class="nav-text">设置通配符路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA-404-%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.</span> <span class="nav-text">显示 404 页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">5.</span> <span class="nav-text">设置重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1"><span class="nav-number">6.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB"><span class="nav-number">7.</span> <span class="nav-text">路由守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,43 +183,198 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
 
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://lmtcodecode.com/2021/08/06/Angular-%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
 
-    
-    
-    
-    <div class="post-block" lang="en"><header class="post-header">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my.gif">
+      <meta itemprop="name" content="美彤·柚子">
+      <meta itemprop="description" content="">
+    </span>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lmt-codecode">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Angular-常见的路由配置
+        </h1>
 
-<div class="post-meta-container">
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-06 10:30:13 / Modified: 14:56:24" itemprop="dateCreated datePublished" datetime="2021-08-06T10:30:13+08:00">2021-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">Angular框架</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/Angular%E6%A1%86%E6%9E%B6/Angular%E8%B7%AF%E7%94%B1/" itemprop="url" rel="index"><span itemprop="name">Angular路由</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time ≈</span>
+      <span>5 mins.</span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="tag-cloud">
-  <div class="tag-cloud-title">
-    7 tags in total
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" style="font-size: 30px;" class="tag-cloud-10">Angular框架</a> <a href="/tags/JS%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 12px;" class="tag-cloud-0">JS知识点</a> <a href="/tags/JavaScript/" style="font-size: 24px;" class="tag-cloud-7">JavaScript</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 12px;" class="tag-cloud-0">博客搭建</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 18px;" class="tag-cloud-3">数据结构与算法</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px;" class="tag-cloud-0">浏览器</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18px;" class="tag-cloud-3">计算机网络</a>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在单页应用中，你可以通过显示或隐藏与特定组件相对应的部分来更改用户看到的内容，而不用去服务器获取新页面。用户执行应用程序任务时，他们需要在定义好的不同<a target="_blank" rel="noopener" href="https://angular.cn/guide/glossary#view">视图</a>之间移动。</p>
+<p>要处理从一个<a target="_blank" rel="noopener" href="https://angular.cn/guide/glossary#view">视图</a>到下一个视图的导航，请使用 Angular **<code>Router</code>**。 <strong><code>Router</code></strong> 会通过将浏览器 URL 解释为更改视图的操作指令来启用导航。</p>
+<span id="more"></span>
 
-      </div>
-      
-      
-      
+<h2 id="定义一个基本路由"><a href="#定义一个基本路由" class="headerlink" title="定义一个基本路由"></a>定义一个基本路由</h2><p>把 <code>RouterModule</code> 和 <code>Routes</code> 导入到你的路由模块中。</p>
+<p>Angular CLI 会自动执行这一步骤。CLI 还为你的路由设置了 <code>Routes</code> 数组，并为 <code>@NgModule()</code> 配置了 <code>imports</code> 和 <code>exports</code> 数组。</p>
+<p>在 <code>Routes</code> 数组中定义你的路由。</p>
+<p>这个数组中的每个路由都是一个包含两个属性的 JavaScript 对象。第一个属性 <code>path</code> 定义了该路由的 URL 路径。第二个属性 <code>component</code> 定义了要让 Angular 用作相应路径的组件。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { NgModule } <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> { Routes, RouterModule } <span class="keyword">from</span> <span class="string">'@angular/router'</span>; <span class="comment">// CLI imports router</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  { <span class="attr">path</span>: <span class="string">'first-component'</span>, <span class="attr">component</span>: FirstComponent },</span><br><span class="line">  { <span class="attr">path</span>: <span class="string">'second-component'</span>, <span class="attr">component</span>: SecondComponent },</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// configures NgModule imports and exports</span></span><br><span class="line"><span class="meta">@NgModule</span>({</span><br><span class="line">  <span class="attr">imports</span>: [RouterModule.forRoot(routes)],</span><br><span class="line">  <span class="attr">exports</span>: [RouterModule]</span><br><span class="line">})</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppRoutingModule</span> </span>{ }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>把这些路由添加到你的应用中。</p>
+<p>现在你已经定义了路由，可以把它们添加到应用中了。首先，添加到这两个组件的链接。把要添加路由的链接赋值给 <code>routerLink</code> 属性。将属性的值设置为该组件，以便在用户点击各个链接时显示这个值。</p>
+<p> 接下来，修改组件模板以包含 <code>&lt;router-outlet&gt;</code> 标签。该元素会通知 Angular，你可以用所选路由的组件更新应用的视图。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Angular Router App<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/first-component"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>First Component<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/second-component"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>Second Component<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- The routed views render in the &lt;router-outlet&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="路由顺序"><a href="#路由顺序" class="headerlink" title="路由顺序"></a>路由顺序</h3><p>路由的顺序很重要，因为 <code>Router</code> 在匹配路由时使用“先到先得”策略，所以应该在不那么具体的路由前面放置更具体的路由。首先列出静态路径的路由，然后是一个与默认路由匹配的空路径路由。<a target="_blank" rel="noopener" href="https://angular.cn/guide/router#setting-up-wildcard-routes">通配符路由</a>是最后一个，因为它匹配每一个 URL，只有当其它路由都没有匹配时，<code>Router</code> 才会选择它。</p>
+<h2 id="获取路由参数"><a href="#获取路由参数" class="headerlink" title="获取路由参数"></a>获取路由参数</h2><p>通常，当用户导航你的应用时，你会希望把信息从一个组件传递到另一个组件。例如，考虑一个显示杂货商品购物清单的应用。列表中的每一项都有一个唯一的 <code>id</code>。要想编辑某个项目，用户需要单击“编辑”按钮，打开一个 <code>EditGroceryItem</code> 组件。你希望该组件得到该商品的 <code>id</code>，以便它能向用户显示正确的信息。</p>
+<p>你也可以使用一个路由把这种类型的信息传给你的应用组件。要做到这一点，你可以使用 <a target="_blank" rel="noopener" href="https://angular.cn/api/router/ActivatedRoute">ActivatedRoute</a> 接口。</p>
+<p>有两种跳转方法：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 跳转get传值</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> [<span class="attr">routerLink</span>]=<span class="string">"['/new']"</span>[<span class="attr">queryParams</span>]=<span class="string">"{aid:key}"</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">// 动态路由</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> [<span class="attr">routerLink</span>]=<span class="string">"['/new',key]"</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把 ActivatedRoute 和 ParamMap 导入你的组件。</span></span><br><span class="line"><span class="keyword">import</span> { Router, ActivatedRoute, ParamMap } <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过把 ActivatedRoute 的一个实例添加到你的应用的构造函数中来注入它：</span></span><br><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">  <span class="keyword">private</span> route: ActivatedRoute,</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span> {}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新 ngOnInit() 方法来访问这个 ActivatedRoute 并跟踪 id 参数：</span></span><br><span class="line"><span class="comment">// get:</span></span><br><span class="line"><span class="function"><span class="title">ngOnInit</span>(<span class="params"></span>)</span> {</span><br><span class="line">  <span class="built_in">this</span>.route.queryParams.subscribe(<span class="function"><span class="params">params</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">this</span>.name = params[<span class="string">'name'</span>];</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新 ngOnInit() 方法来访问这个 ActivatedRoute 并跟踪 id 参数：</span></span><br><span class="line"><span class="comment">// 动态路由:</span></span><br><span class="line"><span class="function"><span class="title">ngOnInit</span>(<span class="params"></span>)</span> {</span><br><span class="line">  <span class="built_in">this</span>.route.params.subscribe(<span class="function"><span class="params">params</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">this</span>.name = params[<span class="string">'name'</span>];</span><br><span class="line">  });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置通配符路由"><a href="#设置通配符路由" class="headerlink" title="设置通配符路由"></a>设置通配符路由</h2><p>当用户试图导航到那些不存在的应用部件时，在正常的应用中应该能得到很好的处理。要在应用中添加此功能，需要设置通配符路由。当所请求的 URL 与任何路由器路径都不匹配时，Angular 路由器就会选择这个路由。</p>
+<p>要设置通配符路由，请在 <code>routes</code> 定义中添加以下代码。</p>
+<p>这两个星号 <code>**</code> 告诉 Angular，这个 <code>routes</code> 定义是通配符路由。对于 component 属性，你可以使用应用中的任何组件。常见的选择包括应用专属的 <code>PageNotFoundComponent</code>，你可以定义它来向用户<a target="_blank" rel="noopener" href="https://angular.cn/guide/router#404-page-how-to">展示 404 页面</a>，或者跳转到应用的主组件。通配符路由是最后一个路由，因为它匹配所有的 URL。</p>
+<h2 id="显示-404-页面"><a href="#显示-404-页面" class="headerlink" title="显示 404 页面"></a>显示 404 页面</h2><p>要显示 404 页面，请设置一个<a target="_blank" rel="noopener" href="https://angular.cn/guide/router#wildcard-route-how-to">通配符路由</a>，并将 <code>component</code> 属性设置为你要用于 404 页面的组件，如下所示：</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  { <span class="attr">path</span>: <span class="string">'first-component'</span>, <span class="attr">component</span>: FirstComponent },</span><br><span class="line">  { <span class="attr">path</span>: <span class="string">'second-component'</span>, <span class="attr">component</span>: SecondComponent },</span><br><span class="line">  { <span class="attr">path</span>: <span class="string">'**'</span>, <span class="attr">component</span>: PageNotFoundComponent },  <span class="comment">// Wildcard route for a 404 page</span></span><br><span class="line">];</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>path</code> 为 <code>**</code> 的最后一条路由是通配符路由。如果请求的 URL 与前面列出的路径不匹配，路由器会选择这个路由，并把该用户送到 <code>PageNotFoundComponent</code>。</p>
+<h2 id="设置重定向"><a href="#设置重定向" class="headerlink" title="设置重定向"></a>设置重定向</h2><p>要设置重定向，请使用重定向源的 <code>path</code>、要重定向目标的 <code>component</code> 和一个 <code>pathMatch</code> 值来配置路由，以告诉路由器该如何匹配 URL。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const routes: Routes = [</span><br><span class="line">  { path: 'first-component', component: FirstComponent },</span><br><span class="line">  { path: 'second-component', component: SecondComponent },</span><br><span class="line">  { path: '',   redirectTo: '/first-component', pathMatch: 'full' }, // redirect to `first-component`</span><br><span class="line">  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page</span><br><span class="line">];</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子中，第三个路由是重定向路由，所以路由器会默认跳到 <code>first-component</code> 路由。注意，这个重定向路由位于通配符路由之前。这里的 <code>path: ''</code> 表示使用初始的相对 URL（ <code>''</code> ）。</p>
+<h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><p>随着你的应用变得越来越复杂，你可能要创建一些根组件之外的相对路由。这些嵌套路由类型称为子路由。这意味着你要为你的应用添加第二 <code>&lt;router-outlet&gt;</code>，因为它是 <code>AppComponent</code> 之外的另一个 <code>&lt;router-outlet&gt;</code>。</p>
+<p>在这个例子中，还有两个子组件，<code>child-a</code> 和 <code>child-b</code>。这里的 <code>FirstComponent</code> 有它自己的 <code>&lt;nav&gt;</code> 和 <code>AppComponent</code> 之外的第二 <code>&lt;router-outlet&gt;</code>。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  {</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'first-component'</span>,</span><br><span class="line">    <span class="attr">component</span>: FirstComponent, <span class="comment">// this is the component with the &lt;router-outlet&gt; in the template</span></span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">      {</span><br><span class="line">        <span class="attr">path</span>: <span class="string">'child-a'</span>, <span class="comment">// child route path</span></span><br><span class="line">        <span class="attr">component</span>: ChildAComponent, <span class="comment">// child route component that the router renders</span></span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        <span class="attr">path</span>: <span class="string">'child-b'</span>,</span><br><span class="line">        <span class="attr">component</span>: ChildBComponent, <span class="comment">// another child route component that the router renders</span></span><br><span class="line">      },</span><br><span class="line">    ],</span><br><span class="line">  },</span><br><span class="line">];</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>使用路由守卫来防止用户未经授权就导航到应用的某些部分。Angular 中提供了以下路由守卫：</p>
+<ul>
+<li>用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/CanActivate"><code>CanActivate</code></a>来处理导航<em>到</em>某路由的情况。</li>
+<li>用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/CanActivateChild"><code>CanActivateChild</code></a>来处理导航<em>到</em>某子路由的情况。</li>
+<li>用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/CanDeactivate"><code>CanDeactivate</code></a>来处理从当前路由<em>离开</em>的情况.</li>
+<li>用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/Resolve"><code>Resolve</code></a>在路由激活<em>之前</em>获取路由数据。</li>
+<li>用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/CanLoad"><code>CanLoad</code></a>来处理<em>异步</em>导航到某特性模块的情况。</li>
+</ul>
+<p>在分层路由的每个级别上，你都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查 <code>CanDeactivate()</code> 和 <code>CanActivateChild()</code> 守卫。 然后它会按照从上到下的顺序检查 <code>CanActivate()</code> 守卫。 如果特性模块是异步加载的，在加载它之前还会检查 <code>CanLoad()</code> 守卫。 如果<em>任何</em>一个守卫返回 <code>false</code>，其它尚未完成的守卫会被取消，这样整个导航就被取消了。</p>
+<p>要想使用路由守卫，可以考虑使用<a target="_blank" rel="noopener" href="https://angular.cn/api/router/Route#componentless-routes">无组件路由</a>，因为这对于保护子路由很方便。无组件路由：分组路由，而不需要组件</p>
+<p>请在守卫类里实现你要用到的守卫。下面的例子使用 <code>CanActivate</code> 来保护该路由。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">YourGuard</span> <span class="title">implements</span> <span class="title">CanActivate</span> </span>{</span><br><span class="line">  canActivate(</span><br><span class="line">    next: ActivatedRouteSnapshot,</span><br><span class="line">    <span class="attr">state</span>: RouterStateSnapshot): <span class="built_in">boolean</span> {</span><br><span class="line">      <span class="comment">// your  logic goes here</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在路由模块中，在 <code>routes</code> 配置中使用相应的属性。这里的 <code>canActivate</code> 会告诉路由器它要协调到这个特定路由的导航。</p>
+<figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">path</span>: <span class="string">'/your-path'</span>,</span><br><span class="line">  <span class="attr">component</span>: YourComponent,</span><br><span class="line">  <span class="attr">canActivate</span>: [YourGuard],</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li>Angular官方文档</li>
+</ul>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>我很可爱 请给我钱</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.png" alt="美彤·柚子 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Angular%E6%A1%86%E6%9E%B6/" rel="tag"># Angular框架</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/05/Angular-RxJS%E5%BA%93/" rel="prev" title="Angular-RxJS库">
+                  <i class="fa fa-chevron-left"></i> Angular-RxJS库
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>
